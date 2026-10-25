@@ -1,0 +1,708 @@
+# Python script to build part 4 (questions 301-400)
+
+raw_data = """
+301. What is the main message of Chapter 12?
+A. Bhakti and qualities of devotees
+B. Military strategy
+C. Krishna's childhood only
+D. Genealogy
+✓ Correct Answer: A. Bhakti and qualities of devotees
+
+302. Which chapter is famous for Krishna's divine opulences?
+A. 10
+B. 1
+C. 4
+D. 17
+✓ Correct Answer: A. 10
+
+303. What does Krishna say about remembering Him?
+A. It is central to spiritual life
+B. It has no value
+C. Only sages may do it
+D. It is impossible
+✓ Correct Answer: A. It is central to spiritual life
+
+304. What simple items does Krishna say He accepts when offered with devotion?
+A. Leaf, flower, fruit and water
+B. Gold and weapons only
+C. Palaces only
+D. Nothing
+✓ Correct Answer: A. Leaf, flower, fruit and water
+
+305. What matters most in an offering to Krishna?
+A. Devotion
+B. Expense
+C. Publicity
+D. Size
+✓ Correct Answer: A. Devotion
+
+306. What does Krishna advise regarding the fruits of work?
+A. Do not become attached to them
+B. Collect them at any cost
+C. Ignore duty completely
+D. Give them only to friends
+✓ Correct Answer: A. Do not become attached to them
+
+307. What is equanimity?
+A. Balance of mind in success and failure
+B. Never feeling anything
+C. Avoiding all work
+D. Winning every time
+✓ Correct Answer: A. Balance of mind in success and failure
+
+308. Which quality helps control the mind?
+A. Practice
+B. Greed
+C. Jealousy
+D. Cruelty
+✓ Correct Answer: A. Practice
+
+309. What is paired with practice for controlling the mind?
+A. Detachment
+B. More possessions
+C. Anger
+D. Competition
+✓ Correct Answer: A. Detachment
+
+310. What does Krishna say about a sincere spiritual effort?
+A. No effort on this path is wasted
+B. It is always useless
+C. Only kings succeed
+D. It requires wealth
+✓ Correct Answer: A. No effort on this path is wasted
+
+311. What does Krishna teach about the Supreme being present?
+A. He is the source and support of all
+B. He is absent from creation
+C. He is only a king
+D. He depends on wealth
+✓ Correct Answer: A. He is the source and support of all
+
+312. What are the three modes of material nature?
+A. Sattva, Rajas and Tamas
+B. Earth, Water and Fire
+C. Brahma, Vishnu and Shiva
+D. Dharma, Artha and Kama
+✓ Correct Answer: A. Sattva, Rajas and Tamas
+
+313. What does Sattva generally produce?
+A. Clarity and knowledge
+B. Ignorance
+C. Laziness
+D. Violence
+✓ Correct Answer: A. Clarity and knowledge
+
+314. What does Rajas generally produce?
+A. Restless activity and desire
+B. Perfect peace
+C. Sleep only
+D. Liberation automatically
+✓ Correct Answer: A. Restless activity and desire
+
+315. What does Tamas generally produce?
+A. Ignorance and inertia
+B. Clarity
+C. Devotion automatically
+D. Wisdom only
+✓ Correct Answer: A. Ignorance and inertia
+
+316. What is the ideal spiritual goal beyond the three gunas?
+A. Transcendence through devotion to the Supreme
+B. Increasing ignorance
+C. More attachment
+D. More pride
+✓ Correct Answer: A. Transcendence through devotion to the Supreme
+
+317. What is described as a divine quality in the Gita?
+A. Compassion
+B. Cruelty
+C. Arrogance
+D. Hatred
+✓ Correct Answer: A. Compassion
+
+318. What is described as a demoniac tendency?
+A. Pride and cruelty
+B. Humility
+C. Truthfulness
+D. Compassion
+✓ Correct Answer: A. Pride and cruelty
+
+319. What does Krishna advise about anger?
+A. It should be controlled
+B. It should guide every decision
+C. It is the highest virtue
+D. It replaces knowledge
+✓ Correct Answer: A. It should be controlled
+
+320. What can uncontrolled desire lead to according to the Gita?
+A. Anger and confusion
+B. Liberation immediately
+C. Perfect wisdom
+D. Immortality of the body
+✓ Correct Answer: A. Anger and confusion
+
+321. What does Krishna recommend for a peaceful mind?
+A. Control of desires and devotion
+B. Unlimited consumption
+C. Revenge
+D. Jealous competition
+✓ Correct Answer: A. Control of desires and devotion
+
+322. Which word means the individual soul?
+A. Atman
+B. Maya
+C. Prakriti
+D. Karma only
+✓ Correct Answer: A. Atman
+
+323. Which word commonly refers to material nature?
+A. Prakriti
+B. Atman
+C. Bhakti
+D. Dharma
+✓ Correct Answer: A. Prakriti
+
+324. Which word refers to illusion or the Lord's external energy in many traditions?
+A. Maya
+B. Atman
+C. Yoga
+D. Dharma
+✓ Correct Answer: A. Maya
+
+325. What does yoga broadly mean?
+A. Union or connection
+B. Separation
+C. War only
+D. Sleep
+✓ Correct Answer: A. Union or connection
+
+326. What does Krishna teach about self-control?
+A. It supports spiritual advancement
+B. It is unnecessary
+C. Only warriors need it
+D. It prevents devotion
+✓ Correct Answer: A. It supports spiritual advancement
+
+327. What is one sign of a steady person?
+A. Freedom from excessive attachment and aversion
+B. Constant anger
+C. Pride in possessions
+D. Jealousy
+✓ Correct Answer: A. Freedom from excessive attachment and aversion
+
+328. What does Krishna recommend when performing one's duty?
+A. Offer the results to the Supreme
+B. Demand fame
+C. Avoid responsibility
+D. Harm others
+✓ Correct Answer: A. Offer the results to the Supreme
+
+329. What is yajna in a broad Gita context?
+A. Sacrifice performed in a spirit of service
+B. Only eating
+C. A political election
+D. A weapon
+✓ Correct Answer: A. Sacrifice performed in a spirit of service
+
+330. What is one of Krishna's teachings about knowledge?
+A. It should lead to humility and realization
+B. It should create pride
+C. It is useless
+D. It is only for kings
+✓ Correct Answer: A. It should lead to humility and realization
+
+331. Who narrated the Bhagavad Gita dialogue to Dhritarashtra?
+A. Sanjaya
+B. Vyasa
+C. Bhishma
+D. Arjuna
+✓ Correct Answer: A. Sanjaya
+
+332. Who was Dhritarashtra?
+A. Father of the Kauravas
+B. Father of Krishna
+C. Father of Arjuna
+D. Krishna's guru
+✓ Correct Answer: A. Father of the Kauravas
+
+333. Who was Gandhari?
+A. Mother of the Kauravas
+B. Krishna's mother
+C. Arjuna's wife
+D. Rukmini's sister
+✓ Correct Answer: A. Mother of the Kauravas
+
+334. Who was Duryodhana?
+A. Eldest Kaurava prince and opponent of the Pandavas
+B. Krishna's brother
+C. Arjuna's son
+D. Krishna's guru
+✓ Correct Answer: A. Eldest Kaurava prince and opponent of the Pandavas
+
+335. Who was Bhishma?
+A. A great Kuru elder and devotee
+B. A demon sent by Kamsa
+C. Krishna's son
+D. A cowherd boy
+✓ Correct Answer: A. A great Kuru elder and devotee
+
+336. Who was Drona?
+A. Teacher of the Pandavas and Kauravas
+B. Krishna's foster father
+C. King of Dwarka
+D. A demon
+✓ Correct Answer: A. Teacher of the Pandavas and Kauravas
+
+337. Who was Karna?
+A. A great warrior allied with Duryodhana
+B. Krishna's elder brother
+C. Balarama's son
+D. A cowherd
+✓ Correct Answer: A. A great warrior allied with Duryodhana
+
+338. Who was Vidura known for?
+A. Wisdom and devotion
+B. Being Kamsa's wrestler
+C. Being a demon
+D. Leading the Narayani Sena
+✓ Correct Answer: A. Wisdom and devotion
+
+339. Who was Draupadi?
+A. Wife of the five Pandavas
+B. Krishna's mother
+C. Kamsa's wife
+D. Balarama's daughter
+✓ Correct Answer: A. Wife of the five Pandavas
+
+340. What happened when Draupadi called upon Krishna during her humiliation?
+A. She received divine protection according to tradition
+B. Krishna ignored her
+C. Kamsa helped her
+D. She fled the palace
+✓ Correct Answer: A. She received divine protection according to tradition
+
+341. Who was Abhimanyu?
+A. Son of Arjuna and Subhadra
+B. Son of Kamsa
+C. Son of Nanda
+D. Brother of Krishna
+✓ Correct Answer: A. Son of Arjuna and Subhadra
+
+342. Who was Parikshit?
+A. Grandson of Arjuna and future listener of Bhagavatam
+B. Father of Krishna
+C. Kamsa's son
+D. Balarama's teacher
+✓ Correct Answer: A. Grandson of Arjuna and future listener of Bhagavatam
+
+343. Who spoke Srimad Bhagavatam to Parikshit?
+A. Shukadeva Goswami
+B. Kamsa
+C. Duryodhana
+D. Jarasandha
+✓ Correct Answer: A. Shukadeva Goswami
+
+344. Who is traditionally regarded as the compiler of Srimad Bhagavatam?
+A. Vyasa
+B. Valmiki
+C. Drona
+D. Sandipani
+✓ Correct Answer: A. Vyasa
+
+345. How many cantos are in Srimad Bhagavatam?
+A. 12
+B. 18
+C. 10
+D. 108
+✓ Correct Answer: A. 12
+
+346. Which canto is especially famous for Krishna's birth and Vrindavan pastimes?
+A. Tenth Canto
+B. Second Canto
+C. Sixth Canto
+D. Twelfth Canto
+✓ Correct Answer: A. Tenth Canto
+
+347. What is shravanam?
+A. Hearing about the Lord
+B. Dancing only
+C. Cooking only
+D. Sleeping
+✓ Correct Answer: A. Hearing about the Lord
+
+348. What is kirtanam?
+A. Glorifying or chanting about the Lord
+B. Building a palace
+C. Fighting
+D. Farming
+✓ Correct Answer: A. Glorifying or chanting about the Lord
+
+349. What is smaranam?
+A. Remembering the Lord
+B. Forgetting everything
+C. Only reading
+D. Worshiping wealth
+✓ Correct Answer: A. Remembering the Lord
+
+350. What is archanam?
+A. Deity worship
+B. Military training
+C. Sleeping
+D. Trading
+✓ Correct Answer: A. Deity worship
+
+351. What is vandanam?
+A. Offering prayers
+B. Herding cows
+C. Cooking
+D. Traveling
+✓ Correct Answer: A. Offering prayers
+
+352. What is dasyam?
+A. Serving as a servant of the Lord
+B. Becoming a king
+C. Fighting a war
+D. Studying astronomy
+✓ Correct Answer: A. Serving as a servant of the Lord
+
+353. What is sakhyam?
+A. Friendship with the Lord
+B. Hatred
+C. Renunciation of all relationships
+D. Political power
+✓ Correct Answer: A. Friendship with the Lord
+
+354. What is atma-nivedanam?
+A. Complete self-surrender
+B. Physical exercise
+C. Earning wealth
+D. Learning warfare
+✓ Correct Answer: A. Complete self-surrender
+
+355. How many principal processes of devotional service are traditionally listed in the nine processes?
+A. Nine
+B. Five
+C. Ten
+D. Eighteen
+✓ Correct Answer: A. Nine
+
+356. Which devotee is famous for friendship with Krishna?
+A. Sudama
+B. Kamsa
+C. Duryodhana
+D. Jarasandha
+✓ Correct Answer: A. Sudama
+
+357. What did Krishna do when Sudama visited Him?
+A. He welcomed him with great love
+B. He refused to meet him
+C. He sent him to prison
+D. He challenged him to battle
+✓ Correct Answer: A. He welcomed him with great love
+
+358. What lesson does the Sudama pastime emphasize?
+A. Pure love is greater than material wealth
+B. Only wealth earns respect
+C. Friendship is temporary
+D. Kings should avoid devotees
+✓ Correct Answer: A. Pure love is greater than material wealth
+
+359. What does prasadam literally convey in devotional usage?
+A. Mercy or grace
+B. Anger
+C. War
+D. Punishment
+✓ Correct Answer: A. Mercy or grace
+
+360. What is the importance of honoring Krishna prasadam?
+A. It is received as sanctified mercy
+B. It is only ordinary decoration
+C. It is forbidden food
+D. It replaces all spiritual practice
+✓ Correct Answer: A. It is received as sanctified mercy
+
+361. Which sacred plant is closely connected with Krishna worship?
+A. Tulasi
+B. Rose only
+C. Oak
+D. Cactus
+✓ Correct Answer: A. Tulasi
+
+362. What is the traditional name of Krishna's crown ornament?
+A. Peacock feather
+B. Golden sword
+C. Moonstone only
+D. Snake crown
+✓ Correct Answer: A. Peacock feather
+
+363. What does the flute symbolize in Krishna's devotional imagery?
+A. His sweet attraction and call to loving devotion
+B. Military command
+C. Political power
+D. Anger
+✓ Correct Answer: A. His sweet attraction and call to loving devotion
+
+364. What is Krishna often called because He attracts all living beings?
+A. All-attractive
+B. Lord of death
+C. God of war only
+D. King of demons
+✓ Correct Answer: A. All-attractive
+
+365. Which Sanskrit word is commonly used for Krishna's divine pastimes?
+A. Lila
+B. Karma
+C. Maya
+D. Yajna
+✓ Correct Answer: A. Lila
+
+366. What is the meaning of lila in devotional context?
+A. Divine pastime
+B. Punishment
+C. War tax
+D. Ordinary labor
+✓ Correct Answer: A. Divine pastime
+
+367. What is Krishna's relationship with cows in Vrindavan?
+A. He lovingly protects and tends them
+B. He fears them
+C. He avoids them
+D. He uses them in war
+✓ Correct Answer: A. He lovingly protects and tends them
+
+368. What does Gopala mean?
+A. Protector of cows
+B. King of fire
+C. Lord of death
+D. Teacher of weapons
+✓ Correct Answer: A. Protector of cows
+
+369. What does Govinda commonly mean in devotional interpretation?
+A. One who gives pleasure to cows, senses and devotees
+B. Only king of Mathura
+C. Destroyer of mountains
+D. Lord of storms
+✓ Correct Answer: A. One who gives pleasure to cows, senses and devotees
+
+370. What does Madhava refer to in Krishna's names?
+A. A name of Krishna associated with divine sweetness and Lakshmi
+B. A demon
+C. A river
+D. A weapon
+✓ Correct Answer: A. A name of Krishna associated with divine sweetness and Lakshmi
+
+371. What does Janardana mean in Krishna's names?
+A. A name of the Lord worshiped by people
+B. A demon king
+C. A cowherd village
+D. A weapon
+✓ Correct Answer: A. A name of the Lord worshiped by people
+
+372. Which devotee sage frequently glorifies Krishna through travels and music?
+A. Narada Muni
+B. Kamsa
+C. Shakuni
+D. Duryodhana
+✓ Correct Answer: A. Narada Muni
+
+373. What instrument is Narada traditionally shown carrying?
+A. Veena
+B. Flute
+C. Mridanga only
+D. Sword
+✓ Correct Answer: A. Veena
+
+374. Who was Krishna's guru in formal education?
+A. Sandipani Muni
+B. Vyasa
+C. Narada
+D. Drona
+✓ Correct Answer: A. Sandipani Muni
+
+375. What is guru-dakshina?
+A. A gift or service offered to one's teacher
+B. A weapon
+C. A festival
+D. A battle strategy
+✓ Correct Answer: A. A gift or service offered to one's teacher
+
+376. What did Krishna and Balarama do for Sandipani Muni as guru-dakshina?
+A. Recovered his lost son
+B. Built Dwarka
+C. Defeated Kamsa
+D. Lifted Govardhana
+✓ Correct Answer: A. Recovered his lost son
+
+377. Which city is Krishna's birthplace?
+A. Mathura
+B. Dwarka
+C. Vrindavan
+D. Hastinapura
+✓ Correct Answer: A. Mathura
+
+378. Which place is especially known for Krishna's childhood?
+A. Gokul
+B. Kurukshetra
+C. Indraprastha
+D. Kashi
+✓ Correct Answer: A. Gokul
+
+379. Which place is especially known for Krishna's youthful cowherd pastimes?
+A. Vrindavan
+B. Ayodhya
+C. Ujjain
+D. Puri
+✓ Correct Answer: A. Vrindavan
+
+380. Which place is associated with Krishna as a king?
+A. Dwarka
+B. Gokul
+C. Nandagram only
+D. Kurukshetra
+✓ Correct Answer: A. Dwarka
+
+381. Which place is associated with the Bhagavad Gita?
+A. Kurukshetra
+B. Mathura
+C. Vrindavan
+D. Dwarka
+✓ Correct Answer: A. Kurukshetra
+
+382. What is the broad purpose of Janmashtami celebrations?
+A. To remember and celebrate Krishna's divine appearance
+B. To celebrate a military victory only
+C. To worship Kamsa
+D. To avoid devotional practices
+✓ Correct Answer: A. To remember and celebrate Krishna's divine appearance
+
+383. Which practice is common before midnight on Janmashtami?
+A. Fasting and devotional worship
+B. Hunting
+C. Gambling
+D. War games
+✓ Correct Answer: A. Fasting and devotional worship
+
+384. What is a common activity during Krishna Janamotsav?
+A. Kirtan and hearing Krishna's pastimes
+B. Ignoring spiritual topics
+C. Political campaigning
+D. Weapon training
+✓ Correct Answer: A. Kirtan and hearing Krishna's pastimes
+
+385. What does the word Janma mean?
+A. Birth or appearance
+B. Death
+C. War
+D. Knowledge
+✓ Correct Answer: A. Birth or appearance
+
+386. What does Utsav mean?
+A. Festival or celebration
+B. Battle
+C. Punishment
+D. Meditation only
+✓ Correct Answer: A. Festival or celebration
+
+387. What is Janamotsav?
+A. A celebration of divine birth or appearance
+B. A funeral
+C. A war festival
+D. A political ceremony
+✓ Correct Answer: A. A celebration of divine birth or appearance
+
+388. Which activity can be organized as a Krishna Janamotsav quiz?
+A. MCQ competition
+B. Weapon contest
+C. Political debate
+D. Business auction
+✓ Correct Answer: A. MCQ competition
+
+389. What is the best attitude while learning Krishna's teachings?
+A. Humility and sincere inquiry
+B. Pride and mockery
+C. Anger
+D. Jealousy
+✓ Correct Answer: A. Humility and sincere inquiry
+
+390. What did Krishna teach about knowledge received from a genuine teacher?
+A. Approach with humility, inquiry and service
+B. Reject all teachers
+C. Only argue
+D. Buy knowledge with wealth
+✓ Correct Answer: A. Approach with humility, inquiry and service
+
+391. What is the relationship between devotion and service in Bhakti Yoga?
+A. Service is an expression of love and devotion
+B. They are opposites
+C. Service has no value
+D. Only wealth matters
+✓ Correct Answer: A. Service is an expression of love and devotion
+
+392. What is one key message of Krishna's life and teachings?
+A. Love, dharma, devotion and surrender to the Supreme
+B. Hatred and greed
+C. Avoiding all responsibility
+D. Seeking fame above all
+✓ Correct Answer: A. Love, dharma, devotion and surrender to the Supreme
+
+393. What is Krishna's famous teaching to Arjuna about action?
+A. You have a right to action, not attachment to its fruits
+B. Never perform any duty
+C. Only seek rewards
+D. Avoid all responsibility
+✓ Correct Answer: A. You have a right to action, not attachment to its fruits
+
+394. Which virtue is essential for a devotee according to Krishna's teachings?
+A. Humility
+B. Arrogance
+C. Envy
+D. Cruelty
+✓ Correct Answer: A. Humility
+
+395. What does Krishna teach about all living beings?
+A. They are worthy of spiritual vision and compassion
+B. Only powerful people matter
+C. Only humans have value
+D. They should be judged by wealth
+✓ Correct Answer: A. They are worthy of spiritual vision and compassion
+
+396. What is one purpose of hearing Srimad Bhagavatam?
+A. To remember and develop love for Krishna
+B. To increase greed
+C. To learn political tricks
+D. To forget spirituality
+✓ Correct Answer: A. To remember and develop love for Krishna
+
+397. Which devotional mood is exemplified by Yashoda toward Krishna?
+A. Parental love
+B. Enmity
+C. Political rivalry
+D. Fear of wealth
+✓ Correct Answer: A. Parental love
+
+398. Which devotional mood is exemplified by Sudama toward Krishna?
+A. Friendship
+B. Enmity
+C. Competition
+D. Political ambition
+✓ Correct Answer: A. Friendship
+
+399. Which devotional mood is exemplified by the gopis in Krishna devotion?
+A. Pure loving devotion
+B. Hatred
+C. Military loyalty
+D. Business interest
+✓ Correct Answer: A. Pure loving devotion
+
+400. What is the ultimate invitation of Krishna's teachings?
+A. To live a life of devotion, dharma and loving surrender
+B. To seek unlimited material possessions
+C. To avoid compassion
+D. To remain in ignorance
+✓ Correct Answer: A. To live a life of devotion, dharma and loving surrender
+"""
+
+with open("scripts/raw_part4.txt", "w") as f:
+    f.write(raw_data.strip())
+
+print("Saved part 4 (301-400)")

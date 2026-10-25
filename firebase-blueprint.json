@@ -1,0 +1,34 @@
+{
+  "entities": {
+    "QuizResult": {
+      "title": "Quiz Result",
+      "description": "Stores the performance of a participant in the Bhagavad Geeta Quiz.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Full name of the participant" },
+        "rollNumber": { "type": "string", "description": "University roll number" },
+        "branch": { "type": "string", "description": "Academic branch" },
+        "phoneNumber": { "type": "string", "description": "Contact number" },
+        "score": { "type": "number", "description": "Number of correct answers" },
+        "totalQuestions": { "type": "number", "description": "Total questions attempted" },
+        "timeTaken": { "type": "number", "description": "Total time taken in seconds" },
+        "timestamp": { "type": "string", "format": "date-time", "description": "When the quiz was completed" }
+      },
+      "required": ["name", "rollNumber", "score", "timeTaken"]
+    }
+  },
+  "firestore": {
+    "/results/{resultId}": {
+      "schema": "QuizResult",
+      "description": "Collection of legacy quiz attempts."
+    },
+    "/krishna_janamotsav_results/{resultId}": {
+      "schema": "QuizResult",
+      "description": "Collection of Shri Krishan Janamotsav quiz attempts."
+    },
+    "/foundation_day_results/{resultId}": {
+      "schema": "QuizResult",
+      "description": "Collection of Foundation Day quiz attempts."
+    }
+  }
+}

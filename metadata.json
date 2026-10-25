@@ -1,0 +1,6 @@
+{
+  "name": "Ethiccraft",
+  "description": "VIPLAVA 2026 (At Gokul Mathura Dham) - A Revolution in Consciousness. Spiritual and Vedic wisdom quiz powered by ISKCON Youth Forum and EthicCraft Club, honoring the mission of Srila Prabhupada.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
