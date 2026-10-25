@@ -526,9 +526,9 @@ export const QuizProvider: React.FC<{ children: React.ReactNode }> = ({ children
       try {
         const cleanP = participant.phoneNumber.replace(/[^0-9]/g, '');
         if (cleanP) {
-          localStorage.setItem(`viplava_completed_${cleanP}`, 'true');
+          localStorage.setItem(`viplava_completed_${quizIdToRecord}_${cleanP}`, 'true');
         }
-        localStorage.setItem(`viplava_completed_${participant.phoneNumber.trim()}`, 'true');
+        localStorage.setItem(`viplava_completed_${quizIdToRecord}_${participant.phoneNumber.trim()}`, 'true');
 
         await addDoc(collection(db, path), {
           name: participant.name,

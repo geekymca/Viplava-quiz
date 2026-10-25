@@ -58,19 +58,20 @@ export const RegistrationPage: React.FC = () => {
     try {
       const cleanDigits = trimmedPhone.replace(/[^0-9]/g, '');
 
-      // 1. Local Storage Check
+      // 1. Local Storage Check (scoped to current active quizId)
       if (
-        localStorage.getItem(`viplava_completed_${cleanDigits}`) ||
-        localStorage.getItem(`viplava_completed_${trimmedPhone}`)
+        localStorage.getItem(`viplava_completed_${quizIdToUse}_${cleanDigits}`) ||
+        localStorage.getItem(`viplava_completed_${quizIdToUse}_${trimmedPhone}`)
       ) {
-        setError(`This phone number (${trimmedPhone}) has already completed the VIPLAVA 2026 Bhagavad Gita Quiz. Multiple attempts per phone number are not permitted.`);
+        setError(`This phone number (${trimmedPhone}) has already completed this quiz ("${quizTitleToUse}"). Multiple attempts for the same quiz are not permitted.`);
         setLoading(false);
         return;
       }
 
-      // 2. Query Firestore Results for matching phone number across all quizzes
+      // 2. Query Firestore Results for matching phone number for THIS specific quizId
       const qPrimary = query(
         collection(db, RESULTS_COLLECTION),
+        where('quizId', '==', quizIdToUse),
         where('phoneNumber', '==', trimmedPhone)
       );
       const snapshotPrimary = await getDocs(qPrimary);
@@ -80,23 +81,32 @@ export const RegistrationPage: React.FC = () => {
       if (!isDuplicate && cleanDigits && cleanDigits !== trimmedPhone) {
         const qClean = query(
           collection(db, RESULTS_COLLECTION),
+          where('quizId', '==', quizIdToUse),
           where('phoneNumber', '==', cleanDigits)
         );
         const snapshotClean = await getDocs(qClean);
         isDuplicate = !snapshotClean.empty;
       }
 
-      // Check legacy collections
+      // Check legacy collection if matching specific legacy quiz
       if (!isDuplicate) {
-        try {
-          const qLegacy1 = query(collection(db, 'krishna_janamotsav_results'), where('phoneNumber', '==', trimmedPhone));
-          const snap1 = await getDocs(qLegacy1);
-          if (!snap1.empty) isDuplicate = true;
-        } catch (_) {}
+        if (quizIdToUse === 'krishna_janamotsav') {
+          try {
+            const qLegacy = query(collection(db, 'krishna_janamotsav_results'), where('phoneNumber', '==', trimmedPhone));
+            const snap = await getDocs(qLegacy);
+            if (!snap.empty) isDuplicate = true;
+          } catch (_) {}
+        } else if (quizIdToUse === 'foundation_day') {
+          try {
+            const qLegacy = query(collection(db, 'foundation_day_results'), where('phoneNumber', '==', trimmedPhone));
+            const snap = await getDocs(qLegacy);
+            if (!snap.empty) isDuplicate = true;
+          } catch (_) {}
+        }
       }
 
       if (isDuplicate) {
-        setError(`This phone number (${trimmedPhone}) has already completed the VIPLAVA 2026 Bhagavad Gita Quiz. Multiple attempts per phone number are not permitted.`);
+        setError(`This phone number (${trimmedPhone}) has already completed this quiz ("${quizTitleToUse}"). Multiple attempts for the same quiz are not permitted.`);
         setLoading(false);
         return;
       }
