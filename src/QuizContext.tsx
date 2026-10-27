@@ -86,12 +86,27 @@ export const QuizProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   // Dynamic quizzes from Firestore
   const [allQuizzes, setAllQuizzes] = useState<QuizDocument[]>([DEFAULT_VIPLAVA_QUIZ]);
-  const [activeQuizId, setActiveQuizIdState] = useState<string>(DEFAULT_QUIZ_ID);
+  const [activeQuizId, setActiveQuizIdState] = useState<string>(() => {
+    try {
+      const saved = localStorage.getItem('viplava_active_quiz_id');
+      if (saved) return saved;
+    } catch (_) {}
+    return DEFAULT_QUIZ_ID;
+  });
   const [activeQuiz, setActiveQuiz] = useState<QuizDocument | null>(DEFAULT_VIPLAVA_QUIZ);
   
   // Live control and slot schedule
   const [slotSchedule, setSlotSchedule] = useState<SlotSchedule>(DEFAULT_SLOT_SCHEDULE);
-  const [isQuizLive, setIsQuizLive] = useState<boolean>(true);
+  const [isQuizLive, setIsQuizLive] = useState<boolean>(() => {
+    try {
+      const savedOverride = localStorage.getItem('viplava_quiz_override');
+      if (savedOverride === 'force_live') return true;
+      if (savedOverride === 'force_stopped') return false;
+      const savedLive = localStorage.getItem('viplava_quiz_is_live');
+      if (savedLive !== null) return savedLive === 'true';
+    } catch (_) {}
+    return false;
+  });
   const [isLoadingQuizzes, setIsLoadingQuizzes] = useState(true);
 
   // Submitting guard to prevent rapid double-clicks
@@ -139,11 +154,14 @@ export const QuizProvider: React.FC<{ children: React.ReactNode }> = ({ children
       try {
         // Sync active quiz config
         const configRef = doc(db, CONFIG_COLLECTION, ACTIVE_QUIZ_DOC);
-        unsubscribeConfig = onSnapshot(configRef, (snapshot) => {
+        unsubscribeConfig = onSnapshot(configRef, async (snapshot) => {
           if (snapshot.exists()) {
             const data = snapshot.data();
             if (data.activeQuizId) {
               setActiveQuizIdState(data.activeQuizId);
+              try {
+                localStorage.setItem('viplava_active_quiz_id', data.activeQuizId);
+              } catch (_) {}
             }
             const incomingSchedule: SlotSchedule = {
               enabled: data.slotEnabled ?? DEFAULT_SLOT_SCHEDULE.enabled,
@@ -155,7 +173,28 @@ export const QuizProvider: React.FC<{ children: React.ReactNode }> = ({ children
             setSlotSchedule(incomingSchedule);
 
             const baseLive = typeof data.isLive === 'boolean' ? data.isLive : false;
-            setIsQuizLive(computeIsLive(incomingSchedule, baseLive));
+            const computed = computeIsLive(incomingSchedule, baseLive);
+            setIsQuizLive(computed);
+            try {
+              localStorage.setItem('viplava_quiz_is_live', String(computed));
+              localStorage.setItem('viplava_quiz_override', incomingSchedule.manualOverride);
+            } catch (_) {}
+          } else {
+            // Seed initial config as stopped with current active quiz ID
+            setIsQuizLive(false);
+            try {
+              const currentSavedId = localStorage.getItem('viplava_active_quiz_id') || DEFAULT_QUIZ_ID;
+              await setDoc(configRef, {
+                activeQuizId: currentSavedId,
+                isLive: false,
+                slotEnabled: true,
+                slotDate: '2026-10-29',
+                slotStartTime: '10:00',
+                slotEndTime: '14:00',
+                manualOverride: 'force_stopped',
+                updatedAt: serverTimestamp()
+              }, { merge: true });
+            } catch (_) {}
           }
         }, (err) => {
           console.warn("Config listener notice (using default Bhagavad Gita quiz):", err.message);
@@ -260,14 +299,18 @@ export const QuizProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const setActiveQuizId = async (newQuizId: string): Promise<boolean> => {
     setActiveQuizIdState(newQuizId);
     setIsQuizLive(true);
+    setSlotSchedule(prev => ({ ...prev, manualOverride: 'force_live' }));
     try {
       localStorage.setItem('viplava_active_quiz_id', newQuizId);
+      localStorage.setItem('viplava_quiz_is_live', 'true');
+      localStorage.setItem('viplava_quiz_override', 'force_live');
     } catch (_) {}
 
     try {
       await setDoc(doc(db, CONFIG_COLLECTION, ACTIVE_QUIZ_DOC), {
         activeQuizId: newQuizId,
         isLive: true,
+        manualOverride: 'force_live',
         updatedAt: serverTimestamp()
       }, { merge: true });
 

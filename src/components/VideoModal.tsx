@@ -34,28 +34,17 @@ export const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose }) => {
           Witness thousands of youth thinkers uniting at sacred Gokul Dham, Mathura for three days of transformative wisdom, kirtan, philosophical debate, and pure living.
         </p>
 
-        {/* Video Player Preview Container */}
-        <div className="relative rounded-xl overflow-hidden border border-[#D4AF37]/30 bg-black aspect-video flex items-center justify-center group shadow-xl">
-          <img 
-            src="/src/assets/images/viplava_hero_festival_1791925226306.jpg" 
-            alt="VIPLAVA Event Trailer Preview" 
-            className="w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-700"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
-          
-          <div className="absolute flex flex-col items-center text-center space-y-2">
-            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#D4AF37] text-black flex items-center justify-center shadow-lg shadow-[#D4AF37]/50 group-hover:scale-110 transition-transform">
-              <Play size={24} className="ml-1 fill-black" />
-            </div>
-            <span className="text-xs font-cinzel font-bold text-white tracking-widest uppercase drop-shadow">
-              Gokul Dham Mathura · Official Teaser
-            </span>
-          </div>
-
-          <div className="absolute bottom-3 left-3 flex items-center gap-1.5 text-[10px] text-[#F3C74C] bg-black/60 px-2.5 py-1 rounded-full border border-white/10 backdrop-blur-sm">
-            <MapPin size={11} />
-            <span>Recorded Live in Vrindavan Dham</span>
-          </div>
+        {/* Video Player Container */}
+        <div className="relative rounded-xl overflow-hidden border border-[#D4AF37]/40 bg-black aspect-video shadow-2xl flex items-center justify-center">
+          <video
+            src="/assets/aistudio/VID-20261026-WA0000_b4ee50bc.mp4"
+            controls
+            autoPlay
+            playsInline
+            className="w-full h-full object-contain bg-black"
+          >
+            Your browser does not support the video tag.
+          </video>
         </div>
 
         <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">

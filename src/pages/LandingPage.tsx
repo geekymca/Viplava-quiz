@@ -44,8 +44,8 @@ export const LandingPage: React.FC = () => {
       {/* 3. Warm Ivory Parchment Quote & Live Countdown Section (29th October) */}
       <QuoteAndStatsSection />
 
-      {/* 4. Event Introduction: EXPLORE · LEARN · CONNECT with Meditating Monk */}
-      <EventIntroSection />
+      {/* 4. Event Introduction: EXPLORE · LEARN · CONNECT with Festival Highlights */}
+      <EventIntroSection onWatchIntro={() => setTrailerOpen(true)} />
 
       {/* 5. 4 Premium Quiz Theme Cards with Gold Arched Frames */}
       <QuizThemesSection />

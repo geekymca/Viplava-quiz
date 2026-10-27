@@ -36,79 +36,69 @@ export const ViplavaHero: React.FC<ViplavaHeroProps> = ({
           className="absolute right-0 top-0 w-full lg:w-[68%] h-full object-cover object-top sm:object-center opacity-75 filter brightness-95"
         />
 
-        {/* Lord Sri Krishna & Arjuna Kurukshetra Chariot Golden Dawn Silhouette Blend */}
-        <div className="absolute right-2 sm:right-10 lg:right-20 top-12 sm:top-16 w-60 sm:w-84 lg:w-[480px] h-60 sm:h-84 lg:h-[480px] z-10 pointer-events-none">
+        {/* Animated Transcendental Celestial Medallion & Kala Chakra Element */}
+        <div className="absolute right-2 sm:right-10 lg:right-20 top-12 sm:top-16 w-64 sm:w-84 lg:w-[520px] h-64 sm:h-84 lg:h-[520px] z-10 pointer-events-none">
           {/* Transcendental Solar Radiance Halo */}
           <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#D4AF37]/35 via-[#F3C74C]/25 to-transparent blur-3xl animate-pulse" />
 
-          {/* Masked Kurukshetra Chariot & Krishna-Arjuna Medallion */}
+          {/* Masked Celestial Medallion */}
           <div className="w-full h-full relative rounded-full overflow-hidden [mask-image:radial-gradient(ellipse_at_center,black_60%,transparent_78%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_60%,transparent_78%)]">
             <div className="w-full h-full bg-[#120F08]/40 relative flex items-center justify-center">
               
-              {/* Sacred Kurukshetra Chariot Vector Silhouette */}
+              {/* Animated Celestial Vector Graphics */}
               <svg viewBox="0 0 400 400" className="w-full h-full object-cover">
                 <defs>
-                  <radialGradient id="gitaDawnGlow" cx="50%" cy="38%" r="60%">
+                  <radialGradient id="celestialGlow" cx="50%" cy="38%" r="60%">
                     <stop offset="0%" stopColor="#FFF2A3" stopOpacity="0.95" />
                     <stop offset="35%" stopColor="#F59E0B" stopOpacity="0.8" />
                     <stop offset="65%" stopColor="#D97706" stopOpacity="0.5" />
                     <stop offset="100%" stopColor="#070A14" stopOpacity="0" />
                   </radialGradient>
-                  <linearGradient id="chariotGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <linearGradient id="celestialGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#FFF1B8" />
                     <stop offset="50%" stopColor="#D4AF37" />
                     <stop offset="100%" stopColor="#8A6708" />
                   </linearGradient>
                 </defs>
 
-                {/* Golden Dawn Atmosphere Aura */}
-                <circle cx="200" cy="190" r="160" fill="url(#gitaDawnGlow)" />
+                {/* Golden Atmosphere Aura */}
+                <circle cx="200" cy="190" r="160" fill="url(#celestialGlow)" />
 
-                {/* Divine Chariot Wheel (12 Spokes of Time - Kala Chakra) */}
-                <g transform="translate(200, 275)" opacity="0.85">
-                  <circle cx="0" cy="0" r="42" fill="none" stroke="url(#chariotGoldGrad)" strokeWidth="3" />
-                  <circle cx="0" cy="0" r="10" fill="#F59E0B" />
+                {/* Divine Kala Chakra Wheel (12 Spokes of Time) with Slow Rotation */}
+                <g transform="translate(200, 200)" className="animate-[spin_60s_linear_infinite]" opacity="0.85">
+                  <circle cx="0" cy="0" r="110" fill="none" stroke="url(#celestialGoldGrad)" strokeWidth="2.5" strokeDasharray="6 4" />
+                  <circle cx="0" cy="0" r="95" fill="none" stroke="url(#celestialGoldGrad)" strokeWidth="1.5" />
+                  <circle cx="0" cy="0" r="45" fill="none" stroke="url(#celestialGoldGrad)" strokeWidth="3" />
+                  <circle cx="0" cy="0" r="12" fill="#F59E0B" />
                   {[...Array(12)].map((_, i) => (
                     <line 
                       key={i} 
                       x1="0" 
-                      y1="-42" 
+                      y1="-95" 
                       x2="0" 
-                      y2="42" 
-                      stroke="url(#chariotGoldGrad)" 
+                      y2="95" 
+                      stroke="url(#celestialGoldGrad)" 
                       strokeWidth="2" 
                       transform={`rotate(${i * 15})`} 
                     />
                   ))}
                 </g>
 
-                {/* Chariot Canopy & Hanuman Banner Flag (Kapi-Dhvaja) */}
-                <path d="M 120,270 L 280,270 L 260,200 L 140,200 Z" fill="url(#chariotGoldGrad)" opacity="0.75" />
-                <line x1="140" y1="200" x2="140" y2="110" stroke="#FFF1B8" strokeWidth="3" />
-                <path d="M 140,115 Q 185,125 140,150 Z" fill="#F59E0B" opacity="0.95" />
-                
-                {/* Krishna as Parthasarathi (Charioteer) & Arjuna silhouettes */}
-                <circle cx="170" cy="180" r="12" fill="#0D1B2A" />
-                <path d="M 158,192 C 158,192 165,182 170,182 C 175,182 182,192 182,192 L 180,240 L 160,240 Z" fill="#0D1B2A" />
-                {/* Peacock Feather Crest on Krishna */}
-                <path d="M 172,168 Q 178,160 174,152 Q 168,160 172,168 Z" fill="#38BDF8" />
-                
-                {/* Arjuna kneeling with hands folded in reverence */}
-                <circle cx="230" cy="195" r="11" fill="#1E293B" />
-                <path d="M 220,206 Q 230,198 240,206 L 236,245 L 224,245 Z" fill="#1E293B" />
-                
-                {/* Sacred Conch Shell Motif floating in celestial rays */}
+                {/* Outer Concentric Sacred Rings */}
+                <circle cx="200" cy="200" r="145" fill="none" stroke="#F3C74C" strokeWidth="1" strokeDasharray="3 9" opacity="0.6" className="animate-[spin_40s_linear_infinite_reverse]" />
+
+                {/* Floating Panchajanya Conch Shell Motif in Golden Rays */}
                 <path 
-                  d="M 285,130 C 295,120 310,125 315,135 C 320,145 310,155 300,160 C 290,165 280,155 280,145 Z" 
+                  d="M 200,140 C 220,120 250,130 260,150 C 270,170 250,190 230,200 C 210,210 190,190 190,170 Z" 
                   fill="#FFF9E6" 
                   opacity="0.9" 
-                  filter="drop-shadow(0 0 6px #F59E0B)"
+                  filter="drop-shadow(0 0 8px #F59E0B)"
                 />
               </svg>
 
               <img 
                 src="/src/assets/images/viplava_hero_festival_1791925226306.jpg" 
-                alt="Transcendental Kurukshetra Light" 
+                alt="Transcendental Light Blend" 
                 className="absolute inset-0 w-full h-full object-cover mix-blend-screen opacity-45 filter contrast-125 brightness-110"
               />
             </div>
@@ -202,20 +192,24 @@ export const ViplavaHero: React.FC<ViplavaHeroProps> = ({
           style={{ y: textY, opacity: textOpacity }}
           className="max-w-md sm:max-w-lg lg:max-w-2xl text-left space-y-3.5 sm:space-y-4"
         >
-          {/* Temple Spire & Sacred Flag Silhouette Motif */}
-          <div className="flex items-center gap-2 pt-2">
-            <svg viewBox="0 0 32 32" className="w-6 h-6 text-[#D4AF37]" fill="currentColor">
-              <path d="M16 2 L20 12 L22 12 L22 28 L10 28 L10 12 L12 12 Z" opacity="0.9" />
-              <path d="M16 2 L19 6 L19 2 Z" fill="#F3C74C" />
-              <path d="M16 4 Q21 6 18 10 L16 8 Z" fill="#E67E22" />
-            </svg>
-            <span className="text-[10px] sm:text-xs font-cinzel font-bold tracking-[0.25em] text-[#D4AF37] uppercase">
+          {/* ISKCON 60 & Youth Forum Badge Motif */}
+          <div className="flex flex-wrap items-center gap-2 pt-2">
+            <div className="px-3 py-1 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/45 flex items-center gap-2 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-[#F3C74C] animate-pulse" />
+              <span className="text-[10px] sm:text-xs font-cinzel font-bold tracking-[0.25em] text-[#F3C74C] uppercase">
+                ISKCON 60 · 1966–2026
+              </span>
+            </div>
+            <span className="text-[10px] font-cinzel font-semibold tracking-wider text-[#D4AF37]/90 uppercase">
               ISKCON Youth Forum
             </span>
           </div>
 
           {/* Grand VIPLAVA 2026 Display Typography */}
           <div className="space-y-0 sm:space-y-1">
+            <div className="text-[11px] sm:text-xs font-cinzel font-extrabold tracking-[0.3em] text-[#F3C74C] uppercase">
+              MEGA YOUTH FEST · A REVOLUTION IN CONSCIOUSNESS
+            </div>
             <h1 className="text-5xl sm:text-7xl lg:text-8xl font-cinzel font-black tracking-tight leading-[0.95] text-white">
               <span className="gold-gradient-text drop-shadow-[0_2px_15px_rgba(212,175,55,0.4)]">
                 VIPLAV<span className="text-[#F3C74C]">A</span>
@@ -226,25 +220,29 @@ export const ViplavaHero: React.FC<ViplavaHeroProps> = ({
             </div>
           </div>
 
-          {/* THE BHAGAVAD GITA WISDOM QUEST */}
+          {/* SRILA PRABHUPADA — THE SPIRITUAL AMBASSADOR */}
           <div className="pt-0.5 space-y-1">
             <h2 className="text-xs sm:text-sm lg:text-base font-cinzel font-bold tracking-[0.25em] text-[#E5C158] uppercase">
-              BHAGAVAD GITA — THE WISDOM QUEST
+              SRILA PRABHUPADA — THE SPIRITUAL AMBASSADOR
             </h2>
             <div className="text-[11px] sm:text-xs text-[#FDE68A] font-medium tracking-wide">
-              The Song of God · 18 Chapters of Transcendental Realization
+              Bhagavad Gita Wisdom Quest · 18 Chapters of Transcendental Realization
             </div>
           </div>
 
-          {/* Location Badge */}
-          <div className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#D4AF37]">
-            <MapPin size={14} className="text-[#E67E22] shrink-0" />
-            <span className="tracking-wider uppercase">GOKUL MATHURA DHAM</span>
+          {/* Location & Festival Dates Badge */}
+          <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-semibold text-[#D4AF37]">
+            <div className="flex items-center gap-1.5">
+              <MapPin size={14} className="text-[#E67E22] shrink-0" />
+              <span className="tracking-wider uppercase">GOKUL DHAM (RAMAN RETI, MAHAVAN)</span>
+            </div>
+            <span className="text-white/40">·</span>
+            <span className="text-[#F3C74C] text-[11px] font-cinzel font-bold">30TH OCT – 1ST NOV</span>
           </div>
 
           {/* Concise Event Introduction */}
           <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-sm sm:max-w-md font-sans-body">
-            Immerse in the timeless dialogue between Lord Sri Krishna and Arjuna on the holy field of Kurukshetra. Test your understanding of duty, the eternal soul, and supreme devotion as revealed in Srila Prabhupada's <span className="text-[#F3C74C] font-normal italic">Bhagavad-gita As It Is</span>.
+            Join thousands of youth thinkers uniting at sacred Gokul Dham for VIPLAVA 2026. Commemorating 60 glorious years of ISKCON and honoring His Divine Grace A.C. Bhaktivedanta Swami Prabhupada, The Spiritual Ambassador, through the timeless realizations of <span className="text-[#F3C74C] font-normal italic">Bhagavad-gita As It Is</span>.
           </p>
 
           {/* Actions: ENTER THE QUEST & Watch Event Trailer */}
@@ -263,10 +261,10 @@ export const ViplavaHero: React.FC<ViplavaHeroProps> = ({
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               onClick={onWatchTrailer}
-              className="px-5 py-3 rounded-full bg-white/5 border border-[#D4AF37]/40 text-[#F3C74C] font-cinzel text-xs font-bold tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-white/10 transition-colors cursor-pointer backdrop-blur-sm"
+              className="px-5 py-3 rounded-full bg-white/5 border border-[#D4AF37]/40 text-[#F3C74C] font-cinzel text-xs font-bold tracking-wider uppercase flex items-center justify-center gap-2 hover:bg-white/10 transition-colors cursor-pointer backdrop-blur-sm shadow-md"
             >
               <Play size={13} className="fill-[#F3C74C]" />
-              <span>Watch Gita Trailer</span>
+              <span>Watch Festival Trailer</span>
             </motion.button>
           </div>
         </motion.div>

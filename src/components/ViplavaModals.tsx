@@ -26,9 +26,9 @@ export const GalleryModal: React.FC<GalleryModalProps> = ({ isOpen, onClose }) =
       image: '/src/assets/images/vrindavan_temple_sunset_1791999562839.jpg'
     },
     {
-      title: 'Devotional Meditation at Ghats',
-      category: 'Contemplation',
-      image: '/src/assets/images/meditating_monk_ghat_1791999538810.jpg'
+      title: 'Srila Prabhupada — The Spiritual Ambassador',
+      category: 'VIPLAVA 2026 Official Poster',
+      image: '/assets/aistudio/IMG-20261025-WA0002_de6dcd48.jpg'
     },
     {
       title: 'Grand Temple Shikhara',
