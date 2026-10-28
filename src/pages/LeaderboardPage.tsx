@@ -37,8 +37,9 @@ export const LeaderboardPage: React.FC = () => {
       const unsubscribe = onSnapshot(q, (snapshot) => {
         const data = snapshot.docs.map(doc => doc.data() as QuizResult);
         
-        // Filter by selected quiz ID
+        // Filter by selected quiz ID and exclude system documents
         const filtered = data.filter(item => {
+          if ((item as any).type === 'app_config' || (item as any).type === 'quiz_definition' || item.phoneNumber === '0000000000') return false;
           if (!item.quizId && selectedQuizId === 'foundation_day') return true;
           return item.quizId === selectedQuizId;
         });

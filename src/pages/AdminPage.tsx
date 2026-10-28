@@ -105,8 +105,9 @@ export const AdminPage: React.FC = () => {
           id: doc.id 
         }));
         
-        // Filter by selected quiz
+        // Filter by selected quiz and exclude system documents
         const filtered = allData.filter(item => {
+          if ((item as any).type === 'app_config' || (item as any).type === 'quiz_definition' || item.phoneNumber === '0000000000') return false;
           if (!item.quizId && selectedResultQuizId === 'foundation_day') return true;
           return item.quizId === selectedResultQuizId;
         });

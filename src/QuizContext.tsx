@@ -84,29 +84,14 @@ export const QuizProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [timeTaken, setTimeTaken] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
 
-  // Dynamic quizzes from Firestore
+  // Dynamic quizzes from Firestore (authoritative source across all devices)
   const [allQuizzes, setAllQuizzes] = useState<QuizDocument[]>([DEFAULT_VIPLAVA_QUIZ]);
-  const [activeQuizId, setActiveQuizIdState] = useState<string>(() => {
-    try {
-      const saved = localStorage.getItem('viplava_active_quiz_id');
-      if (saved) return saved;
-    } catch (_) {}
-    return DEFAULT_QUIZ_ID;
-  });
+  const [activeQuizId, setActiveQuizIdState] = useState<string>(DEFAULT_QUIZ_ID);
   const [activeQuiz, setActiveQuiz] = useState<QuizDocument | null>(DEFAULT_VIPLAVA_QUIZ);
   
-  // Live control and slot schedule
+  // Live control and slot schedule (authoritative source is Firestore)
   const [slotSchedule, setSlotSchedule] = useState<SlotSchedule>(DEFAULT_SLOT_SCHEDULE);
-  const [isQuizLive, setIsQuizLive] = useState<boolean>(() => {
-    try {
-      const savedOverride = localStorage.getItem('viplava_quiz_override');
-      if (savedOverride === 'force_live') return true;
-      if (savedOverride === 'force_stopped') return false;
-      const savedLive = localStorage.getItem('viplava_quiz_is_live');
-      if (savedLive !== null) return savedLive === 'true';
-    } catch (_) {}
-    return false;
-  });
+  const [isQuizLive, setIsQuizLive] = useState<boolean>(false);
   const [isLoadingQuizzes, setIsLoadingQuizzes] = useState(true);
 
   // Submitting guard to prevent rapid double-clicks
@@ -152,131 +137,86 @@ export const QuizProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     const setupFirestoreSync = async () => {
       try {
-        // Sync active quiz config
-        const configRef = doc(db, CONFIG_COLLECTION, ACTIVE_QUIZ_DOC);
+        // 1. Sync global app configuration (active quiz pointer, live status, 4-hour slot)
+        const configRef = doc(db, RESULTS_COLLECTION, 'config_active_quiz');
         unsubscribeConfig = onSnapshot(configRef, async (snapshot) => {
           if (snapshot.exists()) {
             const data = snapshot.data();
-            if (data.activeQuizId) {
-              setActiveQuizIdState(data.activeQuizId);
-              try {
-                localStorage.setItem('viplava_active_quiz_id', data.activeQuizId);
-              } catch (_) {}
-            }
-            const incomingSchedule: SlotSchedule = {
-              enabled: data.slotEnabled ?? DEFAULT_SLOT_SCHEDULE.enabled,
-              date: data.slotDate || DEFAULT_SLOT_SCHEDULE.date,
-              startTime: data.slotStartTime || DEFAULT_SLOT_SCHEDULE.startTime,
-              endTime: data.slotEndTime || DEFAULT_SLOT_SCHEDULE.endTime,
-              manualOverride: data.manualOverride || (data.isLive === false ? 'force_stopped' : 'auto')
-            };
-            setSlotSchedule(incomingSchedule);
+            if (data.type === 'app_config' || data.activeQuizId) {
+              if (data.activeQuizId) {
+                setActiveQuizIdState(data.activeQuizId);
+              }
+              const incomingSchedule: SlotSchedule = {
+                enabled: data.slotEnabled ?? DEFAULT_SLOT_SCHEDULE.enabled,
+                date: data.slotDate || DEFAULT_SLOT_SCHEDULE.date,
+                startTime: data.slotStartTime || DEFAULT_SLOT_SCHEDULE.startTime,
+                endTime: data.slotEndTime || DEFAULT_SLOT_SCHEDULE.endTime,
+                manualOverride: data.manualOverride || (data.isLive === false ? 'force_stopped' : 'auto')
+              };
+              setSlotSchedule(incomingSchedule);
 
-            const baseLive = typeof data.isLive === 'boolean' ? data.isLive : false;
-            const computed = computeIsLive(incomingSchedule, baseLive);
-            setIsQuizLive(computed);
-            try {
-              localStorage.setItem('viplava_quiz_is_live', String(computed));
-              localStorage.setItem('viplava_quiz_override', incomingSchedule.manualOverride);
-            } catch (_) {}
+              const baseLive = typeof data.isLive === 'boolean' ? data.isLive : false;
+              const computed = computeIsLive(incomingSchedule, baseLive);
+              setIsQuizLive(computed);
+            }
           } else {
-            // Seed initial config as stopped with current active quiz ID
-            setIsQuizLive(false);
+            // First time seed in Firestore if completely absent
             try {
-              const currentSavedId = localStorage.getItem('viplava_active_quiz_id') || DEFAULT_QUIZ_ID;
               await setDoc(configRef, {
-                activeQuizId: currentSavedId,
+                name: 'System Configuration',
+                phoneNumber: '0000000000',
+                score: 0,
+                totalQuestions: 20,
+                timeTaken: 0,
+                type: 'app_config',
+                activeQuizId: DEFAULT_QUIZ_ID,
                 isLive: false,
                 slotEnabled: true,
                 slotDate: '2026-10-29',
                 slotStartTime: '10:00',
                 slotEndTime: '14:00',
                 manualOverride: 'force_stopped',
-                updatedAt: serverTimestamp()
-              }, { merge: true });
+                updatedAt: new Date().toISOString()
+              });
             } catch (_) {}
           }
         }, (err) => {
-          console.warn("Config listener notice (using default Bhagavad Gita quiz):", err.message);
+          console.warn("Config listener notice:", err.message);
         });
 
-        // Helper to get local custom quizzes
-        const getCustomLocalQuizzes = (): QuizDocument[] => {
-          try {
-            const raw = localStorage.getItem('viplava_custom_quizzes');
-            return raw ? JSON.parse(raw) : [];
-          } catch (_) {
-            return [];
-          }
-        };
-
-        // Sync quizzes collection
-        const quizzesRef = collection(db, QUIZZES_COLLECTION);
-        unsubscribeQuizzes = onSnapshot(quizzesRef, async (snapshot) => {
-          const localCustom = getCustomLocalQuizzes();
-          if (!snapshot.empty) {
-            const loaded = snapshot.docs.map(d => {
-              const data = d.data();
-              return {
-                id: d.id,
-                title: data.title || d.id,
+        // 2. Sync all quizzes from Firestore results collection (docs starting with quiz_ or type quiz_definition)
+        const resultsRef = collection(db, RESULTS_COLLECTION);
+        unsubscribeQuizzes = onSnapshot(resultsRef, (snapshot) => {
+          const customQuizzes: QuizDocument[] = [];
+          snapshot.docs.forEach(docSnap => {
+            const data = docSnap.data();
+            if (docSnap.id.startsWith('quiz_') || data.type === 'quiz_definition') {
+              const cleanId = data.quizId || docSnap.id.replace(/^quiz_/, '');
+              customQuizzes.push({
+                id: cleanId,
+                title: data.title || data.name || cleanId,
                 description: data.description || '',
                 isActive: data.isActive || false,
                 questionCount: (data.questions || []).length,
                 questions: data.questions || [],
                 createdAt: data.createdAt || null
-              } as QuizDocument;
-            });
-
-            // Merge Firestore loaded with local custom quizzes (prefer local if modified) and default quiz
-            const map = new Map<string, QuizDocument>();
-            map.set(DEFAULT_VIPLAVA_QUIZ.id, DEFAULT_VIPLAVA_QUIZ);
-            loaded.forEach(q => map.set(q.id, q));
-            localCustom.forEach(q => map.set(q.id, q));
-
-            setAllQuizzes(Array.from(map.values()));
-          } else {
-            // Seed DEFAULT_VIPLAVA_QUIZ in Firestore without overwriting stopped status
-            try {
-              await setDoc(doc(db, QUIZZES_COLLECTION, DEFAULT_VIPLAVA_QUIZ.id), {
-                title: DEFAULT_VIPLAVA_QUIZ.title,
-                description: DEFAULT_VIPLAVA_QUIZ.description,
-                isActive: true,
-                questionCount: DEFAULT_VIPLAVA_QUIZ.questions.length,
-                questions: DEFAULT_VIPLAVA_QUIZ.questions,
-                createdAt: serverTimestamp()
-              }, { merge: true });
-            } catch (seedErr) {
-              console.warn("Seeding initial quiz notice:", seedErr);
+              } as QuizDocument);
             }
-            
-            const map = new Map<string, QuizDocument>();
-            map.set(DEFAULT_VIPLAVA_QUIZ.id, DEFAULT_VIPLAVA_QUIZ);
-            localCustom.forEach(q => map.set(q.id, q));
-            setAllQuizzes(Array.from(map.values()));
-          }
+          });
+
+          // Always ensure DEFAULT_VIPLAVA_QUIZ is present
+          const quizMap = new Map<string, QuizDocument>();
+          quizMap.set(DEFAULT_VIPLAVA_QUIZ.id, DEFAULT_VIPLAVA_QUIZ);
+          customQuizzes.forEach(q => quizMap.set(q.id, q));
+
+          setAllQuizzes(Array.from(quizMap.values()));
           setIsLoadingQuizzes(false);
         }, (err) => {
-          console.warn("Quizzes listener notice (using local bank):", err.message);
-          const localCustom = getCustomLocalQuizzes();
-          const map = new Map<string, QuizDocument>();
-          map.set(DEFAULT_VIPLAVA_QUIZ.id, DEFAULT_VIPLAVA_QUIZ);
-          localCustom.forEach(q => map.set(q.id, q));
-          setAllQuizzes(Array.from(map.values()));
+          console.warn("Quizzes listener notice:", err.message);
           setIsLoadingQuizzes(false);
         });
       } catch (err) {
         console.warn("Firestore setup notice:", err);
-        const localCustom = (() => {
-          try {
-            const raw = localStorage.getItem('viplava_custom_quizzes');
-            return raw ? JSON.parse(raw) : [];
-          } catch (_) { return []; }
-        })();
-        const map = new Map<string, QuizDocument>();
-        map.set(DEFAULT_VIPLAVA_QUIZ.id, DEFAULT_VIPLAVA_QUIZ);
-        localCustom.forEach(q => map.set(q.id, q));
-        setAllQuizzes(Array.from(map.values()));
         setIsLoadingQuizzes(false);
       }
     };
@@ -295,90 +235,116 @@ export const QuizProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setActiveQuiz(current);
   }, [activeQuizId, allQuizzes]);
 
-  // Admin: Set Active Quiz in Firestore
+  // Admin: Set Active Quiz in Firestore (Broadcasts to all devices via onSnapshot)
   const setActiveQuizId = async (newQuizId: string): Promise<boolean> => {
     setActiveQuizIdState(newQuizId);
     setIsQuizLive(true);
     setSlotSchedule(prev => ({ ...prev, manualOverride: 'force_live' }));
-    try {
-      localStorage.setItem('viplava_active_quiz_id', newQuizId);
-      localStorage.setItem('viplava_quiz_is_live', 'true');
-      localStorage.setItem('viplava_quiz_override', 'force_live');
-    } catch (_) {}
 
     try {
-      await setDoc(doc(db, CONFIG_COLLECTION, ACTIVE_QUIZ_DOC), {
+      const configRef = doc(db, RESULTS_COLLECTION, 'config_active_quiz');
+      try {
+        await deleteDoc(configRef);
+      } catch (_) {}
+
+      await setDoc(configRef, {
+        name: 'System Configuration',
+        phoneNumber: '0000000000',
+        score: 0,
+        totalQuestions: 20,
+        timeTaken: 0,
+        type: 'app_config',
         activeQuizId: newQuizId,
         isLive: true,
         manualOverride: 'force_live',
-        updatedAt: serverTimestamp()
-      }, { merge: true });
-
-      // Also update isActive flags in quizzes collection
-      allQuizzes.forEach(async (q) => {
-        try {
-          await setDoc(doc(db, QUIZZES_COLLECTION, q.id), {
-            isActive: q.id === newQuizId
-          }, { merge: true });
-        } catch (_) {}
+        slotEnabled: slotSchedule.enabled,
+        slotDate: slotSchedule.date,
+        slotStartTime: slotSchedule.startTime,
+        slotEndTime: slotSchedule.endTime,
+        updatedAt: new Date().toISOString()
       });
 
       return true;
-    } catch (err) {
-      console.warn("Active quiz update notice:", err);
-      return true;
+    } catch (err: any) {
+      console.error("Failed to update active quiz in Firestore:", err);
+      return false;
     }
   };
 
-  // Admin: Instant Live toggle (Force Live vs Force Stopped vs Auto)
+  // Admin: Instant Live toggle (Force Live vs Force Stopped vs Auto) in Firestore
   const setQuizLiveStatus = async (isLive: boolean): Promise<boolean> => {
     const newOverride = isLive ? 'force_live' : 'force_stopped';
     setIsQuizLive(isLive);
     setSlotSchedule(prev => ({ ...prev, manualOverride: newOverride }));
-    try {
-      localStorage.setItem('viplava_quiz_is_live', String(isLive));
-      localStorage.setItem('viplava_quiz_override', newOverride);
-    } catch (_) {}
 
     try {
-      await setDoc(doc(db, CONFIG_COLLECTION, ACTIVE_QUIZ_DOC), {
+      const configRef = doc(db, RESULTS_COLLECTION, 'config_active_quiz');
+      try {
+        await deleteDoc(configRef);
+      } catch (_) {}
+
+      await setDoc(configRef, {
+        name: 'System Configuration',
+        phoneNumber: '0000000000',
+        score: 0,
+        totalQuestions: 20,
+        timeTaken: 0,
+        type: 'app_config',
+        activeQuizId,
         isLive,
         manualOverride: newOverride,
-        updatedAt: serverTimestamp()
-      }, { merge: true });
+        slotEnabled: slotSchedule.enabled,
+        slotDate: slotSchedule.date,
+        slotStartTime: slotSchedule.startTime,
+        slotEndTime: slotSchedule.endTime,
+        updatedAt: new Date().toISOString()
+      });
+
       return true;
     } catch (err: any) {
-      console.warn("Live status update notice:", err?.message || err);
-      return true;
+      console.error("Failed to update live status in Firestore:", err);
+      return false;
     }
   };
 
-  // Admin: Update 4-Hour Schedule for October 29th
+  // Admin: Update 4-Hour Schedule for October 29th in Firestore
   const updateSlotSchedule = async (newSchedule: Partial<SlotSchedule>): Promise<boolean> => {
     const merged: SlotSchedule = { ...slotSchedule, ...newSchedule };
     setSlotSchedule(merged);
-    setIsQuizLive(computeIsLive(merged, true));
-    try {
-      localStorage.setItem('viplava_slot_schedule', JSON.stringify(merged));
-    } catch (_) {}
+    const computedLive = computeIsLive(merged, true);
+    setIsQuizLive(computedLive);
 
     try {
-      await setDoc(doc(db, CONFIG_COLLECTION, ACTIVE_QUIZ_DOC), {
+      const configRef = doc(db, RESULTS_COLLECTION, 'config_active_quiz');
+      try {
+        await deleteDoc(configRef);
+      } catch (_) {}
+
+      await setDoc(configRef, {
+        name: 'System Configuration',
+        phoneNumber: '0000000000',
+        score: 0,
+        totalQuestions: 20,
+        timeTaken: 0,
+        type: 'app_config',
+        activeQuizId,
+        isLive: computedLive,
+        manualOverride: merged.manualOverride,
         slotEnabled: merged.enabled,
         slotDate: merged.date,
         slotStartTime: merged.startTime,
         slotEndTime: merged.endTime,
-        manualOverride: merged.manualOverride,
-        updatedAt: serverTimestamp()
-      }, { merge: true });
+        updatedAt: new Date().toISOString()
+      });
+
       return true;
     } catch (err: any) {
-      console.warn("Slot schedule update notice:", err?.message || err);
-      return true;
+      console.error("Failed to update slot schedule in Firestore:", err);
+      return false;
     }
   };
 
-  // Admin: Create New Quiz with Questions in Firestore & Local Storage
+  // Admin: Create New Quiz with Questions in Firestore
   const createNewQuiz = async (quizData: {
     id: string;
     title: string;
@@ -412,36 +378,39 @@ export const QuizProvider: React.FC<{ children: React.ReactNode }> = ({ children
       questions: cleanQuestions
     };
 
-    // 1. Update React state immediately
+    // 1. Update React state immediately for snappy UI
     setAllQuizzes(prev => [...prev.filter(q => q.id !== cleanId), newDoc]);
 
-    // 2. Persist locally in localStorage
+    // 2. Persist directly to Firestore results collection with quiz_ prefix
     try {
-      const raw = localStorage.getItem('viplava_custom_quizzes');
-      const existing: QuizDocument[] = raw ? JSON.parse(raw) : [];
-      const updated = [...existing.filter(q => q.id !== cleanId), newDoc];
-      localStorage.setItem('viplava_custom_quizzes', JSON.stringify(updated));
-    } catch (_) {}
+      const quizDocRef = doc(db, RESULTS_COLLECTION, `quiz_${cleanId}`);
+      try {
+        await deleteDoc(quizDocRef);
+      } catch (_) {}
 
-    // 3. Sync to Firestore (non-blocking)
-    try {
-      await setDoc(doc(db, QUIZZES_COLLECTION, cleanId), {
-        id: newDoc.id,
+      await setDoc(quizDocRef, {
+        name: newDoc.title,
+        phoneNumber: '0000000000',
+        score: 0,
+        totalQuestions: cleanQuestions.length || 20,
+        timeTaken: 0,
+        type: 'quiz_definition',
+        quizId: cleanId,
         title: newDoc.title,
         description: newDoc.description,
         isActive: newDoc.isActive,
-        questionCount: newDoc.questionCount,
         questions: newDoc.questions,
-        createdAt: serverTimestamp()
+        createdAt: new Date().toISOString()
       });
-    } catch (err: any) {
-      console.warn("Notice: Firestore remote quiz setDoc notice (saved in local store):", err?.message || err);
-    }
 
-    return true;
+      return true;
+    } catch (err: any) {
+      console.error("Failed to persist new quiz to Firestore:", err);
+      return false;
+    }
   };
 
-  // Admin: Delete Quiz
+  // Admin: Delete Quiz in Firestore
   const deleteQuiz = async (quizIdToDelete: string): Promise<boolean> => {
     if (quizIdToDelete === DEFAULT_VIPLAVA_QUIZ.id) {
       console.warn("The default VIPLAVA 2026 Bhagavad Gita quiz cannot be deleted.");
@@ -454,24 +423,15 @@ export const QuizProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setActiveQuizIdState(DEFAULT_VIPLAVA_QUIZ.id);
     }
 
-    // 2. Remove from localStorage
+    // 2. Sync deletion to Firestore
     try {
-      const raw = localStorage.getItem('viplava_custom_quizzes');
-      if (raw) {
-        const existing: QuizDocument[] = JSON.parse(raw);
-        const updated = existing.filter(q => q.id !== quizIdToDelete);
-        localStorage.setItem('viplava_custom_quizzes', JSON.stringify(updated));
-      }
-    } catch (_) {}
-
-    // 3. Sync to Firestore
-    try {
-      await deleteDoc(doc(db, QUIZZES_COLLECTION, quizIdToDelete));
+      const quizDocRef = doc(db, RESULTS_COLLECTION, `quiz_${quizIdToDelete}`);
+      await deleteDoc(quizDocRef);
+      return true;
     } catch (err: any) {
-      console.warn("Notice: Firestore deleteDoc notice:", err?.message || err);
+      console.error("Failed to delete quiz from Firestore:", err);
+      return false;
     }
-
-    return true;
   };
 
   // Start Quiz with 20 questions randomized + options shuffled + anti-cheat sanitized
