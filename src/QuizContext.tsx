@@ -9,7 +9,9 @@ import {
   doc, 
   deleteDoc,
   serverTimestamp, 
-  onSnapshot 
+  onSnapshot,
+  query,
+  where
 } from 'firebase/firestore';
 import { handleFirestoreError, OperationType } from './lib/errorHandlers';
 import { 
@@ -139,7 +141,7 @@ export const QuizProvider: React.FC<{ children: React.ReactNode }> = ({ children
       try {
         // 1. Sync global app configuration (active quiz pointer, live status, 4-hour slot)
         const configRef = doc(db, RESULTS_COLLECTION, 'config_active_quiz');
-        unsubscribeConfig = onSnapshot(configRef, async (snapshot) => {
+        unsubscribeConfig = onSnapshot(configRef, (snapshot) => {
           if (snapshot.exists()) {
             const data = snapshot.data();
             if (data.type === 'app_config' || data.activeQuizId) {
@@ -159,49 +161,28 @@ export const QuizProvider: React.FC<{ children: React.ReactNode }> = ({ children
               const computed = computeIsLive(incomingSchedule, baseLive);
               setIsQuizLive(computed);
             }
-          } else {
-            // First time seed in Firestore if completely absent
-            try {
-              await setDoc(configRef, {
-                name: 'System Configuration',
-                phoneNumber: '0000000000',
-                score: 0,
-                totalQuestions: 20,
-                timeTaken: 0,
-                type: 'app_config',
-                activeQuizId: DEFAULT_QUIZ_ID,
-                isLive: false,
-                slotEnabled: true,
-                slotDate: '2026-10-29',
-                slotStartTime: '10:00',
-                slotEndTime: '14:00',
-                manualOverride: 'force_stopped',
-                updatedAt: new Date().toISOString()
-              });
-            } catch (_) {}
           }
+          // Note: If snapshot does not exist temporarily during an update, do NOT write back default!
         }, (err) => {
           console.warn("Config listener notice:", err.message);
         });
 
-        // 2. Sync all quizzes from Firestore results collection (docs starting with quiz_ or type quiz_definition)
-        const resultsRef = collection(db, RESULTS_COLLECTION);
-        unsubscribeQuizzes = onSnapshot(resultsRef, (snapshot) => {
+        // 2. Sync all custom quizzes from Firestore (only query docs where type == 'quiz_definition')
+        const qQuizzes = query(collection(db, RESULTS_COLLECTION), where('type', '==', 'quiz_definition'));
+        unsubscribeQuizzes = onSnapshot(qQuizzes, (snapshot) => {
           const customQuizzes: QuizDocument[] = [];
           snapshot.docs.forEach(docSnap => {
             const data = docSnap.data();
-            if (docSnap.id.startsWith('quiz_') || data.type === 'quiz_definition') {
-              const cleanId = data.quizId || docSnap.id.replace(/^quiz_/, '');
-              customQuizzes.push({
-                id: cleanId,
-                title: data.title || data.name || cleanId,
-                description: data.description || '',
-                isActive: data.isActive || false,
-                questionCount: (data.questions || []).length,
-                questions: data.questions || [],
-                createdAt: data.createdAt || null
-              } as QuizDocument);
-            }
+            const cleanId = data.quizId || docSnap.id.replace(/^quiz_/, '');
+            customQuizzes.push({
+              id: cleanId,
+              title: data.title || data.name || cleanId,
+              description: data.description || '',
+              isActive: data.isActive || false,
+              questionCount: (data.questions || []).length,
+              questions: data.questions || [],
+              createdAt: data.createdAt || null
+            } as QuizDocument);
           });
 
           // Always ensure DEFAULT_VIPLAVA_QUIZ is present
@@ -231,7 +212,11 @@ export const QuizProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   // Update activeQuiz when activeQuizId or allQuizzes changes
   useEffect(() => {
-    const current = allQuizzes.find(q => q.id === activeQuizId) || allQuizzes[0] || DEFAULT_VIPLAVA_QUIZ;
+    const current = allQuizzes.find(q => 
+      q.id === activeQuizId || 
+      (q.id === 'bhagavad_gita_as_it_is' && activeQuizId === 'bhagavad_gita_viplava_2026') ||
+      (q.id === 'bhagavad_gita_viplava_2026' && activeQuizId === 'bhagavad_gita_as_it_is')
+    ) || allQuizzes[0] || DEFAULT_VIPLAVA_QUIZ;
     setActiveQuiz(current);
   }, [activeQuizId, allQuizzes]);
 
