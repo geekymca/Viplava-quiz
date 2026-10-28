@@ -26,11 +26,6 @@ export const RegistrationPage: React.FC = () => {
     e.preventDefault();
     setError('');
 
-    if (!isQuizLive) {
-      setError('The live quiz is currently paused by administrator. Please check back shortly.');
-      return;
-    }
-
     const trimmedName = formData.name.trim();
     if (!trimmedName) {
       setError('Please enter your full name.');
@@ -162,15 +157,7 @@ export const RegistrationPage: React.FC = () => {
           </p>
         </div>
 
-        {/* Live Quiz Paused Notice if applicable */}
-        {!isQuizLive && (
-          <div className="mb-5 p-3.5 bg-amber-500/15 border border-amber-500/40 rounded-xl flex items-center gap-2.5 text-xs text-amber-200">
-            <AlertCircle size={16} className="text-amber-400 shrink-0" />
-            <span>The live quiz is currently paused. Please check back when resumed by administrators.</span>
-          </div>
-        )}
-        
-        {/* Login Form: Only Name, University or Area, and Phone Number */}
+        {/* Login Form: Name, University or Area, and Phone Number */}
         <form onSubmit={handleSubmit} className="space-y-4">
           
           {/* 1. Name */}
@@ -224,14 +211,14 @@ export const RegistrationPage: React.FC = () => {
             </p>
           )}
 
-          {/* Submit button: NEVER shows '20' or '20-question' */}
+          {/* Submit button */}
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             type="submit"
-            disabled={loading || !isQuizLive}
+            disabled={loading}
             className={`w-full py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-black font-extrabold rounded-xl shadow-lg shadow-amber-500/20 hover:from-amber-400 hover:to-orange-400 transition-all cursor-pointer text-base ${
-              loading || !isQuizLive ? 'opacity-50 cursor-not-allowed' : ''
+              loading ? 'opacity-50 cursor-not-allowed' : ''
             }`}
           >
             {loading ? 'Verifying...' : 'Begin VIPLAVA Quiz'}

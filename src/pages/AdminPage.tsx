@@ -21,7 +21,12 @@ import {
   RefreshCw,
   Eye,
   LogOut,
-  X
+  X,
+  Upload,
+  FileUp,
+  HelpCircle,
+  Copy,
+  FileJson
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { handleFirestoreError, OperationType } from '../lib/errorHandlers';
@@ -83,6 +88,67 @@ export const AdminPage: React.FC = () => {
   const [previewQuiz, setPreviewQuiz] = useState<QuizDocument | null>(null);
   const [formError, setFormError] = useState<string | null>(null);
   const [successToast, setSuccessToast] = useState<string | null>(null);
+  const [showFormatGuide, setShowFormatGuide] = useState(false);
+  const [copiedFormat, setCopiedFormat] = useState(false);
+
+  const fileInputRef = React.useRef<HTMLInputElement | null>(null);
+
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const content = event.target?.result as string;
+      if (content) {
+        handleJsonChange(content);
+        setSuccessToast(`Successfully loaded "${file.name}" into JSON editor!`);
+        setTimeout(() => setSuccessToast(null), 4000);
+      }
+    };
+    reader.onerror = () => {
+      setJsonError("Failed to read the selected file. Please ensure it is a valid text or .json file.");
+    };
+    reader.readAsText(file);
+    e.target.value = '';
+  };
+
+  const handleDownloadSample = () => {
+    const sample = [
+      {
+        "id": "1",
+        "question": "What is the primary spiritual ambassador message of Viplava?",
+        "options": [
+          "A Revolution in Consciousness",
+          "Material Wealth",
+          "Modern Technology",
+          "Political Power"
+        ],
+        "correct": "A Revolution in Consciousness",
+        "explanation": "Viplava: A Revolution in Consciousness inspires spiritual transformation through Bhagavad Gita wisdom."
+      },
+      {
+        "id": "2",
+        "question": "Where does Lord Krishna speak the sacred Bhagavad Gita to Arjuna?",
+        "options": [
+          "Kurukshetra battlefield",
+          "Gokul Mathura",
+          "Ayodhya",
+          "Mount Kailash"
+        ],
+        "correct": "Kurukshetra battlefield",
+        "explanation": "Spoken between Krishna and Arjuna amidst the sacred field of Kurukshetra."
+      }
+    ];
+
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(sample, null, 2));
+    const downloadAnchor = document.createElement('a');
+    downloadAnchor.setAttribute("href", dataStr);
+    downloadAnchor.setAttribute("download", "viplava_quiz_template.json");
+    document.body.appendChild(downloadAnchor);
+    downloadAnchor.click();
+    downloadAnchor.remove();
+  };
 
   // Set default selected result quiz id
   useEffect(() => {
@@ -472,24 +538,20 @@ export const AdminPage: React.FC = () => {
       {activeTab === 'quizzes' && (
         <div className="w-full space-y-6">
           
-          {/* Live Quiz Management Banner & 4-Hour Time Slot Scheduler */}
+          {/* Live Quiz Management Banner */}
           <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-amber-500/10 via-[#0B0F19] to-amber-500/5 border border-amber-500/30 space-y-5 shadow-xl">
             
-            {/* Top Row: Current Live Status & Instant Start/Stop Controls */}
+            {/* Top Row: Current Active Quiz Pointer */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div className="flex items-center gap-3.5">
-                <div className={`w-3.5 h-3.5 rounded-full ${isQuizLive ? 'bg-emerald-400 animate-ping' : 'bg-amber-400'}`} />
+                <div className="w-3.5 h-3.5 rounded-full bg-emerald-400 animate-ping" />
                 <div>
                   <div className="flex items-center gap-2">
                     <span className="text-xs text-amber-400 font-extrabold uppercase tracking-wider">
-                      {isQuizLive ? 'Active Running Quiz (Live for Candidates)' : 'Quiz Paused / Closed'}
+                      Selected Active Quiz Collection
                     </span>
-                    <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider border ${
-                      isQuizLive 
-                        ? 'bg-emerald-500/20 border-emerald-500/40 text-emerald-300' 
-                        : 'bg-amber-500/20 border-amber-500/40 text-amber-300'
-                    }`}>
-                      {isQuizLive ? '● Live' : '⏸ Paused'}
+                    <span className="text-[10px] px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider border bg-emerald-500/20 border-emerald-500/40 text-emerald-300">
+                      ● Live & Active
                     </span>
                   </div>
                   <h4 className="text-lg sm:text-xl font-black text-white mt-0.5">
@@ -498,149 +560,27 @@ export const AdminPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Instant Master Live Toggle Buttons */}
-              <div className="flex items-center gap-2.5 self-end sm:self-center">
-                {isQuizLive ? (
-                  <button
-                    onClick={() => setQuizLiveStatus(false)}
-                    className="px-4 py-2.5 bg-red-500/20 hover:bg-red-500/30 border border-red-500/40 text-red-300 rounded-xl text-xs font-bold transition-all cursor-pointer shadow-sm flex items-center gap-1.5"
-                    title="Instantly stop / pause the quiz for all candidates"
-                  >
-                    <span>⏹ Stop / Pause Quiz Now</span>
-                  </button>
-                ) : (
-                  <button
-                    onClick={() => setQuizLiveStatus(true)}
-                    className="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-black rounded-xl text-xs font-extrabold transition-all cursor-pointer shadow-md flex items-center gap-1.5"
-                    title="Instantly make this quiz live for candidates"
-                  >
-                    <span>▶ Start / Resume Live Quiz</span>
-                  </button>
-                )}
+              <div className="text-right text-xs text-gray-300 bg-white/5 border border-white/10 px-3.5 py-2 rounded-xl">
+                <span className="text-gray-400 block text-[10px]">Question Pool</span>
+                <span className="font-bold text-amber-400">300 Questions (20 Random / Attempt)</span>
               </div>
             </div>
 
-            {/* 4-Hour Time Slot Management Console (for 29th Oct) */}
-            <div className="p-4 rounded-xl bg-white/[0.03] border border-amber-500/20 space-y-3">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-                <div>
-                  <h5 className="text-sm font-bold text-amber-300 flex items-center gap-2">
-                    <span>⏰ 4-Hour Event Window Schedule (29th October)</span>
-                  </h5>
-                  <p className="text-[11px] text-gray-400">
-                    Configure the automated 4-hour window for 300 participants. Outside this window, participants will see the waiting room.
-                  </p>
-                </div>
-
-                <div className="text-[11px] text-gray-300 flex items-center gap-2">
-                  <span className="font-semibold text-amber-400">Current Mode:</span>
-                  <span className="font-mono bg-white/10 px-2 py-0.5 rounded text-white">
-                    {slotSchedule.manualOverride === 'force_live' ? 'Force Live (Manual)' : slotSchedule.manualOverride === 'force_stopped' ? 'Force Stopped (Manual)' : 'Automated 4-Hour Schedule'}
-                  </span>
-                </div>
-              </div>
-
-              {/* Schedule Inputs: Date, Start Time, End Time */}
-              <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 pt-1">
-                <div>
-                  <label className="text-[10px] font-semibold text-gray-400 block mb-1">
-                    Event Date
-                  </label>
-                  <input
-                    type="date"
-                    value={schedDate}
-                    onChange={e => setSchedDate(e.target.value)}
-                    className="w-full bg-white/5 border border-white/15 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-amber-400"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-[10px] font-semibold text-gray-400 block mb-1">
-                    Slot Start Time (IST)
-                  </label>
-                  <input
-                    type="time"
-                    value={schedStartTime}
-                    onChange={e => setSchedStartTime(e.target.value)}
-                    className="w-full bg-white/5 border border-white/15 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-amber-400"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-[10px] font-semibold text-gray-400 block mb-1">
-                    Slot End Time (IST)
-                  </label>
-                  <input
-                    type="time"
-                    value={schedEndTime}
-                    onChange={e => setSchedEndTime(e.target.value)}
-                    className="w-full bg-white/5 border border-white/15 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-amber-400"
-                  />
-                </div>
-
-                <div className="flex items-end">
-                  <button
-                    disabled={isUpdatingSlot}
-                    onClick={async () => {
-                      setIsUpdatingSlot(true);
-                      const ok = await updateSlotSchedule({
-                        date: schedDate,
-                        startTime: schedStartTime,
-                        endTime: schedEndTime,
-                        enabled: true,
-                        manualOverride: 'auto'
-                      });
-                      setIsUpdatingSlot(false);
-                      if (ok) {
-                        setSuccessToast("4-Hour schedule updated and saved to Firestore!");
-                        setTimeout(() => setSuccessToast(null), 4000);
-                      }
-                    }}
-                    className="w-full py-2 px-3 bg-amber-500 hover:bg-amber-400 text-black text-xs font-bold rounded-lg transition-colors cursor-pointer shadow-sm disabled:opacity-50"
-                  >
-                    {isUpdatingSlot ? 'Saving...' : 'Save 4-Hour Schedule'}
-                  </button>
-                </div>
-              </div>
-
-              {/* Schedule Summary Strip */}
-              <div className="text-[11px] text-slate-300 flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-white/5">
-                <div>
-                  Slot Window: <span className="text-amber-400 font-semibold">{schedDate}</span> from <span className="text-amber-400 font-semibold">{schedStartTime}</span> to <span className="text-amber-400 font-semibold">{schedEndTime} IST</span> (4 Hours total duration)
-                </div>
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={() => updateSlotSchedule({ manualOverride: 'auto' })}
-                    className="text-[10px] text-amber-400 hover:underline cursor-pointer"
-                  >
-                    Switch to Auto Schedule
-                  </button>
-                  <span>·</span>
-                  <button
-                    onClick={() => setQuizLiveStatus(!isQuizLive)}
-                    className="text-[10px] text-amber-400 hover:underline cursor-pointer"
-                  >
-                    {isQuizLive ? 'Force Stop Now' : 'Force Start Now'}
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Quick Admin Instructions for Switching / Stopping Quiz */}
+            {/* Quick Admin Instructions */}
             <div className="pt-2 border-t border-white/10 grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-gray-300">
               <div className="flex items-start gap-2 bg-white/5 p-2.5 rounded-xl border border-white/5">
                 <span className="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center shrink-0 text-[11px]">1</span>
                 <div>
-                  <strong className="text-white block font-semibold">How to switch to another quiz:</strong>
-                  <span>Click <span className="text-amber-400 font-semibold">"Set as Live Quiz"</span> on any card below. The current quiz stops and the chosen one immediately goes live.</span>
+                  <strong className="text-white block font-semibold">300-Question Dataset Active:</strong>
+                  <span>Participants receive 20 randomized questions with anti-cheat hashing on every attempt.</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-2 bg-white/5 p-2.5 rounded-xl border border-white/5">
                 <span className="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center shrink-0 text-[11px]">2</span>
                 <div>
-                  <strong className="text-white block font-semibold">How to start or stop the quiz for 29th Oct:</strong>
-                  <span>Click <span className="text-emerald-400 font-semibold">"Start / Resume Live Quiz"</span> to open it live, or <span className="text-red-400 font-semibold">"Stop / Pause Quiz Now"</span> to pause it anytime.</span>
+                  <strong className="text-white block font-semibold">Upload custom question set:</strong>
+                  <span>Click <span className="text-amber-400 font-semibold">"Create New Quiz (JSON)"</span> to upload additional `.json` question sets.</span>
                 </div>
               </div>
             </div>
@@ -660,12 +600,8 @@ export const AdminPage: React.FC = () => {
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
                       {isActive ? (
-                        <span className={`flex items-center gap-1.5 text-[11px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full border ${
-                          isQuizLive
-                            ? 'text-emerald-400 bg-emerald-500/10 border-emerald-500/30'
-                            : 'text-amber-400 bg-amber-500/10 border-amber-500/30'
-                        }`}>
-                          <CheckCircle2 size={12} /> {isQuizLive ? 'Active (Live)' : 'Active (Paused)'}
+                        <span className="flex items-center gap-1.5 text-[11px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full border text-emerald-400 bg-emerald-500/10 border-emerald-500/30">
+                          <CheckCircle2 size={12} /> Active Live Quiz
                         </span>
                       ) : (
                         <span className="text-[11px] font-bold text-gray-400 bg-white/5 px-2.5 py-1 rounded-full">
@@ -700,23 +636,16 @@ export const AdminPage: React.FC = () => {
 
                     <div className="flex items-center gap-2">
                       {isActive ? (
-                        <button
-                          onClick={() => setQuizLiveStatus(!isQuizLive)}
-                          className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer shadow-sm ${
-                            isQuizLive 
-                              ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40 hover:bg-amber-500/30'
-                              : 'bg-emerald-500 text-black hover:bg-emerald-400 font-extrabold'
-                          }`}
-                        >
-                          {isQuizLive ? 'Stop Quiz' : 'Resume Live'}
-                        </button>
+                        <span className="px-3 py-1.5 bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded-lg text-xs font-bold flex items-center gap-1">
+                          <CheckCircle2 size={13} /> Active Collection
+                        </span>
                       ) : (
                         <button
                           onClick={() => setActiveQuizId(quiz.id)}
                           className="px-3 py-1.5 bg-amber-500 hover:bg-amber-400 text-black text-xs font-extrabold rounded-lg transition-all cursor-pointer shadow-sm"
-                          title="Stop current running quiz and make this one live immediately"
+                          title="Set this quiz collection as active for all candidates"
                         >
-                          Set as Live Quiz
+                          Select as Active Quiz
                         </button>
                       )}
                       
@@ -937,8 +866,17 @@ export const AdminPage: React.FC = () => {
                     />
                   </div>
 
-                  {/* JSON Editor Header */}
-                  <div className="flex items-center justify-between pt-2">
+                  {/* Invisible File Input */}
+                  <input 
+                    type="file" 
+                    ref={fileInputRef} 
+                    accept=".json,application/json" 
+                    onChange={handleFileUpload} 
+                    className="hidden" 
+                  />
+
+                  {/* JSON Action Bar & Helpers */}
+                  <div className="flex flex-wrap items-center justify-between gap-2 pt-2">
                     <label className="text-xs font-semibold text-gray-300 flex items-center gap-1.5">
                       <span>Questions JSON Payload *</span>
                       {parsedQuestions.length > 0 && (
@@ -947,20 +885,85 @@ export const AdminPage: React.FC = () => {
                         </span>
                       )}
                     </label>
-                    <button
-                      type="button"
-                      onClick={insertSampleJson}
-                      className="text-xs text-amber-400 hover:text-amber-300 font-semibold underline cursor-pointer"
-                    >
-                      Insert Sample JSON Template
-                    </button>
+
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <button
+                        type="button"
+                        onClick={() => fileInputRef.current?.click()}
+                        className="px-3 py-1.5 bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/30 text-amber-300 font-bold rounded-lg text-xs transition-all flex items-center gap-1.5 cursor-pointer"
+                        title="Upload a .json file containing questions from your device"
+                      >
+                        <Upload size={14} /> Upload .json File
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={handleDownloadSample}
+                        className="px-3 py-1.5 bg-white/10 hover:bg-white/15 border border-white/20 text-gray-200 font-semibold rounded-lg text-xs transition-all flex items-center gap-1.5 cursor-pointer"
+                        title="Download sample template file"
+                      >
+                        <Download size={14} /> Sample .json
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => setShowFormatGuide(!showFormatGuide)}
+                        className="text-xs text-amber-400 hover:text-amber-300 font-semibold flex items-center gap-1 cursor-pointer underline"
+                      >
+                        <HelpCircle size={14} /> {showFormatGuide ? 'Hide Schema Guide' : 'JSON Format Schema'}
+                      </button>
+                    </div>
                   </div>
+
+                  {/* Schema Guide Box */}
+                  {showFormatGuide && (
+                    <motion.div 
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      className="p-4 bg-black/40 border border-amber-500/30 rounded-xl space-y-3 text-xs"
+                    >
+                      <div className="flex items-center justify-between border-b border-white/10 pb-2">
+                        <div className="flex items-center gap-2">
+                          <FileJson className="text-amber-400" size={16} />
+                          <span className="font-bold text-white">Required JSON Structure Specification</span>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const snippet = `[\n  {\n    "id": "1",\n    "question": "What is the primary message of Gita?",\n    "options": [\n      "Devotional service and self-realization",\n      "Material wealth",\n      "Mental speculation",\n      "Physical exercise"\n    ],\n    "correct": "Devotional service and self-realization",\n    "explanation": "Chapter 18, Verse 65."\n  }\n]`;
+                            navigator.clipboard.writeText(snippet);
+                            setCopiedFormat(true);
+                            setTimeout(() => setCopiedFormat(false), 2000);
+                          }}
+                          className="px-2.5 py-1 bg-white/10 hover:bg-white/20 rounded text-[11px] font-bold text-amber-300 flex items-center gap-1 cursor-pointer"
+                        >
+                          <Copy size={12} /> {copiedFormat ? 'Copied!' : 'Copy Template'}
+                        </button>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-[11px]">
+                        <div>
+                          <strong className="text-amber-300 block mb-1">Required Field Specification:</strong>
+                          <ul className="list-disc list-inside space-y-1 text-gray-300">
+                            <li><code className="text-amber-400 font-mono">id</code>: Unique number or string</li>
+                            <li><code className="text-amber-400 font-mono">question</code>: Question text string</li>
+                            <li><code className="text-amber-400 font-mono">options</code>: Array of at least 2 choices</li>
+                            <li><code className="text-amber-400 font-mono">correct</code>: Exact string matching 1 option</li>
+                            <li><code className="text-amber-400 font-mono">explanation</code> (optional): Learning note</li>
+                          </ul>
+                        </div>
+                        <div className="bg-[#050810] p-2.5 rounded-lg border border-white/10 font-mono text-[10px] text-amber-200/90 overflow-x-auto">
+                          <pre>{`[\n  {\n    "id": "1",\n    "question": "What is ...?",\n    "options": ["A", "B", "C", "D"],\n    "correct": "A",\n    "explanation": "Optional note"\n  }\n]`}</pre>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
 
                   {/* Textarea */}
                   <div className="relative">
                     <textarea
                       required
-                      rows={12}
+                      rows={11}
                       value={jsonContent}
                       onChange={e => handleJsonChange(e.target.value)}
                       placeholder={`[\n  {\n    "id": "1",\n    "question": "What is the nature of the soul according to Gita?",\n    "options": ["Eternal and indestructible", "Temporary", "Created by chemicals", "Imaginary"],\n    "correct": "Eternal and indestructible"\n  }\n]`}

@@ -1,1615 +1,3311 @@
-import { QuizQuestion } from '../types';
+import { QuizQuestion } from "../types";
 
 export const bhagavadGita300Questions: QuizQuestion[] = [
-  // ==========================================
-  // SECTION 1: FOUNDATIONS & KARMA YOGA (CH 1–6)
-  // ==========================================
-  {
-    id: "bg_1",
-    question: "What is the very first word spoken in the Bhagavad-gita by Dhritarashtra?",
-    options: ["Dharma-kshetre", "Kurukshetre", "Samaveta", "Mamakah"],
-    correct: "Dharma-kshetre",
-    difficulty: "easy",
-    explanation: "BG 1.1 begins with 'dharma-kṣetre kuru-kṣetre samavetā yuyutsavaḥ'."
-  },
-  {
-    id: "bg_2",
-    question: "What was the name of Lord Krishna's divine conch shell?",
-    options: ["Panchajanya", "Devadatta", "Paundra", "Anantavijaya"],
-    correct: "Panchajanya",
-    difficulty: "easy",
-    explanation: "BG 1.15: Lord Krishna blew His conchshell, called Panchajanya."
-  },
-  {
-    id: "bg_3",
-    question: "What was the name of Arjuna's conch shell?",
-    options: ["Devadatta", "Panchajanya", "Sughosha", "Manipushpaka"],
-    correct: "Devadatta",
-    difficulty: "easy",
-    explanation: "BG 1.15: Arjuna blew his conch shell, the Devadatta."
-  },
-  {
-    id: "bg_4",
-    question: "What was the name of Bhima's terrible conch shell?",
-    options: ["Paundra", "Devadatta", "Anantavijaya", "Sughosha"],
-    correct: "Paundra",
-    difficulty: "mid",
-    explanation: "BG 1.15: Bhima, the voracious eater and performer of herculean tasks, blew his conchshell named Paundra."
-  },
-  {
-    id: "bg_5",
-    question: "Which emblem was emblazoned on the flag of Arjuna's chariot?",
-    options: ["Sri Hanuman", "Garuda", "Nandi", "Sudarshana"],
-    correct: "Sri Hanuman",
-    difficulty: "easy",
-    explanation: "BG 1.20: Arjuna's chariot bore the emblem of Hanuman (Kapi-dhvaja), ensuring victory."
-  },
-  {
-    id: "bg_6",
-    question: "Where did Arjuna request Lord Krishna to place his chariot before the battle began?",
-    options: ["Between the two armies (senayor ubhayor madhye)", "Behind King Yudhishthira", "In front of Bhishma's tent", "At the northern gate of Kurukshetra"],
-    correct: "Between the two armies (senayor ubhayor madhye)",
-    difficulty: "easy",
-    explanation: "BG 1.21: Arjuna said: 'O infallible one, please draw my chariot between the two armies.'"
-  },
-  {
-    id: "bg_7",
-    question: "What is the name of Arjuna's celestial bow given by Agni and Varuna?",
-    options: ["Gandiva", "Sharanga", "Pinaka", "Vijaya"],
-    correct: "Gandiva",
-    difficulty: "easy",
-    explanation: "BG 1.29: Arjuna says 'gāṇḍīvaṁ sraṁsate hastāt' - my bow Gandiva is slipping from my hand."
-  },
-  {
-    id: "bg_8",
-    question: "Which sage granted Sanjaya the divine vision to witness the Kurukshetra war from Hastinapura?",
-    options: ["Srila Vyasadeva", "Narada Muni", "Vashistha Muni", "Parashara Muni"],
-    correct: "Srila Vyasadeva",
-    difficulty: "mid",
-    explanation: "By the mercy of Srila Vyasadeva, Sanjaya was endowed with divine vision (divya-drishti) to narrate the battlefield dialogues."
-  },
-  {
-    id: "bg_9",
-    question: "According to BG 2.13, what changes for the soul just as the body passes from boyhood to youth to old age?",
-    options: ["The soul passes into another body at death", "The soul dissolves into nothingness", "The soul loses its memories forever", "The soul undergoes physical transformation"],
-    correct: "The soul passes into another body at death",
-    difficulty: "easy",
-    explanation: "BG 2.13: 'dehino 'smin yathā dehe kaumāraṁ yauvanaṁ jarā, tathā dehāntara-prāptir dhīras tatra na muhyati.'"
-  },
-  {
-    id: "bg_10",
-    question: "What is the size of the individual spirit soul (atma) as described in the Upanishads and quoted in BG 2.17 purport?",
-    options: ["One ten-thousandth the tip of a hair", "One thousandth the tip of a hair", "Microscopic like a cell", "Infinitely expansive throughout the cosmos"],
-    correct: "One ten-thousandth the tip of a hair",
-    difficulty: "mid",
-    explanation: "Svetasvatara Upanishad 5.9: 'bālāgra-śata-bhāgasya śatadhā kalpitasya ca' - 1/10,000th part of the upper tip of a hair."
-  },
-  {
-    id: "bg_11",
-    question: "According to BG 2.20, does the soul ever take birth or die?",
-    options: ["Never; it is unborn, eternal, ever-existing and primeval", "Yes, it is born with each material body", "It dies when the universe is annihilated", "It is created during conception"],
-    correct: "Never; it is unborn, eternal, ever-existing and primeval",
-    difficulty: "easy",
-    explanation: "BG 2.20: 'na jāyate mriyate vā kadācin... ajo nityaḥ śāśvato 'yaṁ purāṇo na hanyate hanyamāne śarīre'."
-  },
-  {
-    id: "bg_12",
-    question: "In BG 2.22, how is the soul changing bodies compared?",
-    options: ["A person putting on new garments and giving up old ones", "A river flowing into the ocean", "A bird flying from one tree to another", "A snake shedding its skin"],
-    correct: "A person putting on new garments and giving up old ones",
-    difficulty: "easy",
-    explanation: "BG 2.22: 'vāsāṁsi jīrṇāni yathā vihāya navāni gṛhṇāti naro 'parāṇi'."
-  },
-  {
-    id: "bg_13",
-    question: "Can weapons cut the soul, fire burn it, water wet it, or wind wither it (BG 2.23)?",
-    options: ["No, none of these elements can affect the soul", "Only divine weapons can pierce it", "Yes, fire can scorch subtle bodies", "Water dissolves the soul in liberation"],
-    correct: "No, none of these elements can affect the soul",
-    difficulty: "easy",
-    explanation: "BG 2.23: 'nainaṁ chindanti śastrāṇi nainaṁ dahati pāvakaḥ na cainaṁ kledayanty āpo na śoṣayati mārutaḥ'."
-  },
-  {
-    id: "bg_14",
-    question: "What does Krishna state is the meaning of 'Karmanye vadhi-karaste ma phaleshu kadachana' in BG 2.47?",
-    options: ["You have a right to perform your prescribed duty, but not to the fruits of action", "You should perform actions only when rewards are guaranteed", "Renounce all actions and sit in silent meditation", "Work only for material prosperity"],
-    correct: "You have a right to perform your prescribed duty, but not to the fruits of action",
-    difficulty: "easy",
-    explanation: "BG 2.47: 'karmaṇy evādhikāras te mā phaleṣu kadācana, mā karma-phala-hetur bhūr mā te saṅgo 'stv akarmaṇi'."
-  },
-  {
-    id: "bg_15",
-    question: "What is the definition of Yoga given in BG 2.48?",
-    options: ["Samatvam yoga ucyate (Equanimity is called yoga)", "Hatha posture perfection", "Kundalini awakening", "Complete breath retention"],
-    correct: "Samatvam yoga ucyate (Equanimity is called yoga)",
-    difficulty: "mid",
-    explanation: "BG 2.48: Equanimity in both success and failure is called yoga ('samatvaṁ yoga ucyate')."
-  },
-  {
-    id: "bg_16",
-    question: "What is described as 'yogaḥ karmasu kauśalam' in BG 2.50?",
-    options: ["Yoga is the art of all work (working without fruitive attachment)", "Yoga is physical agility", "Yoga is intellectual debating", "Yoga is renouncing family life"],
-    correct: "Yoga is the art of all work (working without fruitive attachment)",
-    difficulty: "mid",
-    explanation: "BG 2.50: A person engaged in devotional service rids himself of good and bad actions in this life. Therefore strive for yoga, which is the art of all work."
-  },
-  {
-    id: "bg_17",
-    question: "What term does Arjuna use in BG 2.54 to inquire about a person situated in pure transcendence?",
-    options: ["Sthita-prajna", "Brahmachari", "Yogi", "Mahatma"],
-    correct: "Sthita-prajna",
-    difficulty: "mid",
-    explanation: "BG 2.54: Arjuna asks: 'sthita-prajñasya kā bhāṣā samādhi-sthasya keśava' - what are the symptoms of one whose consciousness is fixed in transcendence?"
-  },
-  {
-    id: "bg_18",
-    question: "In BG 2.58, whose withdrawal of limbs is compared to a sage withdrawing senses from sense objects?",
-    options: ["A tortoise (kurma)", "A lotus flower", "A swan", "A spider"],
-    correct: "A tortoise (kurma)",
-    difficulty: "easy",
-    explanation: "BG 2.58: 'yadā saṁharate cāyaṁ kūrmo 'ṅgānīva sarvaśaḥ' - one who is able to withdraw his senses from sense objects, as the tortoise draws its limbs within the shell."
-  },
-  {
-    id: "bg_19",
-    question: "According to BG 2.59, how can one permanently give up the taste for lower material pleasures?",
-    options: ["By experiencing a higher taste (param drishtva nivartate)", "By severe fasting alone", "By isolating oneself in a forest cave", "By artificial dry intellectual negation"],
-    correct: "By experiencing a higher taste (param drishtva nivartate)",
-    difficulty: "mid",
-    explanation: "BG 2.59: 'viṣayā vinivartante nirāhārasya dehinaḥ, rasa-varjaṁ raso 'py asya paraṁ dṛṣṭvā nivartate' - one ceases from sense enjoyment by experiencing a higher taste in Krishna consciousness."
-  },
-  {
-    id: "bg_20",
-    question: "What is the psychological ladder of degradation described in BG 2.62-63?",
-    options: ["Contemplating sense objects -> Attachment -> Lust -> Anger -> Delusion -> Loss of memory -> Loss of intelligence -> Ruin", "Anger -> Lust -> Greed -> Death", "Ignorance -> Passion -> Goodness -> Bondage", "Pride -> Envy -> Illusion -> Rebirth"],
-    correct: "Contemplating sense objects -> Attachment -> Lust -> Anger -> Delusion -> Loss of memory -> Loss of intelligence -> Ruin",
-    difficulty: "hard",
-    explanation: "BG 2.62-63 traces the complete cycle from dhyayato vishayan pumsah down to buddhi-nasat pranasyati."
-  },
-  {
-    id: "bg_21",
-    question: "In BG 2.69, what is night for all beings is the time of awakening for whom?",
-    options: ["The self-controlled sage (samyami)", "The fruitive worker", "The philosopher", "The demigods"],
-    correct: "The self-controlled sage (samyami)",
-    difficulty: "mid",
-    explanation: "BG 2.69: 'yā niśā sarva-bhūtānāṁ tasyāṁ jāgarti saṁyamī' - what is night for all beings is the time of awakening for the self-controlled."
-  },
-  {
-    id: "bg_22",
-    question: "According to BG 3.9, work done as a sacrifice for which Lord frees one from material bondage?",
-    options: ["Yajna / Lord Vishnu", "Indra", "Shiva", "Brahma"],
-    correct: "Yajna / Lord Vishnu",
-    difficulty: "mid",
-    explanation: "BG 3.9: 'yajñārthāt karmaṇo 'nyatra loko 'yaṁ karma-bandhanaḥ' - work done as a sacrifice for Vishnu has to be performed; otherwise work causes bondage."
-  },
-  {
-    id: "bg_23",
-    question: "According to BG 3.14, from what do all living bodies subsist, and from what is rain produced?",
-    options: ["Bodies subsist on food grains, which are produced from rains, which arise from performance of yajna", "Bodies subsist on water, which comes from clouds alone", "Bodies subsist on sunlight and earth", "Bodies subsist on fruitive work"],
-    correct: "Bodies subsist on food grains, which are produced from rains, which arise from performance of yajna",
-    difficulty: "mid",
-    explanation: "BG 3.14: 'annād bhavanti bhūtāni parjanyād anna-sambhavaḥ, yajñād bhavati parjanyo yajñaḥ karma-samudbhavaḥ'."
-  },
-  {
-    id: "bg_24",
-    question: "What happens when a great leader acts, according to BG 3.21?",
-    options: ["Whatever action a great man performs, common men follow (yad yad acarati sresthas)", "Common men revolt against him", "He becomes free from all social duty", "Only his disciples follow his standard"],
-    correct: "Whatever action a great man performs, common men follow (yad yad acarati sresthas)",
-    difficulty: "easy",
-    explanation: "BG 3.21: 'yad yad ācarati śreṣṭhas tat tad evetaro janaḥ, sa yat pramāṇaṁ kurute lokas tad anuvartate'."
-  },
-  {
-    id: "bg_25",
-    question: "Which exemplary king does Lord Krishna cite in BG 3.20 who attained perfection through performance of prescribed duties?",
-    options: ["King Janaka", "King Ambarisha", "King Yudhisthira", "King Bharata"],
-    correct: "King Janaka",
-    difficulty: "mid",
-    explanation: "BG 3.20: 'karmaṇaiva hi saṁsiddhim āsthitā janakādayaḥ' - kings like Janaka attained perfection solely by performance of prescribed duties."
-  },
-  {
-    id: "bg_26",
-    question: "In BG 3.27, who is actually carrying out all activities while the bewildered soul thinks 'I am the doer'?",
-    options: ["The three modes of material nature (gunas)", "The senses independently", "The individual soul's arms and legs", "The stars and planetary alignments"],
-    correct: "The three modes of material nature (gunas)",
-    difficulty: "hard",
-    explanation: "BG 3.27: 'prakṛteḥ kriyamāṇāni guṇaiḥ karmāṇi sarvaśaḥ, ahaṅkāra-vimūḍhātmā kartāham iti manyate'."
-  },
-  {
-    id: "bg_27",
-    question: "What does BG 3.35 declare about performing one's own duty (svadharma) versus another's duty (paradharma)?",
-    options: ["Better is one's own duty, though faulty, than another's duty well performed; destruction in one's own duty is better", "Always adopt whichever duty brings the highest income", "Another's duty is superior if done with enthusiasm", "One should abandon all duty instantly"],
-    correct: "Better is one's own duty, though faulty, than another's duty well performed; destruction in one's own duty is better",
-    difficulty: "mid",
-    explanation: "BG 3.35: 'śreyān sva-dharmo viguṇaḥ para-dharmāt sv-anuṣṭhitāt, sva-dharme nidhanaṁ śreyaḥ para-dharmo bhayāvahaḥ'."
-  },
-  {
-    id: "bg_28",
-    question: "In BG 3.37, what does Krishna identify as the all-devouring, great enemy of this world?",
-    options: ["Lust (kama), born of the mode of passion, which later transforms into wrath", "Poverty and hunger", "Lack of political governance", "Fear of death"],
-    correct: "Lust (kama), born of the mode of passion, which later transforms into wrath",
-    difficulty: "easy",
-    explanation: "BG 3.37: 'kāma eṣa krodha eṣa rajo-guṇa-samudbhavaḥ, mahāśano mahā-pāpmā viddhy enam iha vairiṇam'."
-  },
-  {
-    id: "bg_29",
-    question: "According to BG 3.42, what is the hierarchy of human faculties from lowest to highest?",
-    options: ["Senses -> Mind -> Intelligence -> Soul", "Body -> Soul -> Mind -> Senses", "Mind -> Intelligence -> Senses -> Soul", "Senses -> Soul -> Intelligence -> Mind"],
-    correct: "Senses -> Mind -> Intelligence -> Soul",
-    difficulty: "hard",
-    explanation: "BG 3.42: 'indriyāṇi parāṇy āhur indriyebhyaḥ paraṁ manaḥ, manasas tu parā buddhir yo buddheḥ paratas tu saḥ'."
-  },
-  {
-    id: "bg_30",
-    question: "To whom did Lord Krishna first instruct the imperishable science of yoga in ancient times (BG 4.1)?",
-    options: ["Vivasvan (the sun-god)", "Manu (the father of mankind)", "Ikshvaku", "Brahma"],
-    correct: "Vivasvan (the sun-god)",
-    difficulty: "easy",
-    explanation: "BG 4.1: 'imaṁ vivasvate yogaṁ proktavān aham avyayam' - Krishna instructed this science to the sun-god Vivasvan."
-  },
-  {
-    id: "bg_31",
-    question: "Why was the original science of Bhagavad-gita lost over the course of time (BG 4.2)?",
-    options: ["The disciplic succession (parampara) was broken", "The manuscripts were burnt in floods", "People stopped speaking Sanskrit", "The sun-god forgot the verses"],
-    correct: "The disciplic succession (parampara) was broken",
-    difficulty: "mid",
-    explanation: "BG 4.2: 'sa kāleneha mahatā yogo naṣṭaḥ parantapa' - in course of time the succession was broken, and therefore the science appeared to be lost."
-  },
-  {
-    id: "bg_32",
-    question: "Why did Lord Krishna select Arjuna to receive this confidential science in BG 4.3?",
-    options: ["Because Arjuna was His devotee and friend (bhakto 'si me sakha ceti)", "Because Arjuna was the richest prince", "Because Arjuna was an expert Vedic scholar", "Because Arjuna was the oldest brother"],
-    correct: "Because Arjuna was His devotee and friend (bhakto 'si me sakha ceti)",
-    difficulty: "easy",
-    explanation: "BG 4.3: 'bhakto 'si me sakhā ceti rahasyaṁ hy etad uttamam' - because you are My devotee and My friend, you can understand this transcendental mystery."
-  },
-  {
-    id: "bg_33",
-    question: "Under what conditions does Lord Krishna manifest Himself in the material world (BG 4.7)?",
-    options: ["Whenever and wherever there is a decline in religious practice and a predominant rise of irreligion", "Only during the solar eclipse in Kurukshetra", "Once every billion years at universal annihilation", "When requested by earthly monarchs"],
-    correct: "Whenever and wherever there is a decline in religious practice and a predominant rise of irreligion",
-    difficulty: "easy",
-    explanation: "BG 4.7: 'yadā yadā hi dharmasya glānir bhavati bhārata, abhyutthānam adharmasya tadātmānaṁ sṛjāmy aham'."
-  },
-  {
-    id: "bg_34",
-    question: "What are the three purposes of Krishna's divine advent described in BG 4.8?",
-    options: ["To deliver the pious, annihilate the miscreants, and reestablish religious principles", "To conquer kingdoms, marry queens, and rule Mathura", "To teach weapons skills to Pandavas", "To grant wealth, fame, and longevity to humanity"],
-    correct: "To deliver the pious, annihilate the miscreants, and reestablish religious principles",
-    difficulty: "easy",
-    explanation: "BG 4.8: 'paritrāṇāya sādhūnāṁ vināśāya ca duṣkṛtām, dharma-saṁsthāpanārthāya sambhavāmi yuge yuge'."
-  },
-  {
-    id: "bg_35",
-    question: "According to BG 4.9, what happens to one who understands the transcendental nature of Krishna's birth and activities (janma karma ca me divyam)?",
-    options: ["Upon leaving the body, he does not take birth again in this material world, but attains Krishna's eternal abode", "He becomes an earthly emperor in his next life", "He is elevated to the heavenly planets for 10,000 years", "He merges into empty void"],
-    correct: "Upon leaving the body, he does not take birth again in this material world, but attains Krishna's eternal abode",
-    difficulty: "mid",
-    explanation: "BG 4.9: 'tyaktvā dehaṁ punar janma naiti mām eti so 'rjuna' - he does not take birth again, but attains My eternal abode, O Arjuna."
-  },
-  {
-    id: "bg_36",
-    question: "On what basis did Lord Krishna create the four divisions of human society (catur-varnyam) according to BG 4.13?",
-    options: ["According to guna (quality) and karma (activity), not by birth", "Strictly by birth in a particular caste", "By family wealth and political power", "By astrological planetary charts"],
-    correct: "According to guna (quality) and karma (activity), not by birth",
-    difficulty: "easy",
-    explanation: "BG 4.13: 'cātur-varṇyaṁ mayā sṛṣṭaṁ guṇa-karma-vibhāgaśaḥ' - the four divisions of human society were created by Me according to the qualities and activities."
-  },
-  {
-    id: "bg_37",
-    question: "How should one approach a bona fide spiritual master according to BG 4.34?",
-    options: ["Tad viddhi pranipatena pariprasnena sevaya (Inquire submissively, render service, and surrender)", "By challenging him in public debates", "By offering exorbitant wealth alone", "By demanding instant mystic miracles"],
-    correct: "Tad viddhi pranipatena pariprasnena sevaya (Inquire submissively, render service, and surrender)",
-    difficulty: "easy",
-    explanation: "BG 4.34: 'tad viddhi praṇipātena paripraśnena sevayā, upadekṣyanti te jñānaṁ jñāninas tattva-darśinaḥ'."
-  },
-  {
-    id: "bg_38",
-    question: "What does BG 4.38 state about the purity of transcendental knowledge?",
-    options: ["In this world, there is nothing so sublime and pure as transcendental knowledge (na hi jnanena sadrsam)", "Wealth is purer than knowledge", "Physical austerities surpass all knowledge", "Ritual sacrifice alone is absolute"],
-    correct: "In this world, there is nothing so sublime and pure as transcendental knowledge (na hi jnanena sadrsam)",
-    difficulty: "mid",
-    explanation: "BG 4.38: 'na hi jñānena sadṛśaṁ pavitram iha vidyate' - in this world, there is nothing so sublime and pure as transcendental knowledge."
-  },
-  {
-    id: "bg_39",
-    question: "In BG 5.18, with what vision does a truly learned sage (pandita) view a humble brahmana, a cow, an elephant, a dog, and a dog-eater?",
-    options: ["With equal vision (sama-darsinah), seeing the spiritual soul within all beings", "He treats them all with social disregard", "He sees only their outward physical bodies", "He considers them all illusion with no existence"],
-    correct: "With equal vision (sama-darsinah), seeing the spiritual soul within all beings",
-    difficulty: "mid",
-    explanation: "BG 5.18: 'vidyā-vinaya-sampanne brāhmaṇe gavi hastini, śuni caiva śva-pāke ca paṇḍitāḥ sama-darśinaḥ'."
-  },
-  {
-    id: "bg_40",
-    question: "What is the famous 'Peace Formula' (Shanti-Mantra) enunciated in BG 5.29?",
-    options: ["Understanding Krishna as the supreme beneficiary of all sacrifices, supreme proprietor of all planets, and benefactor of all living beings", "Practicing silence for 12 years", "Donating all wealth to civic charity", "Refusing to take part in governance"],
-    correct: "Understanding Krishna as the supreme beneficiary of all sacrifices, supreme proprietor of all planets, and benefactor of all living beings",
-    difficulty: "mid",
-    explanation: "BG 5.29: 'bhoktāraṁ yajña-tapasāṁ sarva-loka-maheśvaram, suhṛdaṁ sarva-bhūtānāṁ jñātvā māṁ śāntim ṛcchati'."
-  },
-  {
-    id: "bg_41",
-    question: "According to BG 6.5, how can the mind be either one's friend or enemy?",
-    options: ["For him who has conquered the mind, it is the best of friends; for one who has failed, it remains the greatest enemy", "The mind is always an enemy until physical death", "The mind is always a friend naturally", "The mind has no influence on spiritual life"],
-    correct: "For him who has conquered the mind, it is the best of friends; for one who has failed, it remains the greatest enemy",
-    difficulty: "easy",
-    explanation: "BG 6.5-6: 'bandhur ātmātmanas tasya yenātmaivātmanā jitaḥ, anātmanas tu śatrutve vartetātmaiva śatru-vat'."
-  },
-  {
-    id: "bg_42",
-    question: "To what does Arjuna compare the restless and obstinate mind in BG 6.34?",
-    options: ["As difficult to control as the raging wind (vayoḥ)", "As slippery as an eel in water", "As heavy as a mountain of stone", "As fast as a shooting star"],
-    correct: "As difficult to control as the raging wind (vayoḥ)",
-    difficulty: "easy",
-    explanation: "BG 6.34: 'cañcalaṁ hi manaḥ kṛṣṇa pramāthi balavad dṛḍham, tasyāhaṁ nigrahaṁ manye vāyor iva su-duṣkaram'."
-  },
-  {
-    id: "bg_43",
-    question: "What two essential practices does Lord Krishna recommend in BG 6.35 to subdue the restless mind?",
-    options: ["Abhyasa (constant practice) and Vairagya (detachment)", "Hatha yoga breathing and solitary caves", "Fasting from food and water for weeks", "Studying grammar and logic"],
-    correct: "Abhyasa (constant practice) and Vairagya (detachment)",
-    difficulty: "mid",
-    explanation: "BG 6.35: 'abhyāsena tu kaunteya vairāgyeṇa ca gṛhyate' - it is curbed by constant practice and by detachment."
-  },
-  {
-    id: "bg_44",
-    question: "Where does an unsuccessful yogi take birth according to BG 6.41-42?",
-    options: ["In the family of the righteous and wealthy, or in a family of transcendentalists rich in wisdom", "He takes birth as a lower animal to purify bad karma", "He falls permanently into hellish conditions", "He is never given human form again"],
-    correct: "In the family of the righteous and wealthy, or in a family of transcendentalists rich in wisdom",
-    difficulty: "mid",
-    explanation: "BG 6.41-42: He takes birth in the house of pious and wealthy persons (shucinam shrimatam gehe) or in a family of learned transcendentalists."
-  },
-  {
-    id: "bg_45",
-    question: "Who is declared by Lord Krishna to be the topmost of all yogis in BG 6.47?",
-    options: ["He who always abides in Me with great faith, worshiping Me in transcendental loving service (Bhakti-yogi)", "The ashtanga yogi who sits in lotus posture for 1,000 years", "The jnana yogi who negates material forms", "The karma yogi who builds hospitals"],
-    correct: "He who always abides in Me with great faith, worshiping Me in transcendental loving service (Bhakti-yogi)",
-    difficulty: "mid",
-    explanation: "BG 6.47: 'yoginām api sarveṣāṁ mad-gatenāntar-ātmanā, śraddhāvān bhajate yo māṁ sa me yuktatamo mataḥ'."
-  },
-
-  // ==========================================
-  // SECTION 2: BHAKTI YOGA & TRANSCENDENTAL OPULENCES (CH 7–12)
-  // ==========================================
-  {
-    id: "bg_46",
-    question: "What are the eight separated material energies (apara prakriti) of Lord Krishna listed in BG 7.4?",
-    options: ["Earth, water, fire, air, ether, mind, intelligence, and false ego", "Sight, hearing, smell, taste, touch, breath, intellect, soul", "Sattva, rajas, tamas, prana, apana, vyana, udana, samana", "Sun, moon, stars, planets, mountains, oceans, clouds, winds"],
-    correct: "Earth, water, fire, air, ether, mind, intelligence, and false ego",
-    difficulty: "mid",
-    explanation: "BG 7.4: 'bhūmir āpo 'nalo vāyuḥ khaṁ mano buddhir eva ca, ahaṅkāra itīyaṁ me bhinnā prakṛtir aṣṭadhā'."
-  },
-  {
-    id: "bg_47",
-    question: "What is Krishna's superior energy (para prakriti) described in BG 7.5?",
-    options: ["The living entities (jiva-bhutam), who are exploiting the material resources", "The impersonal Brahman effulgence", "The celestial demigods in Svargaloka", "The unmanifest primordial pradhana"],
-    correct: "The living entities (jiva-bhutam), who are exploiting the material resources",
-    difficulty: "hard",
-    explanation: "BG 7.5: 'apareyam itas tv anyāṁ prakṛtiṁ viddhi me parām, jīva-bhūtāṁ mahā-bāho yayedaṁ dhāryate jagat'."
-  },
-  {
-    id: "bg_48",
-    question: "What analogy does Krishna give in BG 7.7 to illustrate how all things rest upon Him?",
-    options: ["Like pearls strung on a thread (sutre mani-gana iva)", "Like rays emanating from the sun", "Like drops of water in a vast ocean", "Like sparks flying from a blazing fire"],
-    correct: "Like pearls strung on a thread (sutre mani-gana iva)",
-    difficulty: "easy",
-    explanation: "BG 7.7: 'mattaḥ parataraṁ nānyat kiñcid asti dhanañjaya, mayi sarvam idaṁ protaṁ sūtre maṇi-gaṇā iva'."
-  },
-  {
-    id: "bg_49",
-    question: "In BG 7.8, Krishna declares: 'I am the taste of...'",
-    options: ["Water (raso 'ham apsu kaunteya)", "Milk in the morning", "Sweet mango nectar", "The soma juice of heaven"],
-    correct: "Water (raso 'ham apsu kaunteya)",
-    difficulty: "easy",
-    explanation: "BG 7.8: 'raso 'ham apsu kaunteya prabhāsmi śaśi-sūryayoḥ' - O son of Kunti, I am the taste of water."
-  },
-  {
-    id: "bg_50",
-    question: "According to BG 7.14, how can one overcome the formidable divine energy of Maya (daivi hy esa guna-mayi mama maya duratyaya)?",
-    options: ["Only those who surrender unto Krishna can easily cross beyond it (mam eva ye prapadyante)", "By performing rigorous hatha yoga for decades", "By extensive academic study of grammar", "By appeasing the nine astrological planets"],
-    correct: "Only those who surrender unto Krishna can easily cross beyond it (mam eva ye prapadyante)",
-    difficulty: "easy",
-    explanation: "BG 7.14: 'daivī hy eṣā guṇa-mayī mama māyā duratyayā, mām eva ye prapadyante māyām etāṁ taranti te'."
-  },
-  {
-    id: "bg_51",
-    question: "What are the four classes of miscreants (duskrtino) who never surrender to Krishna (BG 7.15)?",
-    options: ["Mudhas (fools), Naradhamas (lowest of mankind), Mayayapahrta-jnanah (intellect stolen by illusion), and Asuram bhavam asritah (demoniac)", "Thieves, liars, cheats, and kings", "Atheists, scientists, philosophers, and traders", "Animals, ghosts, yakshas, and rakshasas"],
-    correct: "Mudhas (fools), Naradhamas (lowest of mankind), Mayayapahrta-jnanah (intellect stolen by illusion), and Asuram bhavam asritah (demoniac)",
-    difficulty: "hard",
-    explanation: "BG 7.15: 'na māṁ duṣkṛtino mūḍhāḥ prapadyante narādhamāḥ, māyayāpahṛta-jñānā āsuraṁ bhāvam āśritāḥ'."
-  },
-  {
-    id: "bg_52",
-    question: "Who are the four classes of pious men (sukrtino) who begin to render devotional service unto Krishna (BG 7.16)?",
-    options: ["The distressed (arto), the desirer of wealth (artharthi), the inquisitive (jijnasur), and he who searches for knowledge of the Absolute (jnani)", "The priests, rulers, merchants, and laborers", "The celibate, household, retired, and renunciant", "The poets, musicians, artists, and builders"],
-    correct: "The distressed (arto), the desirer of wealth (artharthi), the inquisitive (jijnasur), and he who searches for knowledge of the Absolute (jnani)",
-    difficulty: "mid",
-    explanation: "BG 7.16: 'catur-vidhā bhajante māṁ janāḥ sukṛtino 'rjuna, ārto jijñāsur arthārthī jñānī ca bharatarṣabha'."
-  },
-  {
-    id: "bg_53",
-    question: "After how long does a wise person surrender unto Krishna realizing 'Vasudeva is all that is' (BG 7.19)?",
-    options: ["After many births and deaths (bahunam janmanam ante)", "After twelve years of forest meditation", "Instantly upon receiving a sacred thread", "At the end of the Kali-yuga only"],
-    correct: "After many births and deaths (bahunam janmanam ante)",
-    difficulty: "mid",
-    explanation: "BG 7.19: 'bahūnāṁ janmanām ante jñānavān māṁ prapadyate, vāsudevaḥ sarvam iti sa mahātmā su-durlabhaḥ'."
-  },
-  {
-    id: "bg_54",
-    question: "Why do those who worship demigods go to demigod planets, while Krishna's devotees come to Him (BG 7.23)?",
-    options: ["Demigod fruits are limited and temporary, whereas devotion to the Supreme Lord yields eternal life in His abode", "Demigods give liberation faster", "Demigod worship requires less investment", "There is no difference in their ultimate destination"],
-    correct: "Demigod fruits are limited and temporary, whereas devotion to the Supreme Lord yields eternal life in His abode",
-    difficulty: "mid",
-    explanation: "BG 7.23: 'antavat tu phalaṁ teṣāṁ tad bhavaty alpa-medhasām, devān deva-yajo yānti mad-bhaktā yānti mām api'."
-  },
-  {
-    id: "bg_55",
-    question: "According to BG 8.5-6, what determines one's destination in the next life?",
-    options: ["Whatever state of being one remembers at the time of quitting his body (yam yam vapi smaran bhavam)", "Only one's horoscope at the time of death", "The ceremonies performed by relatives after death", "Random mechanical chance"],
-    correct: "Whatever state of being one remembers at the time of quitting his body (yam yam vapi smaran bhavam)",
-    difficulty: "easy",
-    explanation: "BG 8.6: 'yaṁ yaṁ vāpi smaran bhāvaṁ tyajaty ante kalevaram, taṁ tam evaiti kaunteya sadā tad-bhāva-bhāvitaḥ'."
-  },
-  {
-    id: "bg_56",
-    question: "In BG 8.7, what instruction does Krishna give Arjuna for his daily life?",
-    options: ["Remember Me always and carry out your fighting duty (mam anusmara yudhya ca)", "Abandon your weapons and retreat to the Himalayas", "Fight first and remember Me only after victory", "Only chant without doing any physical work"],
-    correct: "Remember Me always and carry out your fighting duty (mam anusmara yudhya ca)",
-    difficulty: "easy",
-    explanation: "BG 8.7: 'tasmāt sarveṣu kāleṣu mām anusmara yudhya ca' - therefore, at all times, think of Me and at the same time carry out your prescribed duty of fighting."
-  },
-  {
-    id: "bg_57",
-    question: "What is this material world characterized as by Lord Krishna in BG 8.15?",
-    options: ["Dukhalayam asasvatam (A temporary place full of miseries)", "A permanent paradise of sensory enjoyment", "An illusion where suffering is not real", "A neutral testing ground without consequences"],
-    correct: "Dukhalayam asasvatam (A temporary place full of miseries)",
-    difficulty: "easy",
-    explanation: "BG 8.15: 'mām upetya punar janma duḥkhālayam aśāśvatam, nāpnuvanti mahātmānaḥ saṁsiddhiṁ paramāṁ gatāḥ'."
-  },
-  {
-    id: "bg_58",
-    question: "According to BG 8.16, from which planet down to the lowest is rebirth mandatory, except for those who reach Krishna's abode?",
-    options: ["From the highest planet in the material world (Brahmaloka)", "From the moon (Candraloka)", "From the heavenly planet of Indra (Svargaloka)", "From the sun planet"],
-    correct: "From the highest planet in the material world (Brahmaloka)",
-    difficulty: "mid",
-    explanation: "BG 8.16: 'ā-brahma-bhuvanāl lokāḥ punar āvartino 'rjuna, mām upetya tu kaunteya punar janma na vidyate'."
-  },
-  {
-    id: "bg_59",
-    question: "In BG 8.17, how long is one day of Brahma (Brahma-muhurta / Kalpa) in human years?",
-    options: ["1,000 yuga cycles (4.32 billion solar years)", "1 million solar years", "10,000 solar years", "100 celestial days"],
-    correct: "1,000 yuga cycles (4.32 billion solar years)",
-    difficulty: "hard",
-    explanation: "BG 8.17: 'sahasra-yuga-paryantam ahar yad brahmaṇo viduḥ' - by human calculation, a thousand yuga cycles together make up the duration of Brahma's one day."
-  },
-  {
-    id: "bg_60",
-    question: "What title is given to Chapter 9 of the Bhagavad-gita by Srila Prabhupada?",
-    options: ["The Most Confidential Knowledge (Raja-Vidya Raja-Guhya Yoga)", "The Yoga of the Supreme Person", "The Universal Form", "The Divisions of Faith"],
-    correct: "The Most Confidential Knowledge (Raja-Vidya Raja-Guhya Yoga)",
-    difficulty: "easy",
-    explanation: "Chapter 9 reveals Raja-vidya raja-guhyam pavitram idam uttamam - the king of education and secret of secrets."
-  },
-  {
-    id: "bg_61",
-    question: "In BG 9.2, how is devotional service (bhakti-yoga) described regarding its experiential joy?",
-    options: ["Pratyaksavagamam dharmyam susukham kartum avyayam (Directly realized and joyfully performed)", "Painful, dry, and sorrowful to execute", "Requiring complete physical starvation", "Understood only after death"],
-    correct: "Pratyaksavagamam dharmyam susukham kartum avyayam (Directly realized and joyfully performed)",
-    difficulty: "mid",
-    explanation: "BG 9.2: 'rāja-vidyā rāja-guhyaṁ pavitram idam uttamam, pratyakṣāvagamaṁ dharmyaṁ su-sukhaṁ kartum avyayam'."
-  },
-  {
-    id: "bg_62",
-    question: "According to BG 9.10, under whose superintendence does the material nature produce all moving and nonmoving beings?",
-    options: ["Under Lord Krishna's superintendence (mayadhyaksena prakrtih)", "Independently without any controller", "Under the control of blind evolution alone", "Under the whims of Shiva alone"],
-    correct: "Under Lord Krishna's superintendence (mayadhyaksena prakrtih)",
-    difficulty: "mid",
-    explanation: "BG 9.10: 'mayādhyakṣeṇa prakṛtiḥ sūyate sa-carācaram, hetunānena kaunteya jagad viparivartate'."
-  },
-  {
-    id: "bg_63",
-    question: "What do fools (mudhas) do when the Supreme Lord descends in a human-like transcendental form according to BG 9.11?",
-    options: ["They deride Him, not knowing His transcendental nature as Supreme Lord (avajananti mam mudha)", "They immediately fall down and surrender", "They write devotional commentaries", "They build opulent gold temples for Him"],
-    correct: "They deride Him, not knowing His transcendental nature as Supreme Lord (avajananti mam mudha)",
-    difficulty: "easy",
-    explanation: "BG 9.11: 'avajānanti māṁ mūḍhā mānuṣīṁ tanum āśritam, paraṁ bhāvam ajānanto mama bhūta-maheśvaram'."
-  },
-  {
-    id: "bg_64",
-    question: "What promise does Lord Krishna make in BG 9.22 to those who always worship Him with exclusive devotion?",
-    options: ["I carry what they lack and preserve what they have (yoga-ksemam vahamy aham)", "I give them sovereignty over Svargaloka", "I remove all their enemies by thunderbolts", "I grant them unlimited gold treasures"],
-    correct: "I carry what they lack and preserve what they have (yoga-ksemam vahamy aham)",
-    difficulty: "easy",
-    explanation: "BG 9.22: 'ananyāś cintayanto māṁ ye janāḥ paryupāsate, teṣāṁ nityābhiyuktānāṁ yoga-kṣemaṁ vahāmy aham'."
-  },
-  {
-    id: "bg_65",
-    question: "What simple items does Lord Krishna accept with love and devotion in BG 9.26?",
-    options: ["A leaf, a flower, a fruit, or water (patram puspam phalam toyam)", "Extravagant golden ornaments and animal sacrifices", "Expensive gems and silver coins", "Exotic wines and royal silk cushions"],
-    correct: "A leaf, a flower, a fruit, or water (patram puspam phalam toyam)",
-    difficulty: "easy",
-    explanation: "BG 9.26: 'patraṁ puṣpaṁ phalaṁ toyaṁ yo me bhaktyā prayacchati, tad ahaṁ bhakty-upahṛtam aśnāmi prayatātmanaḥ'."
-  },
-  {
-    id: "bg_66",
-    question: "What should one do with whatever one eats, offers, gives away, or performs as austerity (BG 9.27)?",
-    options: ["Do it as an offering unto Lord Krishna (tat kurusva mad-arpanam)", "Keep it strictly private for personal pride", "Dedicate it to one's nation or ancestors only", "Offer it to fire for material wealth"],
-    correct: "Do it as an offering unto Lord Krishna (tat kurusva mad-arpanam)",
-    difficulty: "easy",
-    explanation: "BG 9.27: 'yat karoṣi yad aśnāsi yaj juhoṣi dadāsi yat, yat tapasyasi kaunteya tat kuruṣva mad-arpaṇam'."
-  },
-  {
-    id: "bg_67",
-    question: "In BG 9.30, even if a devotee commits the most abominable action, why is he still to be considered saintly?",
-    options: ["Because he is properly situated in his determination to serve Krishna (samyag vyavasito hi sah)", "Because Krishna ignores all moral laws", "Because sins do not exist in devotional service", "Because he performs costly penances"],
-    correct: "Because he is properly situated in his determination to serve Krishna (samyag vyavasito hi sah)",
-    difficulty: "hard",
-    explanation: "BG 9.30: 'api cet su-durācāro bhajate mām ananya-bhāk, sādhur eva sa mantavyaḥ samyag vyavasito hi saḥ'."
-  },
-  {
-    id: "bg_68",
-    question: "What bold declaration does Krishna urge Arjuna to proclaim to the world in BG 9.31?",
-    options: ["Kaunteya pratijanihi na me bhaktah pranasyati (My devotee never perishes!)", "The battle will end in three days", "Material pleasure is the ultimate goal", "Only learned brahmanas can attain perfection"],
-    correct: "Kaunteya pratijanihi na me bhaktah pranasyati (My devotee never perishes!)",
-    difficulty: "easy",
-    explanation: "BG 9.31: 'kṣipraṁ bhavati dharmātmā śaśvac-chāntiṁ nigacchati, kaunteya pratijānīhi na me bhaktaḥ praṇaśyati'."
-  },
-  {
-    id: "bg_69",
-    question: "What are the four essential instructions given in BG 9.34 and repeated in BG 18.65?",
-    options: ["Engage your mind always in thinking of Me, become My devotee, offer obeisances to Me, and worship Me", "Read the Vedas, visit holy rivers, practice breath control, give charity", "Fast on Ekadashi, renounce family, wear saffron robes, sit in silence", "Conquer foreign nations, build great monuments, establish dynasties"],
-    correct: "Engage your mind always in thinking of Me, become My devotee, offer obeisances to Me, and worship Me",
-    difficulty: "mid",
-    explanation: "BG 9.34: 'man-manā bhava mad-bhakto mad-yājī māṁ namaskuru, mām evaiṣyasi yuktvaivam ātmānaṁ mat-parāyaṇaḥ'."
-  },
-  {
-    id: "bg_70",
-    question: "Which four verses of the Bhagavad-gita (10.8–10.11) are celebrated as the 'Chatur-shloki Gita' (the essence of the entire Gita)?",
-    options: ["BG 10.8, 10.9, 10.10, and 10.11", "BG 2.11, 2.12, 2.13, and 2.14", "BG 18.63, 18.64, 18.65, and 18.66", "BG 4.7, 4.8, 4.9, and 4.10"],
-    correct: "BG 10.8, 10.9, 10.10, and 10.11",
-    difficulty: "mid",
-    explanation: "The four verses BG 10.8 through 10.11 encapsulate the ontological truth, devotional practice, and divine reciprocation of Lord Krishna."
-  },
-  {
-    id: "bg_71",
-    question: "What does Krishna declare in BG 10.8 (Aham sarvasya prabhavo)?",
-    options: ["I am the source of all spiritual and material worlds. Everything emanates from Me.", "I am only one among the demigods.", "I am created by the desires of mankind.", "The material cosmos has no source."],
-    correct: "I am the source of all spiritual and material worlds. Everything emanates from Me.",
-    difficulty: "easy",
-    explanation: "BG 10.8: 'ahaṁ sarvasya prabhavo mattaḥ sarvaṁ pravartate, iti matvā bhajante māṁ budhā bhāva-samanvitāḥ'."
-  },
-  {
-    id: "bg_72",
-    question: "In BG 10.9, how do Krishna's pure devotees experience their spiritual association?",
-    options: ["Mac-citta mad-gata-prana... bodhayantah parasparam (Enlightening one another and conversing about Me, they derive great satisfaction and bliss)", "Debating relentlessly to prove superior intellect", "Maintaining solemn vows of perpetual silence", "Isolating themselves from other devotees"],
-    correct: "Mac-citta mad-gata-prana... bodhayantah parasparam (Enlightening one another and conversing about Me, they derive great satisfaction and bliss)",
-    difficulty: "mid",
-    explanation: "BG 10.9: 'mac-cittā mad-gata-prāṇā bodhayantaḥ parasparam, kathayantaś ca māṁ nityaṁ tuṣyanti ca ramanti ca'."
-  },
-  {
-    id: "bg_73",
-    question: "According to BG 10.10, what does Krishna bestow upon those constantly devoted to serving Him with love?",
-    options: ["Buddhi-yoga (the understanding by which they can come to Him)", "Mystic powers to fly in the air", "Unlimited earthly political authority", "Exemption from all physical diseases"],
-    correct: "Buddhi-yoga (the understanding by which they can come to Him)",
-    difficulty: "mid",
-    explanation: "BG 10.10: 'teṣāṁ satata-yuktānāṁ bhajatāṁ prīti-pūrvakam, dadāmi buddhi-yogaṁ taṁ yena mām upayānti te'."
-  },
-  {
-    id: "bg_74",
-    question: "In BG 10.12-13, what titles does Arjuna use to address Lord Krishna upon hearing the Chatur-shloki?",
-    options: ["Param Brahma, Param Dhama, Pavitram Paramam Bhavan (The Supreme Personality of Godhead, the ultimate abode, the purest)", "Great King of Dwarka", "Beloved cousin and chariot driver", "Foremost Vedic scholar of Mathura"],
-    correct: "Param Brahma, Param Dhama, Pavitram Paramam Bhavan (The Supreme Personality of Godhead, the ultimate abode, the purest)",
-    difficulty: "mid",
-    explanation: "BG 10.12: 'paraṁ brahma paraṁ dhāma pavitraṁ paramaṁ bhavān, puruṣaṁ śāśvataṁ divyam ādi-devam ajaṁ vibhum'."
-  },
-  {
-    id: "bg_75",
-    question: "Among the Adityas, who does Krishna declare Himself to be in BG 10.21?",
-    options: ["Vishnu, and of lights the radiant sun", "Indra, and of lights the lightning", "Varuna, and of lights the moon", "Surya alone"],
-    correct: "Vishnu, and of lights the radiant sun",
-    difficulty: "mid",
-    explanation: "BG 10.21: 'ādityānām ahaṁ viṣṇur jyotiṣāṁ ravir aṁśumān'."
-  },
-  {
-    id: "bg_76",
-    question: "Among the Vedas, who is Lord Krishna according to BG 10.22?",
-    options: ["The Sama Veda", "The Rig Veda", "The Yajur Veda", "The Atharva Veda"],
-    correct: "The Sama Veda",
-    difficulty: "mid",
-    explanation: "BG 10.22: 'vedānāṁ sāma-vedo 'smi devānām asmi vāsavaḥ'."
-  },
-  {
-    id: "bg_77",
-    question: "Among sacrifices (yajnas), who is Lord Krishna according to BG 10.25?",
-    options: ["The chanting of the holy names (Japa-yajna)", "The Ashvamedha horse sacrifice", "The Rajasuya sacrifice", "The Agnihotra fire sacrifice"],
-    correct: "The chanting of the holy names (Japa-yajna)",
-    difficulty: "easy",
-    explanation: "BG 10.25: 'yajñānāṁ japa-yajño 'smi sthāvarāṇāṁ himālayaḥ' - of sacrifices I am the chanting of the holy names [japa]."
-  },
-  {
-    id: "bg_78",
-    question: "Among all weapons, who does Krishna declare Himself to be in BG 10.28?",
-    options: ["The thunderbolt (Vajra)", "The Sudarshana chakra", "The Trishula", "The Brahmashira astra"],
-    correct: "The thunderbolt (Vajra)",
-    difficulty: "hard",
-    explanation: "BG 10.28: 'āyudhānām ahaṁ vajraṁ dhenūnām asmi kāmadhuk'."
-  },
-  {
-    id: "bg_79",
-    question: "Among trees, which sacred tree is Krishna in BG 10.26?",
-    options: ["The Banyan tree (Ashvattha)", "The Sandalwood tree", "The Neem tree", "The Mango tree"],
-    correct: "The Banyan tree (Ashvattha)",
-    difficulty: "mid",
-    explanation: "BG 10.26: 'aśvatthaḥ sarva-vṛkṣāṇāṁ devarṣīṇāṁ ca nāradaḥ'."
-  },
-  {
-    id: "bg_80",
-    question: "Among the descendants of Vrishni, who is Krishna (BG 10.37)?",
-    options: ["Vasudeva (Krishna Himself), and of the Pandavas Arjuna", "Balarama", "Ugrasena", "Pradyumna"],
-    correct: "Vasudeva (Krishna Himself), and of the Pandavas Arjuna",
-    difficulty: "mid",
-    explanation: "BG 10.37: 'vṛṣṇīnāṁ vāsudevo 'smi pāṇḍavānāṁ dhanañjayaḥ'."
-  },
-  {
-    id: "bg_81",
-    question: "In BG 10.42, by what fraction of His energy does Lord Krishna support the entire material cosmos?",
-    options: ["With a single fragment of Myself (ekamsena sthito jagat)", "With fifty percent of His energy", "With all of His divine power combined", "Through mechanical laws without His presence"],
-    correct: "With a single fragment of Myself (ekamsena sthito jagat)",
-    difficulty: "mid",
-    explanation: "BG 10.42: 'viṣṭabhyāham idaṁ kṛtsnam ekāṁśena sthito jagat' - with a single fragment of Myself I pervade and support this entire universe."
-  },
-  {
-    id: "bg_82",
-    question: "What divine facility did Lord Krishna grant Arjuna so he could behold the Universal Form (Vishwarupa) in BG 11.8?",
-    options: ["Divine eyes (divya-cakṣuḥ)", "A golden telescope", "Mystic wings to fly into space", "A celestial crown"],
-    correct: "Divine eyes (divya-cakṣuḥ)",
-    difficulty: "easy",
-    explanation: "BG 11.8: 'divyaṁ dadāmi te cakṣuḥ paśya me yogam aiśvaram' - I give you divine eyes; behold My mystic opulence!"
-  },
-  {
-    id: "bg_83",
-    question: "In BG 11.12, to what is the sudden brilliance of the Universal Form compared?",
-    options: ["Hundreds of thousands of suns rising at once in the sky", "A million lightning flashes during monsoon", "A blazing forest fire", "The core of a volcano"],
-    correct: "Hundreds of thousands of suns rising at once in the sky",
-    difficulty: "mid",
-    explanation: "BG 11.12: 'divi sūrya-sahasrasya bhaved yugapad utthitā, yadi bhāḥ sadṛśī sā syād bhāsas tasya mahātmanaḥ'."
-  },
-  {
-    id: "bg_84",
-    question: "In BG 11.32, when Arjuna asks 'Who are You?', how does Lord Krishna reveal Himself?",
-    options: ["Time I am, the great destroyer of the worlds (kalo 'smi loka-ksaya-krt pravrddho)", "I am the god of fire", "I am the spirit of the universe without personality", "I am the cosmic judge of righteousness"],
-    correct: "Time I am, the great destroyer of the worlds (kalo 'smi loka-ksaya-krt pravrddho)",
-    difficulty: "easy",
-    explanation: "BG 11.32: 'kālo 'smi loka-kṣaya-kṛt pravṛddho lokān samāhartum iha pravṛttaḥ'."
-  },
-  {
-    id: "bg_85",
-    question: "What role does Krishna instruct Arjuna to play in the Kurukshetra battle in BG 11.33?",
-    options: ["Nimitta-matram bhava savya-sacin (Be but an instrument in the fight)", "Sit back and let the chariot horses fight alone", "Flee the battle to preserve peace", "Proclaim himself emperor immediately"],
-    correct: "Nimitta-matram bhava savya-sacin (Be but an instrument in the fight)",
-    difficulty: "easy",
-    explanation: "BG 11.33: 'mayaivaite nihatāḥ pūrvam eva nimitta-mātraṁ bhava savya-sācin' - by Me these warriors have already been slain; be but an instrument in the fight, O Savya-saci!"
-  },
-  {
-    id: "bg_86",
-    question: "After seeing the terrifying Universal Form, what graceful forms did Arjuna plead Lord Krishna to resume in Chapter 11?",
-    options: ["First His four-armed Narayana form, and then His original two-armed Krishna form", "His Matsya avatar fish form", "His Narasimha fierce form", "His form as Lord Rama with bow"],
-    correct: "First His four-armed Narayana form, and then His original two-armed Krishna form",
-    difficulty: "hard",
-    explanation: "BG 11.46-51: Arjuna pleaded to see the four-handed form, and then Krishna showed His beautiful humanlike two-armed transcendental form (saumya-vapur)."
-  },
-  {
-    id: "bg_87",
-    question: "According to BG 11.54, by what means alone can Lord Krishna be seen as He is, in His two-handed form?",
-    options: ["Only by undivided devotional service (bhaktyā tv ananyayā śakya)", "By extensive charity of gold and cows", "By severe celibacy and breathing exercises", "By memorizing all four Vedas by heart"],
-    correct: "Only by undivided devotional service (bhaktyā tv ananyayā śakya)",
-    difficulty: "easy",
-    explanation: "BG 11.54: 'bhaktyā tv ananyayā śakya aham evaṁ-vidho 'rjuna, jñātuṁ draṣṭuṁ ca tattvena praveṣṭuṁ ca parantapa'."
-  },
-  {
-    id: "bg_88",
-    question: "In BG 12.1, what question does Arjuna pose regarding worshiping the personal form of Krishna versus the impersonal unmanifest Brahman?",
-    options: ["Who is considered more perfect: those engaged in personal devotion or those who worship the unmanifested?", "Should women also study the Vedas?", "Is animal sacrifice ever allowed?", "What is the lifespan of Indra?"],
-    correct: "Who is considered more perfect: those engaged in personal devotion or those who worship the unmanifested?",
-    difficulty: "mid",
-    explanation: "BG 12.1: Arjuna inquires whether personal devotees (bhaktas) or impersonalists (upasakas of avyakta) are more perfect in yoga."
-  },
-  {
-    id: "bg_89",
-    question: "What is Krishna's definitive answer in BG 12.2 regarding the most perfect yogis?",
-    options: ["Those who fix their minds on My personal form and engage in worship with great transcendental faith are considered most perfect", "Those who meditate on void are superior", "Both paths are identical in every respect", "Those who worship demigods are most advanced"],
-    correct: "Those who fix their minds on My personal form and engage in worship with great transcendental faith are considered most perfect",
-    difficulty: "easy",
-    explanation: "BG 12.2: 'mayy āveśya mano ye māṁ nitya-yuktā upāsate, śraddhayā parayopetās te me yuktatamā matāḥ'."
-  },
-  {
-    id: "bg_90",
-    question: "Why is the path of the impersonal unmanifested (avyakta) difficult according to BG 12.5?",
-    options: ["Kleso 'dhikataras tesam (For embodied beings, progress on that path is full of tribulations)", "Because Sanskrit grammar is too complex", "Because it costs too much money to practice", "Because the demigods curse impersonalists"],
-    correct: "Kleso 'dhikataras tesam (For embodied beings, progress on that path is full of tribulations)",
-    difficulty: "mid",
-    explanation: "BG 12.5: 'kleśo 'dhikataras teṣām avyaktāsakta-cetasām, avyaktā hi gatir duḥkhaṁ dehavadbhir avāpyate'."
-  },
-  {
-    id: "bg_91",
-    question: "In BG 12.6-7, from what ocean does Lord Krishna swiftly deliver those who dedicate all actions to Him?",
-    options: ["From the ocean of birth and death (mrtyu-samsara-sagarat)", "From the ocean of poverty", "From the Indian Ocean", "From the ocean of forgetfulness"],
-    correct: "From the ocean of birth and death (mrtyu-samsara-sagarat)",
-    difficulty: "easy",
-    explanation: "BG 12.7: 'teṣām ahaṁ samuddhartā mṛtyu-saṁsāra-sāgarāt, bhavāmi na cirāt pārtha mayy āveśita-cetasām'."
-  },
-  {
-    id: "bg_92",
-    question: "In the progressive ladder of practice in BG 12.8-11, if one cannot fix mind on Krishna directly, what is the next step recommended?",
-    options: ["Follow the regulatory principles of bhakti-yoga (abhyasa-yoga)", "Renounce eating food", "Study Greek philosophy", "Build brick shelters in the forest"],
-    correct: "Follow the regulatory principles of bhakti-yoga (abhyasa-yoga)",
-    difficulty: "hard",
-    explanation: "BG 12.9: 'atha cittaṁ samādhātuṁ na śaknoṣi mayi sthiram, abhyāsa-yogena tato mām icchāptuṁ dhanañjaya'."
-  },
-  {
-    id: "bg_93",
-    question: "Which sublime quality of a devotee is highlighted in BG 12.13 (Advesta sarva-bhutanam maitrah karuna eva ca)?",
-    options: ["One who is not envious but is a kind friend to all living entities, free from false ego and possessiveness", "One who fiercely attacks rivals in intellectual debates", "One who expects honor from society", "One who hoards sacred treasures in private vaults"],
-    correct: "One who is not envious but is a kind friend to all living entities, free from false ego and possessiveness",
-    difficulty: "mid",
-    explanation: "BG 12.13: 'adveṣṭā sarva-bhūtānāṁ maitraḥ karuṇa eva ca, nirmamo nirahaṅkāraḥ sama-duḥkha-sukhaḥ kṣamī'."
-  },
-
-  // ==========================================
-  // SECTION 3: JNANA YOGA, MODES & SUPREME PERSON (CH 13–18)
-  // ==========================================
-  {
-    id: "bg_94",
-    question: "In BG 13.1-2, what is the 'field of activities' (kshetra) and who is the 'knower of the field' (kshetrajna)?",
-    options: ["The physical body is the field, and the conscious soul is the knower of the field", "The earth is the field, and the king is the knower", "The battlefield of Kurukshetra is the only field", "The mind is the field, and thoughts are the knower"],
-    correct: "The physical body is the field, and the conscious soul is the knower of the field",
-    difficulty: "mid",
-    explanation: "BG 13.2: 'idaṁ śarīraṁ kaunteya kṣetram ity abhidhīyate, etad yo vetti taṁ prāhuḥ kṣetrajña iti tad-vidaḥ'."
-  },
-  {
-    id: "bg_95",
-    question: "Who is the second, supreme knower of all fields residing in all bodies according to BG 13.3?",
-    options: ["Lord Krishna as the Supersoul (Paramatma)", "Lord Brahma", "The cosmic mind", "The king of Hastinapura"],
-    correct: "Lord Krishna as the Supersoul (Paramatma)",
-    difficulty: "mid",
-    explanation: "BG 13.3: 'kṣetrajñaṁ cāpi māṁ viddhi sarva-kṣetreṣu bhārata' - understand that I am also the knower in all fields of activities."
-  },
-  {
-    id: "bg_96",
-    question: "How many items of knowledge (such as humility, nonviolence, tolerance, simplicity) are outlined in BG 13.8–12?",
-    options: ["20 items", "10 items", "5 items", "50 items"],
-    correct: "20 items",
-    difficulty: "hard",
-    explanation: "Srila Prabhupada's purport to BG 13.8–12 explains the twenty items of knowledge beginning with amanitvam (humility) and adambhitvam (pridelessness)."
-  },
-  {
-    id: "bg_97",
-    question: "According to BG 13.22, what is the cause of the living entity's repeated birth in good and evil wombs?",
-    options: ["Association with the modes of material nature (karanam guna-sango 'sya sad-asad-yoni-janmasu)", "Astrological curses from celestial bodies", "The arbitrary decree of destiny without reason", "Living near coastal regions"],
-    correct: "Association with the modes of material nature (karanam guna-sango 'sya sad-asad-yoni-janmasu)",
-    difficulty: "hard",
-    explanation: "BG 13.22: 'kāraṇaṁ guṇa-saṅgo 'sya sad-asad-yoni-janmasu' - due to his association with that material nature, he meets with good and evil among various species."
-  },
-  {
-    id: "bg_98",
-    question: "In BG 13.23, what two roles does the Supersoul (Paramatma) execute within the human body?",
-    options: ["Upadrasta (Overseer) and Anumanta (Permitter)", "Judge and Executioner", "Creator and Annihilator", "Servant and Slave"],
-    correct: "Upadrasta (Overseer) and Anumanta (Permitter)",
-    difficulty: "hard",
-    explanation: "BG 13.23: 'upadraṣṭānumantā ca bhartā bhoktā maheśvaraḥ, paramātmeti cāpy ukto dehe 'smin puruṣaḥ paraḥ'."
-  },
-  {
-    id: "bg_99",
-    question: "What are the three modes of material nature (gunas) discussed in Chapter 14?",
-    options: ["Sattva (Goodness), Rajas (Passion), and Tamas (Ignorance)", "Prana, Apana, and Samana", "Dharma, Artha, and Kama", "Brahma, Vishnu, and Shiva"],
-    correct: "Sattva (Goodness), Rajas (Passion), and Tamas (Ignorance)",
-    difficulty: "easy",
-    explanation: "BG 14.5: 'sattvaṁ rajas tama iti guṇāḥ prakṛti-sambhavāḥ, nibadhnanti mahā-bāho dehe dehinam avyayam'."
-  },
-  {
-    id: "bg_100",
-    question: "What are the characteristics of the mode of goodness (sattva-guna) according to BG 14.6?",
-    options: ["Illuminating, purifying, freeing from sinful reactions, and conditioning one to happiness and knowledge", "Endless longing, greed, and passionate fruitive endeavor", "Madness, indolence, and excessive sleep", "Fierce anger and destruction"],
-    correct: "Illuminating, purifying, freeing from sinful reactions, and conditioning one to happiness and knowledge",
-    difficulty: "mid",
-    explanation: "BG 14.6: 'tatra sattvaṁ nirmalatvāt prakāśakam anāmayam, sukha-saṅgena badhnāti jñāna-saṅgena cānagha'."
-  },
-  {
-    id: "bg_101",
-    question: "What is the hallmark of the mode of passion (rajo-guna) in BG 14.7?",
-    options: ["It is born of unlimited desires and longings (trsna-sanga-samudbhavam), binding one to fruitive action", "Wisdom and peaceful satisfaction", "Darkness, illusion, and inertia", "Spiritual liberation"],
-    correct: "It is born of unlimited desires and longings (trsna-sanga-samudbhavam), binding one to fruitive action",
-    difficulty: "mid",
-    explanation: "BG 14.7: 'rajo rāgātmakaṁ viddhi tṛṣṇā-saṅga-samudbhavam, tan nibadhnāti kaunteya karma-saṅgena dehinam'."
-  },
-  {
-    id: "bg_102",
-    question: "What is the result of the mode of ignorance (tamo-guna) in BG 14.8?",
-    options: ["Delusion of all embodied beings, resulting in madness, indolence, and sleep (pramadalasyanidrabhis)", "Promotion to the higher heavenly planets", "Vast scientific discovery", "Desire for world peace"],
-    correct: "Delusion of all embodied beings, resulting in madness, indolence, and sleep (pramadalasyanidrabhis)",
-    difficulty: "easy",
-    explanation: "BG 14.8: 'tamas tv ajñāna-jaṁ viddhi mohanaṁ sarva-dehinām, pramādālasya-nidrābhis tan nibadhnāti bhārata'."
-  },
-  {
-    id: "bg_103",
-    question: "According to BG 14.18, where do people situated in the three modes go after death?",
-    options: ["Those in goodness go upward to higher planets; those in passion remain in the middle; those in ignorance go down to abominable worlds", "All living entities go to the same heaven", "Those in passion go highest because of hard work", "Everyone is immediately dissolved into atoms"],
-    correct: "Those in goodness go upward to higher planets; those in passion remain in the middle; those in ignorance go down to abominable worlds",
-    difficulty: "mid",
-    explanation: "BG 14.18: 'ūrdhvaṁ gacchanti sattva-sthā madhye tiṣṭhanti rājasāḥ, jaghanya-guṇa-vṛtti-sthā adho gacchanti tāmasāḥ'."
-  },
-  {
-    id: "bg_104",
-    question: "According to BG 14.26, how can one transcend all three material modes and attain the Brahman platform?",
-    options: ["By engaging in unfailing, unalloyed devotional service unto Lord Krishna (mam ca yo 'vyabhicarena bhakti-yogena sevate)", "By performing deep breathing exercises in icy water", "By studying secular philosophy for 30 years", "By retiring to the forest at age 50 without chanting"],
-    correct: "By engaging in unfailing, unalloyed devotional service unto Lord Krishna (mam ca yo 'vyabhicarena bhakti-yogena sevate)",
-    difficulty: "easy",
-    explanation: "BG 14.26: 'māṁ ca yo 'vyabhicāreṇa bhakti-yogena sevate, sa guṇān samatītyaitān brahma-bhūyāya kalpate'."
-  },
-  {
-    id: "bg_105",
-    question: "What does Lord Krishna state He is the basis of in BG 14.27?",
-    options: ["Brahmano hi pratisthaham (I am the basis of the impersonal Brahman, the immortal and imperishable)", "I am created by the impersonal Brahman", "I am subject to the laws of karma", "I am a product of the material goodness mode"],
-    correct: "Brahmano hi pratisthaham (I am the basis of the impersonal Brahman, the immortal and imperishable)",
-    difficulty: "hard",
-    explanation: "BG 14.27: 'brahmaṇo hi pratiṣṭhāham amṛtasyāvyayasya ca, śāśvatasya ca dharmasya sukhasyaikāntikasya ca'."
-  },
-  {
-    id: "bg_106",
-    question: "In BG 15.1, how is the upside-down material banyan tree described?",
-    options: ["Roots upward and branches downward (urdhva-mulam adhah-sakham)", "Roots in the ocean and leaves in fire", "A golden tree with diamond fruits", "A tree without roots or leaves"],
-    correct: "Roots upward and branches downward (urdhva-mulam adhah-sakham)",
-    difficulty: "mid",
-    explanation: "BG 15.1: 'ūrdhva-mūlam adhaḥ-śākham aśvatthaṁ prāhur avyayam, chandāṁsi yasya parṇāni yas taṁ veda sa veda-vit'."
-  },
-  {
-    id: "bg_107",
-    question: "With what weapon must this strongly rooted banyan tree of material entanglement be cut down (BG 15.3)?",
-    options: ["With the strong weapon of detachment (asanga-sastrena drdhena chittva)", "With celestial arrows from Gandiva bow", "With swords forged of tempered steel", "With nuclear astras"],
-    correct: "With the strong weapon of detachment (asanga-sastrena drdhena chittva)",
-    difficulty: "mid",
-    explanation: "BG 15.3: 'aśvattham enaṁ su-virūḍha-mūlam asaṅga-śastreṇa dṛḍhena chittvā'."
-  },
-  {
-    id: "bg_108",
-    question: "According to BG 15.6, what illuminates Lord Krishna's supreme abode (Param Dhama)?",
-    options: ["Neither the sun nor moon nor fire illuminates it; reaching it, one never returns (na tad bhasayate suryo)", "Trillions of electric lamps", "The radiant crowns of demigods", "The golden sands of the river Viraja"],
-    correct: "Neither the sun nor moon nor fire illuminates it; reaching it, one never returns (na tad bhasayate suryo)",
-    difficulty: "easy",
-    explanation: "BG 15.6: 'na tad bhāsayate sūryo na śaśāṅko na pāvakaḥ, yad gatvā na nivartante tad dhāma paramaṁ mama'."
-  },
-  {
-    id: "bg_109",
-    question: "Who are the living entities in relation to Lord Krishna as revealed in BG 15.7?",
-    options: ["Mamaivamso jiva-loke jiva-bhutah sanatanah (My eternal fragmentary parts)", "Independent creators equal to God", "Illusions that will merge into nothingness", "Products of matter generated by chemistry"],
-    correct: "Mamaivamso jiva-loke jiva-bhutah sanatanah (My eternal fragmentary parts)",
-    difficulty: "easy",
-    explanation: "BG 15.7: 'mamaivāṁśo jīva-loke jīva-bhūtaḥ sanātanaḥ, manaḥ-ṣaṣṭhānīndriyāṇi prakṛti-sthāni karṣati'."
-  },
-  {
-    id: "bg_110",
-    question: "In BG 15.8, how does the soul carry his conception of life from one body to the next?",
-    options: ["As the air carries aromas from their source (vayur gandhan ivāsayat)", "Like an email transmitted across wires", "Like luggage hauled on a cart", "Like shadows cast against a wall"],
-    correct: "As the air carries aromas from their source (vayur gandhan ivāsayat)",
-    difficulty: "mid",
-    explanation: "BG 15.8: 'śarīraṁ yad avāpnoti yac cāpy utkrāmatīśvaraḥ, gṛhītvaitāni saṁyāti vāyur gandhān ivāśayāt'."
-  },
-  {
-    id: "bg_111",
-    question: "In BG 15.14, as what fire of digestion does Krishna enter the bodies of all living beings?",
-    options: ["Aham vaisvanaro bhutva (The fire of digestion, Vaisvanara)", "The fire of Agni alone", "The sun's ultraviolet rays", "The volcanic fire of earth"],
-    correct: "Aham vaisvanaro bhutva (The fire of digestion, Vaisvanara)",
-    difficulty: "mid",
-    explanation: "BG 15.14: 'ahaṁ vaiśvānaro bhūtvā prāṇināṁ deham āśritaḥ, prāṇāpāna-samāyuktaḥ pacāmy annaṁ catur-vidham'."
-  },
-  {
-    id: "bg_112",
-    question: "What four varieties of foodstuffs (catur-vidham annam) are digested by the fire of digestion (BG 15.14)?",
-    options: ["Food that is chewed, sucked, licked, and drunk", "Boiled, fried, roasted, and raw", "Sweet, sour, salty, and bitter", "Vedic, non-Vedic, fruit, and grain"],
-    correct: "Food that is chewed, sucked, licked, and drunk",
-    difficulty: "hard",
-    explanation: "Srila Prabhupada explains the four kinds of foodstuffs: those which are chewed (carvya), sucked (cosya), licked (lehya), and drunk (peya)."
-  },
-  {
-    id: "bg_113",
-    question: "Where is Lord Krishna seated according to BG 15.15, and what comes from Him?",
-    options: ["Seated in everyone's heart, and from Him come remembrance, knowledge, and forgetfulness", "Seated high above the stars with no connection to beings", "Seated in the temple altar alone", "Seated on the sun planet directing rays"],
-    correct: "Seated in everyone's heart, and from Him come remembrance, knowledge, and forgetfulness",
-    difficulty: "easy",
-    explanation: "BG 15.15: 'sarvasya cāhaṁ hṛdi sanniviṣṭo mattaḥ smṛtir jñānam apohanaṁ ca, vedaiś ca sarvair aham eva vedyo vedānta-kṛd veda-vid eva cāham'."
-  },
-  {
-    id: "bg_114",
-    question: "By whom is the Vedanta-sutra compiled, and who is the compiler and knower of the Vedas (BG 15.15)?",
-    options: ["Lord Krishna (in His incarnation as Srila Vyasadeva)", "The four Kumaras", "Brihaspati", "The Prajapatis"],
-    correct: "Lord Krishna (in His incarnation as Srila Vyasadeva)",
-    difficulty: "mid",
-    explanation: "BG 15.15 declares: 'vedānta-kṛd veda-vid eva cāham' - I am the compiler of Vedanta, and I am the knower of the Vedas."
-  },
-  {
-    id: "bg_115",
-    question: "What are the two classes of beings described in BG 15.16, and who is the third, Supreme Person (Purushottama)?",
-    options: ["Kshara (fallible) and Akshara (infallible); above them is Paramatma, the Supreme Person (Krishna)", "Devas and Asuras; above them is Brahma", "Brahmanas and Shudras; above them is Indra", "Men and animals; above them is the king"],
-    correct: "Kshara (fallible) and Akshara (infallible); above them is Paramatma, the Supreme Person (Krishna)",
-    difficulty: "hard",
-    explanation: "BG 15.16-18 defines the Purushottama yoga: 'yasmāt kṣaram atīto 'ham akṣarād api cottamaḥ, ato 'smi loke vede ca prathitaḥ puruṣottamaḥ'."
-  },
-  {
-    id: "bg_116",
-    question: "What is the foremost divine quality (daivi sampad) listed first in BG 16.1?",
-    options: ["Abhayam (Fearlessness)", "Dana (Charity)", "Ahimsa (Nonviolence)", "Satya (Truthfulness)"],
-    correct: "Abhayam (Fearlessness)",
-    difficulty: "mid",
-    explanation: "BG 16.1: 'abhayaṁ sattva-saṁśuddhir jñāna-yoga-vyavasthitiḥ' - fearlessness, purification of one's existence, cultivation of spiritual knowledge..."
-  },
-  {
-    id: "bg_117",
-    question: "What is the primary demonic philosophy about the creation of the universe described in BG 16.8?",
-    options: ["They say that this world is unreal, with no foundation, no God in control, and produced of sex desire alone (aparaspara-sambhutam)", "They say the universe was created by Brahma's prayers", "They say the cosmos is a temporary school of learning", "They believe in Vishnu's avatar descents"],
-    correct: "They say that this world is unreal, with no foundation, no God in control, and produced of sex desire alone (aparaspara-sambhutam)",
-    difficulty: "hard",
-    explanation: "BG 16.8: 'asatyam apratiṣṭhaṁ te jagad āhur anīśvaram, aparaspara-sambhūtaṁ kim anyat kāma-haitukam'."
-  },
-  {
-    id: "bg_118",
-    question: "What are the three gates leading to hell and the ruin of the soul (BG 16.21)?",
-    options: ["Kama (Lust), Krodha (Anger), and Lobha (Greed)", "Poverty, sickness, and old age", "Pride, envy, and sloth", "Hunger, thirst, and fatigue"],
-    correct: "Kama (Lust), Krodha (Anger), and Lobha (Greed)",
-    difficulty: "easy",
-    explanation: "BG 16.21: 'tri-vidhaṁ narakasyedaṁ dvāraṁ nāśanam ātmanaḥ, kāmaḥ krodhas tathā lobhas tasmād etat trayaṁ tyajet'."
-  },
-  {
-    id: "bg_119",
-    question: "According to BG 16.23-24, what happens to one who acts whimsically without following the regulations of the scriptures (sastra-vidhim utsrjya)?",
-    options: ["He attains neither perfection, nor happiness, nor the supreme destination", "He achieves instant success through modern science", "He is excused because his intentions were good", "He gets rebirth in the highest planetary systems"],
-    correct: "He attains neither perfection, nor happiness, nor the supreme destination",
-    difficulty: "mid",
-    explanation: "BG 16.23: 'yaḥ śāstra-vidhim utsṛjya vartate kāma-kārataḥ, na sa siddhim avāpnoti na sukhaṁ na parāṁ gatim'."
-  },
-  {
-    id: "bg_120",
-    question: "In BG 17.8, what foods are dear to those in the mode of goodness (sattva-guna)?",
-    options: ["Foods that increase the duration of life, purify one's existence and give strength, health, happiness and satisfaction (juicy, fatty, wholesome, and pleasing to the heart)", "Foods that are bitter, salty, pungent, dry, and burning", "Foods cooked more than three hours before, tasteless, stale, putrid, and unclean", "Canned meats and alcoholic beverages"],
-    correct: "Foods that increase the duration of life, purify one's existence and give strength, health, happiness and satisfaction (juicy, fatty, wholesome, and pleasing to the heart)",
-    difficulty: "mid",
-    explanation: "BG 17.8: 'āyuḥ-sattva-balārogya-sukha-prīti-vivardhanāḥ, rasyāḥ snigdhāḥ sthirā hṛdyā āhārāḥ sāttvika-priyāḥ'."
-  },
-  {
-    id: "bg_121",
-    question: "What are foods in the mode of passion (rajas) described as in BG 17.9?",
-    options: ["Too bitter, too sour, salty, hot, pungent, dry and burning, causing distress, misery, and disease", "Sweet and milky", "Cooked with ghee and fragrant herbs", "Fresh raw fruits and nuts"],
-    correct: "Too bitter, too sour, salty, hot, pungent, dry and burning, causing distress, misery, and disease",
-    difficulty: "easy",
-    explanation: "BG 17.9: 'kaṭv-amla-lavaṇāty-uṣṇa-tīkṣṇa-rūkṣa-vidāhinaḥ, āhārā rājasasyeṣṭā duḥkha-śokāmaya-pradāḥ'."
-  },
-  {
-    id: "bg_122",
-    question: "What are foods in the mode of ignorance (tamas) described as in BG 17.10?",
-    options: ["Yata-yamam gata-rasam... (Food cooked more than three hours before being eaten, food that is tasteless, decomposed, putrid, and remnants of unclean things)", "Steamed rice offered to Krishna", "Fresh cow's milk and butter", "Whole wheat flatbreads with honey"],
-    correct: "Yata-yamam gata-rasam... (Food cooked more than three hours before being eaten, food that is tasteless, decomposed, putrid, and remnants of unclean things)",
-    difficulty: "mid",
-    explanation: "BG 17.10: 'yāta-yāmaṁ gata-rasaṁ pūti paryuṣitaṁ ca yat, ucchiṣṭam api cāmedhyaṁ bhojanaṁ tāmasa-priyam'."
-  },
-  {
-    id: "bg_123",
-    question: "What is the austerity of speech (vang-mayam tapa) described in BG 17.15?",
-    options: ["Speaking words that are truthful, pleasing, beneficial, and not agitating to others, and regularly reciting Vedic literature", "Maintaining total silence for seven months", "Speaking loudly in harsh tones to command fear", "Arguing with teachers in public assemblies"],
-    correct: "Speaking words that are truthful, pleasing, beneficial, and not agitating to others, and regularly reciting Vedic literature",
-    difficulty: "mid",
-    explanation: "BG 17.15: 'anudvega-karaṁ vākyaṁ satyaṁ priya-hitaṁ ca yat, svādhyāyābhyasanaṁ caiva vāṅ-mayaṁ tapa ucyate'."
-  },
-  {
-    id: "bg_124",
-    question: "What is the significance of the sacred syllables 'OM TAT SAT' in BG 17.23?",
-    options: ["They have been used since the beginning of creation to indicate the Supreme Absolute Truth (Brahman)", "They are secret code words used only by kings", "They are protective mantras against snakebites", "They represent the three primary rivers of India"],
-    correct: "They have been used since the beginning of creation to indicate the Supreme Absolute Truth (Brahman)",
-    difficulty: "hard",
-    explanation: "BG 17.23: 'oṁ tat sad iti nirdeśo brahmaṇas tri-vidhaḥ smṛtaḥ, brāhmaṇās tena vedāś ca yajñāś ca vihitāḥ purā'."
-  },
-  {
-    id: "bg_125",
-    question: "In BG 18.2, what is the difference between sannyasa (renunciation) and tyaga (detachment)?",
-    options: ["Sannyasa is giving up activities based on material desire; tyaga is renouncing the fruits of all activities", "Sannyasa is wearing white; tyaga is wearing saffron", "There is no distinction whatsoever", "Sannyasa is for youths; tyaga is for the elderly"],
-    correct: "Sannyasa is giving up activities based on material desire; tyaga is renouncing the fruits of all activities",
-    difficulty: "mid",
-    explanation: "BG 18.2: 'kāmyānāṁ karmaṇāṁ nyāsaṁ sannyāsaṁ kavayo viduḥ, sarva-karma-phala-tyāgaṁ prāhus tyāgaṁ vicakṣaṇāḥ'."
-  },
-  {
-    id: "bg_126",
-    question: "According to BG 18.5, which three acts should never be given up, even by great souls?",
-    options: ["Yajna (Sacrifice), Dana (Charity), and Tapa (Austerity)", "Business, trade, and politics", "Sleeping, eating, and recreation", "Weapon training, archery, and diplomacy"],
-    correct: "Yajna (Sacrifice), Dana (Charity), and Tapa (Austerity)",
-    difficulty: "mid",
-    explanation: "BG 18.5: 'yajña-dāna-tapaḥ-karma na tyājyaṁ kāryam eva tat, yajño dānaṁ tapaś caiva pāvanāni manīṣiṇām'."
-  },
-  {
-    id: "bg_127",
-    question: "What are the five causes for the accomplishment of all action according to the Sankhya philosophy in BG 18.14?",
-    options: ["The place of action (body), the performer, the various senses, the many kinds of endeavor, and ultimately the Supersoul (daivam)", "Fate, luck, stars, parents, and teachers", "Mind, words, deeds, wealth, and enemies", "Fire, earth, water, air, and ether"],
-    correct: "The place of action (body), the performer, the various senses, the many kinds of endeavor, and ultimately the Supersoul (daivam)",
-    difficulty: "hard",
-    explanation: "BG 18.14: 'adhiṣṭhānaṁ tathā kartā karaṇaṁ ca pṛthag-vidham, vividhāś ca pṛthak ceṣṭā daivaṁ caivātra pañcamam'."
-  },
-  {
-    id: "bg_128",
-    question: "In BG 18.37, what happiness is like poison in the beginning but nectar at the end?",
-    options: ["Happiness in the mode of goodness (sattva)", "Happiness in the mode of passion (rajas)", "Happiness in the mode of ignorance (tamas)", "Sensual intoxication"],
-    correct: "Happiness in the mode of goodness (sattva)",
-    difficulty: "easy",
-    explanation: "BG 18.37: 'yat tad agre viṣam iva pariṇāme 'mṛtopamam, tat sukhaṁ sāttvikaṁ proktam ātma-buddhi-prasāda-jam'."
-  },
-  {
-    id: "bg_129",
-    question: "In BG 18.38, what happiness is like nectar at first but poison at the end?",
-    options: ["Happiness in the mode of passion (rajas), derived from contact of senses with their objects", "Spiritual absorption in holy names", "Austerity and fasting", "Sleep and laziness"],
-    correct: "Happiness in the mode of passion (rajas), derived from contact of senses with their objects",
-    difficulty: "easy",
-    explanation: "BG 18.38: 'viṣayendriya-saṁyogād yat tad agre 'mṛtopamam, pariṇāme viṣam iva tat sukhaṁ rājasaṁ smṛtam'."
-  },
-  {
-    id: "bg_130",
-    question: "According to BG 18.54, what are the symptoms of a person who has attained the Brahma-bhuta (spiritual) stage?",
-    options: ["Na socati na kanksati... (He never laments nor desires to have anything; he is equally disposed toward all living entities and gains pure devotion)", "He abandons speaking and lives in darkness", "He performs mystic levitation in assemblies", "He forgets all Vedic verses"],
-    correct: "Na socati na kanksati... (He never laments nor desires to have anything; he is equally disposed toward all living entities and gains pure devotion)",
-    difficulty: "mid",
-    explanation: "BG 18.54: 'brahma-bhūtaḥ prasannātmā na śocati na kāṅkṣati, samaḥ sarveṣu bhūteṣu mad-bhaktiṁ labhate parām'."
-  },
-  {
-    id: "bg_131",
-    question: "According to BG 18.55, how alone can Lord Krishna be understood as He is, the Supreme Personality of Godhead?",
-    options: ["Bhaktya mam abhijanati yavan yas casmi tattvatah (Only by devotion can one understand Me)", "By mental speculation (tarka)", "By hatha yoga gymnastics", "By accumulating vast monetary wealth"],
-    correct: "Bhaktya mam abhijanati yavan yas casmi tattvatah (Only by devotion can one understand Me)",
-    difficulty: "easy",
-    explanation: "BG 18.55: 'bhaktyā mām abhijānāti yāvān yaś cāsmi tattvataḥ, tato māṁ tattvato jñātvā viśate tad-anantaram'."
-  },
-  {
-    id: "bg_132",
-    question: "In BG 18.61, where is the Supreme Lord situated and how does He direct the wanderings of all living entities?",
-    options: ["Situated in the hearts of all beings, directing their wanderings as if seated on a machine made of material energy (yantrarudhani mayaya)", "Sitting on the polar star controlling strings", "Walking beside each human invisible to eyes", "Dwelling exclusively in the temple deities"],
-    correct: "Situated in the hearts of all beings, directing their wanderings as if seated on a machine made of material energy (yantrarudhani mayaya)",
-    difficulty: "hard",
-    explanation: "BG 18.61: 'īśvaraḥ sarva-bhūtānāṁ hṛd-deśe 'rjuna tiṣṭhati, bhrāmayan sarva-bhūtāni yantrārūḍhāni māyayā'."
-  },
-  {
-    id: "bg_133",
-    question: "What is the ultimate, crowning confidential instruction of the entire Bhagavad-gita in BG 18.66 (Sarva-dharman parityajya)?",
-    options: ["Abandon all varieties of religion and just surrender unto Me alone. I shall deliver you from all sinful reactions. Do not fear.", "Perform Vedic fire sacrifices every full moon day.", "Fight wars to conquer territories and establish dynastic rule.", "Seek out an isolated Himalayan cave to dissolve identity."],
-    correct: "Abandon all varieties of religion and just surrender unto Me alone. I shall deliver you from all sinful reactions. Do not fear.",
-    difficulty: "easy",
-    explanation: "BG 18.66: 'sarva-dharmān parityajya mām ekaṁ śaraṇaṁ vraja, ahaṁ tvāṁ sarva-pāpebhyo mokṣayiṣyāmi mā śucaḥ'."
-  },
-  {
-    id: "bg_134",
-    question: "According to BG 18.68-69, who is most dear to Lord Krishna in the whole world?",
-    options: ["One who explains this supreme secret of Bhagavad-gita to My devotees (pure devotional service is guaranteed)", "One who meditates on silence in an icy cavern", "One who builds towering marble palaces", "One who defeats opponents with sarcastic wit"],
-    correct: "One who explains this supreme secret of Bhagavad-gita to My devotees (pure devotional service is guaranteed)",
-    difficulty: "mid",
-    explanation: "BG 18.68-69: 'ya idaṁ paramaṁ guhyaṁ mad-bhakteṣv abhidhāsyati... na ca tasmān manuṣyeṣu kaścin me priya-kṛttamaḥ'."
-  },
-  {
-    id: "bg_135",
-    question: "What was Arjuna's final declaration to Lord Krishna in BG 18.73 after hearing the Bhagavad-gita?",
-    options: ["Nasto mohah smrtir labdha... karisye vacanam tava (My illusion is now gone. I have regained my memory by Your grace. I am firm and will act according to Your word)", "I still prefer to become a mendicant in Varanasi", "I will fight only if You give me celestial weapons", "Let my brothers fight while I guide the chariot"],
-    correct: "Nasto mohah smrtir labdha... karisye vacanam tava (My illusion is now gone. I have regained my memory by Your grace. I am firm and will act according to Your word)",
-    difficulty: "easy",
-    explanation: "BG 18.73: 'naṣṭo mohaḥ smṛtir labdhā tvat-prasādān mayācyuta, sthito 'smi gata-sandehaḥ kariṣye vacanaṁ tava'."
-  },
-  {
-    id: "bg_136",
-    question: "What is the concluding verse of the entire Bhagavad-gita spoken by Sanjaya in BG 18.78?",
-    options: ["Yatra yogesvarah krsno yatra partho dhanur-dharah... (Wherever there is Krishna, the master of all mystics, and wherever there is Arjuna, the supreme archer, there will also certainly be opulence, victory, extraordinary power, and morality)", "The Pandavas will rule for 100 years and then depart to heaven", "War is the natural condition of the material universe", "Those who recite this once a year receive celestial cows"],
-    correct: "Yatra yogesvarah krsno yatra partho dhanur-dharah... (Wherever there is Krishna, the master of all mystics, and wherever there is Arjuna, the supreme archer, there will also certainly be opulence, victory, extraordinary power, and morality)",
-    difficulty: "easy",
-    explanation: "BG 18.78: 'yatra yogeśvaraḥ kṛṣṇo yatra pārtho dhanur-dharaḥ, tatra śrīr vijayo bhūtir dhruvā nītir matir mama'."
-  },
-  {
-    id: "bg_137",
-    question: "In BG 1.1, how does Srila Prabhupada explain Dhritarashtra's bias in using the words 'mamakah pandavas caiva'?",
-    options: ["He differentiated between his own sons ('mamakah') and the sons of his brother Pandu ('pandavas'), revealing his partisan and envious heart", "He loved all nephews equally as his own sons", "He was merely reciting a genealogical chant", "He was praying for the welfare of Pandavas"],
-    correct: "He differentiated between his own sons ('mamakah') and the sons of his brother Pandu ('pandavas'), revealing his partisan and envious heart",
-    difficulty: "hard",
-    explanation: "Srila Prabhupada explains in the purport to BG 1.1 that Dhritarashtra distinguished his sons from Pandu's sons, disclosing his deep partiality."
-  },
-  {
-    id: "bg_138",
-    question: "Why is the Kurukshetra field designated as 'dharma-kshetra' in the Vedic literature?",
-    options: ["It was an ancient sacrificial ground where demigods performed worship; thus righteous Pandavas would be favored by holy influences", "It was where kings kept their tax treasuries", "It was the capital city of the Kuru dynasty", "It was a barren desert unsuitable for agriculture"],
-    correct: "It was an ancient sacrificial ground where demigods performed worship; thus righteous Pandavas would be favored by holy influences",
-    difficulty: "mid",
-    explanation: "The Jabala Upanishad and Shatapatha Brahmana declare Kurukshetra as deva-yajanam, the sacred place of sacrifice."
-  },
-  {
-    id: "bg_139",
-    question: "In BG 2.7, why does Arjuna officially accept Krishna as his spiritual master (Guru)?",
-    options: ["Karpanya-dosopahata-svabhavah... sisyas te 'ham sadhi mam tvam prapannam (Because he was perplexed about his duty and surrendered as a disciple)", "Because Krishna was older in physical age", "Because it was customary etiquette before any war", "Because Dronacharya ordered him to do so"],
-    correct: "Karpanya-dosopahata-svabhavah... sisyas te 'ham sadhi mam tvam prapannam (Because he was perplexed about his duty and surrendered as a disciple)",
-    difficulty: "easy",
-    explanation: "BG 2.7: Arjuna says: 'śiṣyas te 'haṁ śādhi māṁ tvāṁ prapannam' - now I am Your disciple, and a soul surrendered unto You. Please instruct me."
-  },
-  {
-    id: "bg_140",
-    question: "In BG 2.16, what does the phrase 'nasato vidyate bhavo nabhavo vidyate satah' reveal?",
-    options: ["Of the nonexistent (material body) there is no endurance, and of the eternal (spirit soul) there is no change", "Matter is the only eternal reality", "The soul disappears upon bodily cremation", "Both body and soul are illusions with no existence"],
-    correct: "Of the nonexistent (material body) there is no endurance, and of the eternal (spirit soul) there is no change",
-    difficulty: "hard",
-    explanation: "BG 2.16: Those who are seers of the truth have concluded that of the nonexistent there is no endurance and of the eternal there is no cessation."
-  },
-  {
-    id: "bg_141",
-    question: "According to BG 2.45, what does Krishna advise Arjuna regarding the three modes of material nature contained in the Vedas?",
-    options: ["Traigunya-visaya veda nistraigunyo bhavarjuna (Be transcendental to these three modes, O Arjuna!)", "Memorize all ritual sections for heavenly wealth", "Reject the existence of God and live naturally", "Follow the karma-kanda rituals exclusively"],
-    correct: "Traigunya-visaya veda nistraigunyo bhavarjuna (Be transcendental to these three modes, O Arjuna!)",
-    difficulty: "mid",
-    explanation: "BG 2.45: The Vedas deal mainly with the three modes of material nature. Rise above these three modes, O Arjuna. Be transcendental to all of them."
-  },
-  {
-    id: "bg_142",
-    question: "In BG 2.70, what natural phenomenon is compared to a sage who remains unmoved despite continuous desires flowing in?",
-    options: ["The ocean (samudram apah pravisanti yadvat), which remains undisturbed although rivers continuously pour in", "A mountain stone in heavy rains", "The wind rustling through trees", "The morning sun banishing dew"],
-    correct: "The ocean (samudram apah pravisanti yadvat), which remains undisturbed although rivers continuously pour in",
-    difficulty: "mid",
-    explanation: "BG 2.70: 'āpūryamāṇam acala-pratiṣṭhaṁ samudram āpaḥ praviśanti yadvat, tadvat kāmā yaṁ praviśanti sarve sa śāntim āpnoti na kāma-kāmī'."
-  },
-  {
-    id: "bg_143",
-    question: "In BG 3.6, what does Krishna call one who restrains external senses but mentally dwells on sense objects?",
-    options: ["Mithyacara (A hypocrite or pretender)", "Sthita-prajna (A peaceful sage)", "Jivan-mukta (A liberated soul)", "Brahma-vadi (A philosopher)"],
-    correct: "Mithyacara (A hypocrite or pretender)",
-    difficulty: "mid",
-    explanation: "BG 3.6: 'karmendriyāṇi saṁyamya ya āste manasā smaran, indriyārthān vimūḍhātmā mithyācāraḥ sa ucyate'."
-  },
-  {
-    id: "bg_144",
-    question: "What is the food called in BG 3.13 that is eaten by pious devotees after being offered in sacrifice?",
-    options: ["Yajna-sistasinah santo (Prasadam / remnants of sacrifice, which frees one from all sins)", "Brahma-bhojanam", "Soma-rasa", "Amrita-bhoga"],
-    correct: "Yajna-sistasinah santo (Prasadam / remnants of sacrifice, which frees one from all sins)",
-    difficulty: "easy",
-    explanation: "BG 3.13: 'yajña-śiṣṭāśinaḥ santo mucyante sarva-kilbiṣaiḥ, bhuñjate te tv aghaṁ pāpā ye pacanty ātma-kāraṇāt'."
-  },
-  {
-    id: "bg_145",
-    question: "In BG 3.30, in what mood does Krishna instruct Arjuna to fight?",
-    options: ["Mayi sarvani karmani sannyasyadhyatma-cetasa... yudhyasva vigata-jvarah (Surrendering all works unto Me, without desire for gain, free from selfishness and lethargy, fight!)", "With intense hatred for the Duryodhana faction", "Seeking revenge for the gambling assembly insults", "Hoping to enjoy sovereign kingship alone"],
-    correct: "Mayi sarvani karmani sannyasyadhyatma-cetasa... yudhyasva vigata-jvarah (Surrendering all works unto Me, without desire for gain, free from selfishness and lethargy, fight!)",
-    difficulty: "hard",
-    explanation: "BG 3.30: 'mayi sarvāṇi karmāṇi sannyasyādhyātma-cetasā, nirāśīr nirmamo bhūtvā yudhyasva vigata-jvaraḥ'."
-  },
-  {
-    id: "bg_146",
-    question: "In BG 3.38, what three analogies are given to describe how lust covers living beings?",
-    options: ["As fire is covered by smoke, as a mirror is covered by dust, or as an embryo is covered by the womb", "As ice covers water, as clouds cover stars, and as shadows cover ground", "As poison covers milk, as oil covers fire, and as waves cover sand", "As darkness covers night, as sleep covers mind, and as fog covers hills"],
-    correct: "As fire is covered by smoke, as a mirror is covered by dust, or as an embryo is covered by the womb",
-    difficulty: "hard",
-    explanation: "BG 3.38: 'dhūmenāvriyate vahnir yathādarśo malena ca, yatholbenāvṛto garbhas tathā tenedam āvṛtam'."
-  },
-  {
-    id: "bg_147",
-    question: "According to BG 4.6, what is the nature of Krishna's divine body when He descends?",
-    options: ["He appears in His original transcendental form by His own internal potency (atmamayaya)", "He takes a temporary body made of material flesh and bone", "He is subject to the three modes of material nature", "He is forced to take birth by past karma"],
-    correct: "He appears in His original transcendental form by His own internal potency (atmamayaya)",
-    difficulty: "hard",
-    explanation: "BG 4.6: 'ajo 'pi sann avyayātmā bhūtānām īśvaro 'pi san, prakṛtiṁ svām adhiṣṭhāya sambhavāmy ātma-māyayā'."
-  },
-  {
-    id: "bg_148",
-    question: "In BG 4.10, how have many persons in the past become purified and attained love for Krishna?",
-    options: ["Vita-raga-bhaya-krodha man-maya mam upasritah (Freed from attachment, fear, and anger, being fully absorbed in Me and taking refuge in Me)", "By studying all six systems of Indian philosophy", "By building large cities and public gardens", "By physical endurance tests in cold rivers"],
-    correct: "Vita-raga-bhaya-krodha man-maya mam upasritah (Freed from attachment, fear, and anger, being fully absorbed in Me and taking refuge in Me)",
-    difficulty: "mid",
-    explanation: "BG 4.10: 'vīta-rāga-bhaya-krodhā man-mayā mām upāśritāḥ, bahavo jñāna-tapasā pūtā mad-bhāvam āgatāḥ'."
-  },
-  {
-    id: "bg_149",
-    question: "In BG 4.11, how does Lord Krishna reciprocate with different seekers?",
-    options: ["Ye yatha mam prapadyante tams tathaiva bhajamy aham (As all surrender unto Me, I reward them accordingly)", "He rewards only those born in India", "He ignores those who lack wealth", "He forces everyone into one single path"],
-    correct: "Ye yatha mam prapadyante tams tathaiva bhajamy aham (As all surrender unto Me, I reward them accordingly)",
-    difficulty: "easy",
-    explanation: "BG 4.11: 'ye yathā māṁ prapadyante tāṁs tathaiva bhajāmy aham, mama vartmānuvartante manuṣyāḥ pārtha sarvaśaḥ'."
-  },
-  {
-    id: "bg_150",
-    question: "In BG 4.24, what is the meaning of 'Brahmarpanam Brahma Havir'?",
-    options: ["When everything is dedicated in Krishna consciousness, the performer, offering, fire, and destination are all spiritualized (Brahman)", "Only formal Vedic priests can offer oblations", "God is an impersonal void without attributes", "Material food cannot be sanctified"],
-    correct: "When everything is dedicated in Krishna consciousness, the performer, offering, fire, and destination are all spiritualized (Brahman)",
-    difficulty: "hard",
-    explanation: "BG 4.24: 'brahmārpaṇaṁ brahma havir brahmāgnau brahmaṇā hutam, brahmaiva tena gantavyaṁ brahma-karma-samādhinā'."
-  },
-  {
-    id: "bg_151",
-    question: "In BG 4.37, to what does Krishna compare transcendental knowledge burning up the reactions to material sins?",
-    options: ["A blazing fire turning firewood to ashes (yathaidhamsi samiddho 'gnir bhasmasat kurute)", "A river washing away mud", "The wind scattering dry autumn leaves", "The sun melting mountain snow"],
-    correct: "A blazing fire turning firewood to ashes (yathaidhamsi samiddho 'gnir bhasmasat kurute)",
-    difficulty: "mid",
-    explanation: "BG 4.37: 'yathaidhāṁsi samiddho 'gnir bhasmasāt kurute 'rjuna, jñānāgniḥ sarva-karmāṇi bhasmasāt kurute tathā'."
-  },
-  {
-    id: "bg_152",
-    question: "In BG 5.10, what analogy describes one who performs duty without attachment, dedicating the results unto the Supreme Lord?",
-    options: ["Like a lotus leaf untouched by water (padma-patram ivambhasa)", "Like a fish swimming in the sea", "Like an eagle soaring above mountain clouds", "Like a tree standing in a hurricane"],
-    correct: "Like a lotus leaf untouched by water (padma-patram ivambhasa)",
-    difficulty: "easy",
-    explanation: "BG 5.10: 'brahmaṇy ādhāya karmāṇi saṅgaṁ tyaktvā karoti yaḥ, lipyate na sa pāpena padma-patram ivāmbhasā'."
-  },
-  {
-    id: "bg_153",
-    question: "In BG 5.13, how is the physical body described metaphorically?",
-    options: ["As a city of nine gates (nava-dvare pure dehi)", "As a boat with five oars", "As a chariot drawn by ten horses", "As an iron fortress with twelve towers"],
-    correct: "As a city of nine gates (nava-dvare pure dehi)",
-    difficulty: "mid",
-    explanation: "BG 5.13: 'sarva-karmāṇi manasā sannyasyāste sukhaṁ vaśī, nava-dvāre pure dehī naiva kurvan na kārayan'."
-  },
-  {
-    id: "bg_154",
-    question: "What are the two types of persons who can never achieve happiness in this world or the next according to BG 4.40?",
-    options: ["The ignorant and faithless who doubt the revealed scriptures (samsayatma vinasyati)", "Those without physical beauty and wealth", "Those who cannot recite Sanskrit poetry", "Those who work in agricultural fields"],
-    correct: "The ignorant and faithless who doubt the revealed scriptures (samsayatma vinasyati)",
-    difficulty: "mid",
-    explanation: "BG 4.40: 'ajñaś cāśraddadhānaś ca saṁśayātmā vinaśyati, nāyaṁ loko 'sti na paro na sukhaṁ saṁśayātmanaḥ'."
-  },
-  {
-    id: "bg_155",
-    question: "In BG 6.16, can one be a yogi if one eats too much or eats too little, sleeps too much or does not sleep enough?",
-    options: ["No, yoga cannot be practiced by one who is extreme in eating or sleeping (yuktahara-viharasya)", "Yes, severe starving produces faster samadhi", "Sleeping less than one hour is mandatory", "Eating whatever one craves has no effect on meditation"],
-    correct: "No, yoga cannot be practiced by one who is extreme in eating or sleeping (yuktahara-viharasya)",
-    difficulty: "easy",
-    explanation: "BG 6.16-17: 'nāty-aśnatas tu yogo 'sti na caikāntam anaśnataḥ... yuktāhāra-vihārasya yukta-ceṣṭasya karmasu'."
-  },
-  {
-    id: "bg_156",
-    question: "What does the yogi gaze at during meditation as described in BG 6.13?",
-    options: ["The tip of his nose (nasikagram), without looking around", "The center of the sun at midday", "The tip of his toes", "A mirror held before his eyes"],
-    correct: "The tip of his nose (nasikagram), without looking around",
-    difficulty: "hard",
-    explanation: "BG 6.13: 'samprekṣya nāsikāgraṁ svaṁ diśaś cānavalokayan' - one should hold one's body erect and gaze steadily at the tip of the nose."
-  },
-  {
-    id: "bg_157",
-    question: "In BG 6.26, from wherever the mind wanders due to its flickering nature, what must one do?",
-    options: ["One must certainly withdraw it and bring it back under the control of the Self", "Let it roam freely until it exhausts itself", "Punish the physical body with whips", "Take sleeping herbs"],
-    correct: "One must certainly withdraw it and bring it back under the control of the Self",
-    difficulty: "mid",
-    explanation: "BG 6.26: 'yato yato niścarati manaś cañcalam asthiram, tatas tato niyamyaitad ātmany eva vaśaṁ nayet'."
-  },
-  {
-    id: "bg_158",
-    question: "In BG 7.26, what does Krishna know about the living entities, and who knows Him?",
-    options: ["I know everything that has happened in the past, all that is happening in the present, and all things yet to come; but Me no one knows", "I know only the devas; mortals are unknown to Me", "Only learned astronomers know Krishna", "Past and future are unknown even to God"],
-    correct: "I know everything that has happened in the past, all that is happening in the present, and all things yet to come; but Me no one knows",
-    difficulty: "hard",
-    explanation: "BG 7.26: 'vedāhaṁ samatītāni vartamānāni cārjuna, bhaviṣyāṇi ca bhūtāni māṁ tu veda na kaścana'."
-  },
-  {
-    id: "bg_159",
-    question: "In BG 7.27, by what are all living beings bewildered at birth into the material world?",
-    options: ["By the dualities of desire and hate (iccha-dvesa-samutthena dvandva-mohena)", "By lack of academic degrees", "By the movement of tectonic plates", "By seasonal weather changes"],
-    correct: "By the dualities of desire and hate (iccha-dvesa-samutthena dvandva-mohena)",
-    difficulty: "mid",
-    explanation: "BG 7.27: 'icchā-dveṣa-samutthena dvandva-mohena bhārata, sarva-bhūtāni sammohaṁ sarge yānti parantapa'."
-  },
-  {
-    id: "bg_160",
-    question: "In BG 8.13, which monosyllable representing the Supreme Lord is vibrated at the time of leaving the body?",
-    options: ["OM (oṁ ity ekākṣaraṁ brahma)", "HRĪṀ", "KLĪṀ", "ŚRĪṀ"],
-    correct: "OM (oṁ ity ekākṣaraṁ brahma)",
-    difficulty: "mid",
-    explanation: "BG 8.13: 'oṁ ity ekākṣaraṁ brahma vyāharan mām anusmaran, yaḥ prayāti tyajan dehaṁ sa yāti paramāṁ gatim'."
-  },
-  {
-    id: "bg_161",
-    question: "In BG 8.28, what does a person who accepts the path of devotional service surpass?",
-    options: ["All results gained from studying the Vedas, performing sacrifices, undergoing austerities, or giving charity", "Only the results of animal sacrifice", "Only the benefits of eating vegetarian meals", "No other spiritual result is surpassed"],
-    correct: "All results gained from studying the Vedas, performing sacrifices, undergoing austerities, or giving charity",
-    difficulty: "hard",
-    explanation: "BG 8.28: 'vedeṣu yajñeṣu tapaḥsu caiva dāneṣu yat puṇya-phalaṁ pradiṣṭam, atyeti tat sarvam idaṁ viditvā yogī paraṁ sthānam upaiti cādyam'."
-  },
-  {
-    id: "bg_162",
-    question: "In BG 9.4, in what form does Lord Krishna pervade the entire universe?",
-    options: ["By My unmanifested form (maya tatam idam sarvam jagad avyakta-murtina)", "In His bodily two-armed form standing in every room", "As an inanimate cloud of steam", "Through political emissaries"],
-    correct: "By My unmanifested form (maya tatam idam sarvam jagad avyakta-murtina)",
-    difficulty: "mid",
-    explanation: "BG 9.4: 'mayā tatam idaṁ sarvaṁ jagad avyakta-mūrtinā, mat-sthāni sarva-bhūtāni na cāhaṁ teṣv avasthitaḥ'."
-  },
-  {
-    id: "bg_163",
-    question: "In BG 9.17, what relationship does Lord Krishna hold with the entire cosmic manifestation?",
-    options: ["Pitaham asya jagato mata dhata pitamahah (I am the father, the mother, the support, and the grandfather)", "He is merely an indifferent observer", "He is a product of Mother Nature", "He is equal to the cosmic dust"],
-    correct: "Pitaham asya jagato mata dhata pitamahah (I am the father, the mother, the support, and the grandfather)",
-    difficulty: "mid",
-    explanation: "BG 9.17: 'pitāham asya jagato mātā dhātā pitāmahaḥ, vedyaṁ pavitram oṁkāra ṛk sāma yajur eva ca'."
-  },
-  {
-    id: "bg_164",
-    question: "What happens to people who perform pious rituals and enjoy the celestial delights of heaven (Svargaloka) when their pious merits are exhausted (BG 9.21)?",
-    options: ["Ksine punye martya-lokam visanti (They fall back down to this mortal earth)", "They permanently merge into the spiritual world", "They become eternal demigods", "They are annihilated into nothingness"],
-    correct: "Ksine punye martya-lokam visanti (They fall back down to this mortal earth)",
-    difficulty: "easy",
-    explanation: "BG 9.21: 'te taṁ bhuktvā svarga-lokaṁ viśālaṁ kṣīṇe puṇye martya-lokaṁ viśanti'."
-  },
-  {
-    id: "bg_165",
-    question: "In BG 9.29, does Lord Krishna envy anyone or show partiality?",
-    options: ["I envy no one, nor am I partial to anyone. I am equal to all. But whoever renders service unto Me in devotion is a friend, is in Me, and I am also a friend to him.", "He favors only wealthy rulers", "He hates the poor and uneducated", "He treats devotees and demons in the exact same way"],
-    correct: "I envy no one, nor am I partial to anyone. I am equal to all. But whoever renders service unto Me in devotion is a friend, is in Me, and I am also a friend to him.",
-    difficulty: "mid",
-    explanation: "BG 9.29: 'samo 'haṁ sarva-bhūteṣu na me dveṣyo 'sti na priyaḥ, ye bhajanti tu māṁ bhaktyā mayi te teṣu cāpy aham'."
-  },
-  {
-    id: "bg_166",
-    question: "Among the seasons, which flowering season does Lord Krishna identify Himself with in BG 10.35?",
-    options: ["Flower-bearing Spring (rtunam kusumakarah)", "The rainy monsoon season", "The cold winter season", "The dry summer heat"],
-    correct: "Flower-bearing Spring (rtunam kusumakarah)",
-    difficulty: "easy",
-    explanation: "BG 10.35: 'bṛhat-sāma tathā sāmnāṁ gāyatrī chandasām aham, māsānāṁ mārga-śīrṣo 'ham ṛtūnāṁ kusumākaraḥ'."
-  },
-  {
-    id: "bg_167",
-    question: "Among letters, who is Lord Krishna in BG 10.33?",
-    options: ["The letter A (akṣarāṇām a-kāro 'smi)", "The letter K", "The letter OM", "The consonant MA"],
-    correct: "The letter A (akṣarāṇām a-kāro 'smi)",
-    difficulty: "mid",
-    explanation: "BG 10.33: 'akṣarāṇām a-kāro 'smi dvandvaḥ sāmāsikasya ca'."
-  },
-  {
-    id: "bg_168",
-    question: "Among purifiers, who is Lord Krishna in BG 10.31?",
-    options: ["The wind, and of fish the shark, and of flowing rivers the holy Ganges (Jahnavi)", "The ocean and rain clouds", "Soap and river clay", "Fire and thunderbolts"],
-    correct: "The wind, and of fish the shark, and of flowing rivers the holy Ganges (Jahnavi)",
-    difficulty: "mid",
-    explanation: "BG 10.31: 'pavanaḥ pavatām asmi rāmaḥ śastra-bhṛtām aham, jhaṣāṇāṁ makaraś cāsmi srotasām asmi jāhnavī'."
-  },
-  {
-    id: "bg_169",
-    question: "In BG 10.36, among cheats, who is Lord Krishna?",
-    options: ["I am the gambling of cheats, and of the splendid I am the splendor (dyutam chalayatam asmi)", "The merchant who sells false gold", "The spy in a foreign kingdom", "The deceitful hunter"],
-    correct: "I am the gambling of cheats, and of the splendid I am the splendor (dyutam chalayatam asmi)",
-    difficulty: "hard",
-    explanation: "BG 10.36: 'dyūtaṁ chalayatām asmi tejas tejasvinām aham, jayo 'smi vyavasāyo 'smi sattvaṁ sattvavatām aham'."
-  },
-  {
-    id: "bg_170",
-    question: "In BG 11.15, what does Arjuna behold within the cosmic body of the Universal Form?",
-    options: ["All the demigods, Brahma sitting on the lotus flower, Lord Shiva, and all the sages and celestial serpents", "Only a dark empty abyss", "The Pandavas ruling peacefully in Hastinapura", "Ancient temple architecture of South India"],
-    correct: "All the demigods, Brahma sitting on the lotus flower, Lord Shiva, and all the sages and celestial serpents",
-    difficulty: "mid",
-    explanation: "BG 11.15: 'paśyāmi devāṁs tava deva dehe sarvāṁs tathā bhūta-viśeṣa-saṅghān, brahmāṇam īśaṁ kamalāsana-stham ṛṣīṁś ca sarvān uragāṁś ca divyān'."
-  },
-  {
-    id: "bg_171",
-    question: "In BG 11.28-29, what two dramatic metaphors illustrate warriors rushing into Krishna's blazing mouths?",
-    options: ["Like rivers rushing into the ocean, and like moths rushing into a blazing fire to perish", "Like leaves blown in wind, and fish caught in nets", "Like stars falling from the sky, and raindrops absorbed in soil", "Like soldiers marching across bridges, and horses charging hills"],
-    correct: "Like rivers rushing into the ocean, and like moths rushing into a blazing fire to perish",
-    difficulty: "hard",
-    explanation: "BG 11.28-29: 'yathā nadīnāṁ bahavo 'mbu-vegāḥ samudram evābhimukhā dravanti... yathā pradīptaṁ jvalanaṁ pataṅgā viśanti nāśāya samṛddha-vegāḥ'."
-  },
-  {
-    id: "bg_172",
-    question: "In BG 11.41-42, why does Arjuna offer heartfelt apologies to Lord Krishna?",
-    options: ["For previously addressing Him casually as 'O Krishna', 'O Yadava', 'O friend', out of affection and ignorance of His cosmic majesty", "For eating before offering food to the priests", "For missing arrows during shooting practice", "For forgetting to polish his Gandiva bow"],
-    correct: "For previously addressing Him casually as 'O Krishna', 'O Yadava', 'O friend', out of affection and ignorance of His cosmic majesty",
-    difficulty: "mid",
-    explanation: "BG 11.41: 'sakheti matvā prasabhaṁ yad uktaṁ he kṛṣṇa he yādava he sakheti, ajānatā mahimānaṁ tavedaṁ mayā pramādāt praṇayena vāpi'."
-  },
-  {
-    id: "bg_173",
-    question: "In BG 12.15, what special symptom describes a devotee who is very dear to Krishna?",
-    options: ["Yasman nodvijate loko lokan nodvijate ca yah (He by whom no one is put into anxiety and who is not disturbed by anxiety)", "One who speaks angrily to frighten evil men", "One who gives up talking to all people", "One who hoards food during droughts"],
-    correct: "Yasman nodvijate loko lokan nodvijate ca yah (He by whom no one is put into anxiety and who is not disturbed by anxiety)",
-    difficulty: "hard",
-    explanation: "BG 12.15: 'yasmān nodvijate loko lokān nodvijate ca yaḥ, harṣāmarṣa-bhayodvegair mukto yaḥ sa ca me priyaḥ'."
-  },
-  {
-    id: "bg_174",
-    question: "In BG 12.20, who is celebrated as 'atīva me priyāḥ' (most affectionately dear to Krishna)?",
-    options: ["Those who follow this imperishable nectar of devotional service with faith, making Me the supreme goal", "Those who win intellectual debates on logic", "Those who donate land for royal palaces", "Those who fast until their physical bodies collapse"],
-    correct: "Those who follow this imperishable nectar of devotional service with faith, making Me the supreme goal",
-    difficulty: "mid",
-    explanation: "BG 12.20: 'ye tu dharmāmṛtam idaṁ yathoktaṁ paryupāsate, śraddadhānā mat-paramā bhaktās te 'tīva me priyāḥ'."
-  },
-  {
-    id: "bg_175",
-    question: "In BG 13.28, what does one see when he sees the Supersoul accompanying the individual soul in all bodies?",
-    options: ["He sees the Supersoul equally present in all living beings and never degrades himself by his mind (samaṁ paśyan hi sarvatra)", "He sees only differences in caste and race", "He sees that souls die when bodies are destroyed", "He sees that good and evil actions are identical"],
-    correct: "He sees the Supersoul equally present in all living beings and never degrades himself by his mind (samaṁ paśyan hi sarvatra)",
-    difficulty: "hard",
-    explanation: "BG 13.28: 'samaṁ sarveṣu bhūteṣu tiṣṭhantaṁ parameśvaram, vinaśyatsv avinaśyantaṁ yaḥ paśyati sa paśyati'."
-  },
-  {
-    id: "bg_176",
-    question: "In BG 13.33, what example shows how the soul does not mix with the physical body despite dwelling within it?",
-    options: ["As the all-pervading ether does not mix with anything due to its subtlety (yatha sarva-gatam sauksmyad)", "As oil does not mix with water", "As light shines through glass", "As perfume wafts through gardens"],
-    correct: "As the all-pervading ether does not mix with anything due to its subtlety (yatha sarva-gatam sauksmyad)",
-    difficulty: "hard",
-    explanation: "BG 13.33: 'yathā sarva-gataṁ saukṣmyād ākāśaṁ nopalipyate, sarvatrāvasthito dehe tathātmā nopalipyate'."
-  },
-  {
-    id: "bg_177",
-    question: "In BG 13.34, to what does Krishna compare the single soul illuminating the whole body with consciousness?",
-    options: ["As the single sun illuminates this entire universe (yatha prakasayaty ekah krtsnam lokam imam ravih)", "As a single lamp illuminates a dark temple", "As a jewel sparkles in a cave", "As a lighthouse guides ships at sea"],
-    correct: "As the single sun illuminates this entire universe (yatha prakasayaty ekah krtsnam lokam imam ravih)",
-    difficulty: "mid",
-    explanation: "BG 13.34: 'yathā prakāśayaty ekaḥ kṛtsnaṁ lokam imaṁ raviḥ, kṣetraṁ kṣetrī tathā kṛtsnaṁ prakāśayati bhārata'."
-  },
-  {
-    id: "bg_178",
-    question: "In BG 14.4, what does Krishna declare regarding all species of life appearing in the material world?",
-    options: ["Material nature is the womb and I am the seed-giving father (aham bija-pradah pita)", "Nature alone generates life through lightning strikes on water", "Brahma is the sole father with no source", "Species arise without any seed or father"],
-    correct: "Material nature is the womb and I am the seed-giving father (aham bija-pradah pita)",
-    difficulty: "easy",
-    explanation: "BG 14.4: 'sarva-yoniṣu kaunteya mūrtayaḥ sambhavanti yāḥ, tāsāṁ brahma mahad yonir ahaṁ bīja-pradaḥ pitā'."
-  },
-  {
-    id: "bg_179",
-    question: "What happens when one dies in the mode of goodness (sattva-guna) according to BG 14.14?",
-    options: ["He attains the pure higher planetary systems of the great sages", "He immediately takes birth as a king", "He falls to the lower animal kingdoms", "He is dissolved into empty void"],
-    correct: "He attains the pure higher planetary systems of the great sages",
-    difficulty: "mid",
-    explanation: "BG 14.14: 'yadā sattve pravṛddhe tu pralayaṁ yāti deha-bhṛt, tadottama-vidāṁ lokān amalān pratipadyate'."
-  },
-  {
-    id: "bg_180",
-    question: "What happens when one dies in the mode of passion (rajo-guna) according to BG 14.15?",
-    options: ["He takes birth among those engaged in fruitive activities (humans)", "He is promoted to Brahmaloka", "He takes birth as a plant or tree", "He never takes birth again"],
-    correct: "He takes birth among those engaged in fruitive activities (humans)",
-    difficulty: "mid",
-    explanation: "BG 14.15: 'rajasi pralayaṁ gatvā karma-saṅgiṣu jāyate, tathā pralīnas tamasi mūḍha-yoniṣu jāyate'."
-  },
-  {
-    id: "bg_181",
-    question: "What happens when one dies in the mode of ignorance (tamo-guna) according to BG 14.15?",
-    options: ["He takes birth in the animal kingdom (mudha-yonisu)", "He is given a wealthy merchant body", "He becomes an ascetic philosopher", "He merges into the sun rays"],
-    correct: "He takes birth in the animal kingdom (mudha-yonisu)",
-    difficulty: "mid",
-    explanation: "BG 14.15: Dying in the mode of ignorance, one takes birth in the animal kingdom or lower species."
-  },
-  {
-    id: "bg_182",
-    question: "In BG 14.22-25, what are the symptoms of a person who has transcended the three material modes (gunatita)?",
-    options: ["He does not hate illumination, attachment, or delusion when present, nor long for them when absent; he remains unperturbed as an indifferent observer", "He becomes physically invisible to common mortals", "He stops breathing for 24 hours daily", "He speaks only in Sanskrit verses"],
-    correct: "He does not hate illumination, attachment, or delusion when present, nor long for them when absent; he remains unperturbed as an indifferent observer",
-    difficulty: "hard",
-    explanation: "BG 14.22-25: 'prakāśaṁ ca pravṛttiṁ ca moham eva ca pāṇḍava... udāsīna-vad āsīno guṇair yo na vicālyate'."
-  },
-  {
-    id: "bg_183",
-    question: "According to BG 15.2, by what are the branches of the upside-down banyan tree nourished?",
-    options: ["Nourished by the three modes of material nature, with sense objects as its twigs (guna-pravrddha visaya-pravalah)", "Nourished by pure holy water from the Ganges", "Nourished by sweet nectar from heaven", "Nourished by cosmic black holes"],
-    correct: "Nourished by the three modes of material nature, with sense objects as its twigs (guna-pravrddha visaya-pravalah)",
-    difficulty: "hard",
-    explanation: "BG 15.2: 'adhaś cordhvaṁ prasṛtās tasya śākhā guṇa-pravṛddhā viṣaya-pravālāḥ'."
-  },
-  {
-    id: "bg_184",
-    question: "In BG 15.12, what does Krishna reveal about the light of the sun, moon, and fire?",
-    options: ["Yad aditya-gatam tejo... tat tejo viddhi mamakam (The splendor of the sun, moon, and fire all emanate from Me)", "They are nuclear reactions with no spiritual origin", "They belong solely to Indra and Surya", "They have existed eternally without any master"],
-    correct: "Yad aditya-gatam tejo... tat tejo viddhi mamakam (The splendor of the sun, moon, and fire all emanate from Me)",
-    difficulty: "easy",
-    explanation: "BG 15.12: 'yad āditya-gataṁ tejo jagad bhāsayate 'khilam, yac candramasi yac cāgnau tat tejo viddhi māmakam'."
-  },
-  {
-    id: "bg_185",
-    question: "In BG 15.13, how does Lord Krishna nourish all vegetables and plants on earth?",
-    options: ["By becoming the moon and thereby supplying the juice of life (pusnami causadhih sarvah somo bhutva rasatmakah)", "Through artificial chemical fertilizers", "By directing ocean winds to rain", "Through subterranean hot water springs"],
-    correct: "By becoming the moon and thereby supplying the juice of life (pusnami causadhih sarvah somo bhutva rasatmakah)",
-    difficulty: "mid",
-    explanation: "BG 15.13: 'gām āviśya ca bhūtāni dhārayāmy aham ojasā, puṣṇāmi cauṣadhīḥ sarvāḥ somo bhūtvā rasātmakaḥ'."
-  },
-  {
-    id: "bg_186",
-    question: "What is Chapter 15 of the Bhagavad-gita called?",
-    options: ["Purushottama Yoga (The Yoga of the Supreme Person)", "Sankhya Yoga", "Karma Sannyasa Yoga", "Daivasura Sampad Vibhaga Yoga"],
-    correct: "Purushottama Yoga (The Yoga of the Supreme Person)",
-    difficulty: "easy",
-    explanation: "Chapter 15 is celebrated as Purushottama Yoga, the revelation of the Supreme Person higher than both fallible and infallible beings."
-  },
-  {
-    id: "bg_187",
-    question: "What are the six demoniac qualities (asuri sampad) listed in BG 16.4?",
-    options: ["Dambha (Pride), Darpa (Arrogance), Abhimana (Conceit), Krodha (Anger), Parushyam (Harshness), and Ajnanam (Ignorance)", "Poverty, sickness, hunger, cold, thirst, and fatigue", "Cowardice, quietness, retreat, meditation, fasting, and sadness", "Honesty, study, prayer, charity, truth, and forgiveness"],
-    correct: "Dambha (Pride), Darpa (Arrogance), Abhimana (Conceit), Krodha (Anger), Parushyam (Harshness), and Ajnanam (Ignorance)",
-    difficulty: "hard",
-    explanation: "BG 16.4: 'dambho darpo 'bhimānaś ca krodhaḥ pāruṣyam eva ca, ajñānaṁ cābhijātasya pārtha sampadam āsurīm'."
-  },
-  {
-    id: "bg_188",
-    question: "What does Krishna tell Arjuna in BG 16.5 regarding his birth and destined qualities?",
-    options: ["Ma sucah sampadam daivim abhijato 'si pandava (Do not lament, O son of Pandu, for you are born with the divine qualities)", "You are born with demoniac traits and will fail", "You must perform animal sacrifices to purify your birth", "You will be reborn as an untouchable"],
-    correct: "Ma sucah sampadam daivim abhijato 'si pandava (Do not lament, O son of Pandu, for you are born with the divine qualities)",
-    difficulty: "mid",
-    explanation: "BG 16.5: 'daivī sampad vimokṣāya nibandhāyāsurī matā, mā śucaḥ sampadaṁ daivīm abhijāto 'si pāṇḍava'."
-  },
-  {
-    id: "bg_189",
-    question: "In BG 16.13-15, what is the boasting delusion of the demoniac mentality?",
-    options: ["'So much wealth do I have today, and I will gain more according to my schemes... I am the lord, I am the enjoyer, I am perfect, powerful and happy!'", "'All glory belongs to the Supreme Lord Sri Krishna'", "'I am a humble servant of all humanity'", "'Material wealth is temporary and binds the soul'"],
-    correct: "'So much wealth do I have today, and I will gain more according to my schemes... I am the lord, I am the enjoyer, I am perfect, powerful and happy!'",
-    difficulty: "mid",
-    explanation: "BG 16.13-15 describes the asuric mentality: 'idam adya mayā labdham imaṁ prāpsye manoratham... īśvaro 'ham ahaṁ bhogī siddho 'haṁ balavān sukhī'."
-  },
-  {
-    id: "bg_190",
-    question: "Into which wombs does Lord Krishna cast those who are envious and mischievous demons (BG 16.19)?",
-    options: ["Into the ocean of material existence, repeatedly into demoniac species of life (asurīṣv eva yoniṣu)", "He instantly elevates them to Vaikuntha without effort", "He gives them birth as wealthy brahmanas", "He grants them mystic powers of levitation"],
-    correct: "Into the ocean of material existence, repeatedly into demoniac species of life (asurīṣv eva yoniṣu)",
-    difficulty: "hard",
-    explanation: "BG 16.19: 'tān ahaṁ dviṣataḥ krūrān saṁsāreṣu narādhamān, kṣipāmy ajasram aśubhān āsurīṣv eva yoniṣu'."
-  },
-  {
-    id: "bg_191",
-    question: "In BG 17.2, how many kinds of faith (shraddha) are there according to the modes of material nature?",
-    options: ["Three kinds: in goodness, in passion, and in ignorance", "Two kinds: true faith and false faith", "Four kinds: one for each caste", "Only one universal faith exists"],
-    correct: "Three kinds: in goodness, in passion, and in ignorance",
-    difficulty: "easy",
-    explanation: "BG 17.2: 'tri-vidhā bhavati śraddhā dehināṁ sā svabhāva-jā, sāttvikī rājasī caiva tāmasī ceti tāṁ śṛṇu'."
-  },
-  {
-    id: "bg_192",
-    question: "Whom do men in the mode of goodness, passion, and ignorance worship according to BG 17.4?",
-    options: ["Men in goodness worship the demigods; those in passion worship demons; those in ignorance worship ghosts and spirits", "All men worship the sun god directly", "Those in goodness worship demons; those in passion worship demigods", "Only those in ignorance perform worship"],
-    correct: "Men in goodness worship the demigods; those in passion worship demons; those in ignorance worship ghosts and spirits",
-    difficulty: "mid",
-    explanation: "BG 17.4: 'yajante sāttvikā devān yakṣa-rakṣāṁsi rājasāḥ, pretān bhūta-gaṇāṁś cānye yajante tāmasā janāḥ'."
-  },
-  {
-    id: "bg_193",
-    question: "What is sacrifice (yajna) in the mode of goodness according to BG 17.11?",
-    options: ["Sacrifice performed according to scriptural direction, out of duty, by those who desire no reward (aphalakanksibhir yajno)", "Sacrifice performed for show and public acclaim", "Sacrifice where no food is distributed and no mantras are chanted", "Sacrifice where animals are harmed for political glory"],
-    correct: "Sacrifice performed according to scriptural direction, out of duty, by those who desire no reward (aphalakanksibhir yajno)",
-    difficulty: "mid",
-    explanation: "BG 17.11: 'aphalākāṅkṣibhir yajño vidhi-diṣṭo ya ijyate, yaṣṭavyam eveti manaḥ samādhāya sa sāttvikaḥ'."
-  },
-  {
-    id: "bg_194",
-    question: "What is charity (dana) in the mode of goodness according to BG 17.20?",
-    options: ["Charity given out of duty, without expectation of return, at the proper time and place, and to a worthy person (datavyam iti yad danam)", "Charity given reluctantly with expectation of future favors", "Charity given at an impure place, unrespectfully, to unworthy persons", "Charity given to promote illegal activities"],
-    correct: "Charity given out of duty, without expectation of return, at the proper time and place, and to a worthy person (datavyam iti yad danam)",
-    difficulty: "mid",
-    explanation: "BG 17.20: 'dātavyam iti yad dānaṁ dīyate 'nupakāriṇe, deśe kāle ca pātre ca tad dānaṁ sāttvikaṁ smṛtam'."
-  },
-  {
-    id: "bg_195",
-    question: "What is charity (dana) in the mode of passion according to BG 17.21?",
-    options: ["Charity performed with the expectation of some return, or with a desire for fruitive results, or in a grudging mood", "Charity given anonymously to spiritual teachers", "Feeding holy cows in Vrindavan", "Building orphanages without taking tax receipts"],
-    correct: "Charity performed with the expectation of some return, or with a desire for fruitive results, or in a grudging mood",
-    difficulty: "easy",
-    explanation: "BG 17.21: 'yat tu pratyupakārārthaṁ phalam uddiśya vā punaḥ, dīyate ca parikliṣṭaṁ tad dānaṁ rājasaṁ smṛtam'."
-  },
-  {
-    id: "bg_196",
-    question: "In BG 17.28, what is any sacrifice, charity, or penance performed without faith termed?",
-    options: ["Asat (Nonexistent / of no eternal value)", "Sat", "Moksha", "Dharma"],
-    correct: "Asat (Nonexistent / of no eternal value)",
-    difficulty: "mid",
-    explanation: "BG 17.28: 'aśraddhayā hutaṁ dattaṁ tapas taptaṁ kṛtaṁ ca yat, asad ity ucyate pārtha na ca tat pretya no iha'."
-  },
-  {
-    id: "bg_197",
-    question: "In BG 18.20, what is knowledge (jnana) in the mode of goodness?",
-    options: ["That knowledge by which one undivided spiritual nature is seen in all living entities, though they are divided into countless forms", "Knowledge that sees each body as a separate soul without connection", "Knowledge that clings to one single bodily activity as the all in all", "Knowledge of stock market trading"],
-    correct: "That knowledge by which one undivided spiritual nature is seen in all living entities, though they are divided into countless forms",
-    difficulty: "hard",
-    explanation: "BG 18.20: 'sarva-bhūteṣu yenaikaṁ bhāvam avyayam īkṣate, avibhaktaṁ vibhakteṣu taj jñānaṁ viddhi sāttvikam'."
-  },
-  {
-    id: "bg_198",
-    question: "What are the natural qualities of work for a brahmana described in BG 18.42?",
-    options: ["Sama (Peacefulness), dama (Self-control), tapa (Austerity), sauca (Purity), ksanti (Tolerance), arjava (Honesty), jnana (Knowledge), vijnana (Wisdom), and astikya (Religiousness)", "Heroism, power, determination, courage in battle, generosity, and leadership", "Farming, cow protection, and business", "Labor and service to others"],
-    correct: "Sama (Peacefulness), dama (Self-control), tapa (Austerity), sauca (Purity), ksanti (Tolerance), arjava (Honesty), jnana (Knowledge), vijnana (Wisdom), and astikya (Religiousness)",
-    difficulty: "hard",
-    explanation: "BG 18.42: 'śamo damas tapaḥ śaucaṁ kṣāntir ārjavam eva ca, jñānaṁ vijñānam āstikyaṁ brahma-karma svabhāva-jam'."
-  },
-  {
-    id: "bg_199",
-    question: "What are the natural qualities of work for a kshatriya described in BG 18.43?",
-    options: ["Heroism, power, determination, resourcefulness, courage in battle, generosity, and leadership (sauryam tejo dhrtir daksyam)", "Teaching scriptures and accepting charity", "Tilling soil and selling milk", "Weaving cloth and manual labor"],
-    correct: "Heroism, power, determination, resourcefulness, courage in battle, generosity, and leadership (sauryam tejo dhrtir daksyam)",
-    difficulty: "mid",
-    explanation: "BG 18.43: 'śauryaṁ tejo dhṛtir dākṣyaṁ yuddhe cāpy apalāyanam, dānam īśvara-bhāvaś ca kṣātra-karma svabhāva-jam'."
-  },
-  {
-    id: "bg_200",
-    question: "What are the natural duties of vaishyas (merchants) described in BG 18.44?",
-    options: ["Krsi-go-raksya-vanijyam (Agriculture, cow protection, and trade)", "Military defense and administration", "Priestly rituals and temple ceremonies", "Menial service to the other three orders"],
-    correct: "Krsi-go-raksya-vanijyam (Agriculture, cow protection, and trade)",
-    difficulty: "easy",
-    explanation: "BG 18.44: 'kṛṣi-go-rakṣya-vāṇijyaṁ vaiśya-karma svabhāva-jam, paricaryātmakaṁ karma śūdrasyāpi svabhāva-jam'."
+  {
+    "id": "1",
+    "question": "What did Bhishma’s loud blowing of the conchshell symbolize for Duryodhana?",
+    "options": [
+      "It symbolized the cheering of Duryodhana",
+      "It symbolized that Duryodhana had no chance of victory in the battle",
+      "It symbolized the definite victory of Duryodhana",
+      "It had no meaning at all"
+    ],
+    "correct": "It symbolized that Duryodhana had no chance of victory in the battle"
+  },
+  {
+    "id": "2",
+    "question": "How a living entity in the mode of goodness becomes conditioned?",
+    "options": [
+      "Thinking that he is better than others",
+      "Thinking that he is happiest of all",
+      "Thinking that he is advanced in knowledge",
+      "All of the above"
+    ],
+    "correct": "All of the above"
+  },
+  {
+    "id": "3",
+    "question": "The most victorious element is ____________.",
+    "options": [
+      "Hard work",
+      "Honesty",
+      "Morality",
+      "Sincerity"
+    ],
+    "correct": "Morality"
+  },
+  {
+    "id": "4",
+    "question": "What reason do Arjuna gives for not practicing the yoga system described by Krishna?",
+    "options": [
+      "Yoga system being a long process to carry on",
+      "The mind being restless and unsteady for performing yoga system",
+      "Yoga system not applicable for the kshatriya class of men",
+      "None of the above"
+    ],
+    "correct": "The mind being restless and unsteady for performing yoga system"
+  },
+  {
+    "id": "5",
+    "question": "Choose the correct one?",
+    "options": [
+      "The living entities are unconscious and material nature is conscious under the direction of Lord",
+      "The living entities and material nature are both predominated under supreme lord",
+      "The living entities are inferior energy and material nature are superior energy of the Lord",
+      "The living entities are male prakriti and material nature is female prakriti under the direction of Lord"
+    ],
+    "correct": "The living entities and material nature are both predominated under supreme lord"
+  },
+  {
+    "id": "6",
+    "question": "Devotee being well versed in literature of devotional service but not having firm faith in Krishna falls under which category?",
+    "options": [
+      "First class devotee (Uttam Adhikari)",
+      "Second class devotee (Madhyam Adhikari)",
+      "Third class devotee (Kanistha Adhikari)",
+      "None of these"
+    ],
+    "correct": "None of these"
+  },
+  {
+    "id": "7",
+    "question": "Purusham stands for ________ and Ishwar means ________ _________.",
+    "options": [
+      "enjoyer and controller",
+      "enjoyer and proprietor",
+      "proprietor and controller",
+      "proprietor and instructor"
+    ],
+    "correct": "enjoyer and controller"
+  },
+  {
+    "id": "8",
+    "question": "In this chapter Lord Balram is called one of the representatives of Krishna. Which name of lord used here to indicate Him?",
+    "options": [
+      "Vasudeva",
+      "Baldev",
+      "Vrishnivanshi",
+      "Rohni Nandan"
+    ],
+    "correct": "Vasudeva"
+  },
+  {
+    "id": "9",
+    "question": "The term \"field of activities\" is used for whom?",
+    "options": [
+      "body",
+      "Intelligence",
+      "Senses",
+      "mind"
+    ],
+    "correct": "body"
+  },
+  {
+    "id": "10",
+    "question": "Which one among the following is the correct option?i) Sun and sun shineI a) Udasinaii) High court Judge giving JudgementI b) Avyakta Murtiiii) Wind is not situated beyond the skyI c) yogam aisvaramiv) The activity of smelling and flower are detached from one anotherI d) a) ii ) Mat-sthani sarvabhutani (? i) iii) c) iv) b) d) - )",
+    "options": [
+      "i)-b, ii)-c, iii)-d, iv)-a",
+      "i)-d, ii)-b, iii)-a, iv)-c",
+      "i)-b, ii)-a, iii)-d, iv)-c",
+      "i)-d, ii)-a, iii)-c, iv)-b"
+    ],
+    "correct": "i)-b, ii)-a, iii)-d, iv)-c"
+  },
+  {
+    "id": "11",
+    "question": "At what time of Brahma’s life are living entities annihilated?",
+    "options": [
+      "When Brahma’s day is manifest",
+      "At the arrival of Brahma’s night",
+      "Both a & b",
+      "None of these"
+    ],
+    "correct": "At the arrival of Brahma’s night"
+  },
+  {
+    "id": "12",
+    "question": "What does the word amalaan means?",
+    "options": [
+      "free from mode of goodness",
+      "free from mode of passion",
+      "free from mode of ignorance",
+      "free from both mode of passion and ignorance",
+      "free from three modes of material nature"
+    ],
+    "correct": "free from both mode of passion and ignorance"
+  },
+  {
+    "id": "13",
+    "question": "Who is called Veda-vada-ratah?",
+    "options": [
+      "who reject Vedas",
+      "who misinterpret Vedas",
+      "who trying to understand Vedas",
+      "follower of Vedas"
+    ],
+    "correct": "follower of Vedas"
+  },
+  {
+    "id": "14",
+    "question": "When Varnashram dharam is failed which situation society has to face?",
+    "options": [
+      "adultery is indulged in society",
+      "women of the family become polluted",
+      "risk of war and pestilence is prevailed",
+      "all of the above"
+    ],
+    "correct": "all of the above"
+  },
+  {
+    "id": "15",
+    "question": "Part of the bramhajyoti is covered by",
+    "options": [
+      "mahat tatva",
+      "swarga",
+      "satya loka",
+      "mahar loka"
+    ],
+    "correct": "mahat tatva"
+  },
+  {
+    "id": "16",
+    "question": "Whose great grandfather is Krishna called?",
+    "options": [
+      "Bhishma",
+      "Vishnu",
+      "Brahma",
+      "Mahesh"
+    ],
+    "correct": "Brahma"
+  },
+  {
+    "id": "17",
+    "question": "Who is happy in this world?",
+    "options": [
+      "who is able to tolerate the urges of the anger and check the force of desire",
+      "who is able to tolerate the urges of the lust and check the force of desire",
+      "who is able to tolerate the urges of the material senses and check the force of desire",
+      "who is able to tolerate the urges of the ego and check the force of desire"
+    ],
+    "correct": "who is able to tolerate the urges of the material senses and check the force of desire"
+  },
+  {
+    "id": "18",
+    "question": "Who is best according to Krishna?",
+    "options": [
+      "inquisitive",
+      "Gyani",
+      "one who desires material gain",
+      "distressed"
+    ],
+    "correct": "Gyani"
+  },
+  {
+    "id": "19",
+    "question": "In the 11th chapter of Bhagvad Gita, Lord is addressed by which identity? ( 11?)",
+    "options": [
+      "Creator of the grandfather of this material world )",
+      "Grandfather of this mundane world (",
+      "source of everything spiritual and material",
+      "the soul residing in everyone hearts"
+    ],
+    "correct": "Creator of the grandfather of this material world )"
+  },
+  {
+    "id": "20",
+    "question": "Arjuna's all arguments put before Krishna are based upon which of the following?",
+    "options": [
+      "personal experiences",
+      "hearing from authorities",
+      "future predictions",
+      "relationship with Krishna"
+    ],
+    "correct": "hearing from authorities"
+  },
+  {
+    "id": "21",
+    "question": "Why living entity has been called the marginal energy of the Supreme Lord?",
+    "options": [
+      "this energy situated between the spiritual and material energy of the Lord",
+      "it has the tendency to reject the sanction of the Lord and act independently",
+      "this energy is situated only in human beings",
+      "it has the will to the follow the instructions of the Lord and act independently"
+    ],
+    "correct": "it has the tendency to reject the sanction of the Lord and act independently"
+  },
+  {
+    "id": "22",
+    "question": "Which of the following is not eternal?",
+    "options": [
+      "material nature",
+      "time",
+      "Jiva",
+      "karma"
+    ],
+    "correct": "karma"
+  },
+  {
+    "id": "23",
+    "question": "Th word ‘aja’ means",
+    "options": [
+      "Transcendental",
+      "Unborn",
+      "Supreme",
+      "Conditioned"
+    ],
+    "correct": "Unborn"
+  },
+  {
+    "id": "24",
+    "question": "Which type of yoga system Krsna instructed in this chapter?",
+    "options": [
+      "Dhyan-yog",
+      "Ashtang-yog",
+      "Sanatan-yog",
+      "Param-yog"
+    ],
+    "correct": "Sanatan-yog"
+  },
+  {
+    "id": "25",
+    "question": "History of knowledge of science of Bhagvat Gita can be traced back to _____",
+    "options": [
+      "120 million years (120 )",
+      "2 million years (2 )",
+      "300 million years (300 )",
+      "5000 Years (5000 )"
+    ],
+    "correct": "120 million years (120 )"
+  },
+  {
+    "id": "26",
+    "question": "When inquiries from the learned spiritual master become effective?",
+    "options": [
+      "When there is devotion and knowledge",
+      "When there is submission and service",
+      "When there is austerity and submission",
+      "When there is service and knowledge"
+    ],
+    "correct": "When there is submission and service"
+  },
+  {
+    "id": "27",
+    "question": "Who is mahatma?",
+    "options": [
+      "One who meditate on Brahmajyoti",
+      "The meditate only upon Krishna in Krishna consciousness",
+      "One who is situated in the divine nature",
+      "Both b and c"
+    ],
+    "correct": "Both b and c"
+  },
+  {
+    "id": "28",
+    "question": "In the upanishad; Krishna is _________ and Jiva is __________",
+    "options": [
+      "enjoying, eating fruit",
+      "both are eating fruits",
+      "witnessing jiva, witnessing Krishna",
+      "witnessing, eating fruit"
+    ],
+    "correct": "witnessing, eating fruit"
+  },
+  {
+    "id": "29",
+    "question": "Which surrender process is cannot be possible?",
+    "options": [
+      "before surrender to Krishna one need to surrender to spiritual master",
+      "surrender to authentic guru is sufficient; one need not to surrender to Krishna separately",
+      "In grihastha life also one can surrender to Krishna completely",
+      "one need not surrender to Krishna but to \"unborn within Him\""
+    ],
+    "correct": "one need not surrender to Krishna but to \"unborn within Him\""
+  },
+  {
+    "id": "30",
+    "question": "What does it mean of Savyasachi?",
+    "options": [
+      "one who can play flute nicely",
+      "who never turns his back on the battlefield",
+      "who is truthful in his activities",
+      "one who can shoot arrows expertly in the field"
+    ],
+    "correct": "one who can shoot arrows expertly in the field"
+  },
+  {
+    "id": "31",
+    "question": "Choose the incorrect option",
+    "options": [
+      "Vaishya are in modes of both passion and ignorance",
+      "One who is truly established in Krishna consciousness becomes nirguna",
+      "Person in mode of goodness can understand the supreme lord in his personal feature",
+      "None of these"
+    ],
+    "correct": "Person in mode of goodness can understand the supreme lord in his personal feature"
+  },
+  {
+    "id": "32",
+    "question": "Which weapon given by Lord Shiva to Arjuna?",
+    "options": [
+      "Pashupati astra",
+      "Maheshwarastra",
+      "Rudrastra",
+      "Pashupata astra"
+    ],
+    "correct": "Pashupata astra"
+  },
+  {
+    "id": "33",
+    "question": "What is the ultimate goal of life for the demoniac people?",
+    "options": [
+      "Serving humanity",
+      "Accumulating wealth",
+      "Sense enjoyment",
+      "Serving impersonalism"
+    ],
+    "correct": "Sense enjoyment"
+  },
+  {
+    "id": "34",
+    "question": "Which of the following comes under the indirect path of devotional service?",
+    "options": [
+      "Meditation",
+      "Knowledge & renunciation",
+      "Realization of Supersoul & Brahman",
+      "All of these"
+    ],
+    "correct": "All of these"
+  },
+  {
+    "id": "35",
+    "question": "Omkara is the sound representation of _________________.",
+    "options": [
+      "Liberation",
+      "Krishna",
+      "Nirakar",
+      "Transcendence"
+    ],
+    "correct": "Krishna"
+  },
+  {
+    "id": "36",
+    "question": "Why the devotees want to understand Krishna, even though senses are not perfect?",
+    "options": [
+      "Some point of time they will be able to know Krishna fully",
+      "Their senses will not be imperfect",
+      "Hearing about Krishna appear to be nectar to them",
+      "They are compassionate to the conditioned souls"
+    ],
+    "correct": "Hearing about Krishna appear to be nectar to them"
+  },
+  {
+    "id": "37",
+    "question": "which among the following does not comes under real process of knowledge?",
+    "options": [
+      "Absence of false ego",
+      "Detachment",
+      "Approaching the bona fide spiritual Master",
+      "None of these"
+    ],
+    "correct": "None of these"
+  },
+  {
+    "id": "38",
+    "question": "What do you understand by the statement that the Lord is \"Upadrashta\"?",
+    "options": [
+      "He is enjoyer",
+      "Omniscient",
+      "He is witness",
+      "He is a permitter"
+    ],
+    "correct": "He is witness"
+  },
+  {
+    "id": "39",
+    "question": "Which example is given to prove that meditation is powerful even in this world?",
+    "options": [
+      "spider",
+      "swan",
+      "Cheetah",
+      "Tortoise"
+    ],
+    "correct": "Tortoise"
+  },
+  {
+    "id": "40",
+    "question": "Which of the following destroys the urge for self realization? -?",
+    "options": [
+      "Lust",
+      "Body",
+      "Intelligence",
+      "None of these"
+    ],
+    "correct": "Lust"
+  },
+  {
+    "id": "41",
+    "question": "Krishna's instructions is to __________ and Mahaprabhu's instructions is to _________. __________",
+    "options": [
+      "do karma, don't bother about fruits of karmas",
+      "fight for right, let leave everything on Krishna",
+      "do kirtan, do sankirtan",
+      "remember Him, chant the names of Krishna"
+    ],
+    "correct": "remember Him, chant the names of Krishna"
+  },
+  {
+    "id": "42",
+    "question": "What is material compassion compared to in Bhagavad Gita?",
+    "options": [
+      "Fire covered by smoke",
+      "Saving the dress of a drowning man",
+      "Killing the demon of misunderstanding",
+      "All of these"
+    ],
+    "correct": "Saving the dress of a drowning man"
+  },
+  {
+    "id": "43",
+    "question": "What do you understand by the term \"vigyan\" or science of knowledge?",
+    "options": [
+      "combination of the karma, result and the process of karmas",
+      "combination of the birth, old age, death and disease",
+      "combination of the gyan yoga, karma yoga and bhakti yoga",
+      "combination of the knower, the knowable and the process of knowing"
+    ],
+    "correct": "combination of the knower, the knowable and the process of knowing"
+  },
+  {
+    "id": "44",
+    "question": "when one take shelter of Lord Mukunda then whose obligations can't be fulfilled?",
+    "options": [
+      "demigods",
+      "forefathers",
+      "guru",
+      "one can fulfilled obligations of all of the above"
+    ],
+    "correct": "guru"
+  },
+  {
+    "id": "45",
+    "question": "of all that is material and spiritual in this world, Krishna says to consider him the cause of their origin and dissolution. Which of the following verse supports this statement?",
+    "options": [
+      "Etatd-yonini bhutani sarvani iti upadharaya….",
+      "Matthah parataram na anyat kinchit asti dhananjaya….",
+      "Bhumir apo anla vayuh kham buddhir eva cha ……",
+      "Apara iyam itah tu anyam prakrtim viddhi me param…."
+    ],
+    "correct": "Etatd-yonini bhutani sarvani iti upadharaya…."
+  },
+  {
+    "id": "46",
+    "question": "In vedic literature, ________________ is considered to be the representative of God. (, _________ )",
+    "options": [
+      "King",
+      "Sages",
+      "Learned men",
+      "None of these"
+    ],
+    "correct": "King"
+  },
+  {
+    "id": "47",
+    "question": "What is the correct statement of Gita?",
+    "options": [
+      "brhman satya jagat mithya",
+      "brhman adukham jagat mithya",
+      "brhman adukham jagat anityam",
+      "brhman satya jagat anityam"
+    ],
+    "correct": "brhman satya jagat anityam"
+  },
+  {
+    "id": "48",
+    "question": "What is perfect knowledge in Lord Sri Krishna’s opinion?",
+    "options": [
+      "Perfect knowledge of the constitution of the body, soul & Supersoul",
+      "Understanding the soul & Supersoul as one and yet distinct",
+      "Understanding the nature, the enjoyer of the nature, and the Supreme controlled",
+      "All of the above"
+    ],
+    "correct": "All of the above"
+  },
+  {
+    "id": "49",
+    "question": "For ________________, the syllable om is identical with Brahman (________, )",
+    "options": [
+      "Celibates",
+      "Renounced persons",
+      "Impersonalists",
+      "None of the above"
+    ],
+    "correct": "Impersonalists"
+  },
+  {
+    "id": "50",
+    "question": "which philosopher among the following is latest",
+    "options": [
+      "Yajnavalkya",
+      "Gautam",
+      "Kapila",
+      "Vyasadeva"
+    ],
+    "correct": "Vyasadeva"
+  },
+  {
+    "id": "51",
+    "question": "Krishna is _____ among Aditya (",
+    "options": [
+      "Narayan",
+      "Sun",
+      "Vishnu",
+      "Brahmajyoti"
+    ],
+    "correct": "Vishnu"
+  },
+  {
+    "id": "52",
+    "question": "What is the example of rajo guna?",
+    "options": [
+      "family attachment",
+      "mental speculation",
+      "abominable food",
+      "sleep"
+    ],
+    "correct": "family attachment"
+  },
+  {
+    "id": "53",
+    "question": "Out of these which one of the following is easier for the embodied soul?",
+    "options": [
+      "Jnana-yoga",
+      "Karma-yoga",
+      "Bhakti-yoga",
+      "All the three processes are difficult"
+    ],
+    "correct": "Bhakti-yoga"
+  },
+  {
+    "id": "54",
+    "question": "What Krishna instructs to Arjuna?",
+    "options": [
+      "to become transcendental to passion and ignorance",
+      "to go beyond the 3 modes (3 )",
+      "to destroy the 3 modes of nature 3 ) (",
+      "both 2 and 3 ( 2 3)"
+    ],
+    "correct": "to destroy the 3 modes of nature 3 ) ("
+  },
+  {
+    "id": "55",
+    "question": "Who comes in the category of serious aggressors?",
+    "options": [
+      "one who sets fire to the house",
+      "one who plunder riches",
+      "one who occupies another's land",
+      "all of the above"
+    ],
+    "correct": "all of the above"
+  },
+  {
+    "id": "56",
+    "question": "Krishna consciousness is beneficial for _____ ) (",
+    "options": [
+      "A person full of polluted material things",
+      "A person free from pollution of material things",
+      "Both a and b (A B )",
+      "None"
+    ],
+    "correct": "Both a and b (A B )"
+  },
+  {
+    "id": "57",
+    "question": "what does it means by kacit mam vetti tattvatah..",
+    "options": [
+      "To realize Krishna as Parmatama ) (",
+      "To realize Krishna as Brahma Swarup",
+      "To understand Krishna is Vishnu Tattva",
+      "To understand Krishna is fountainhead of all incarnations or cause of all causes",
+      "To know the historical facts of Krishna ) ("
+    ],
+    "correct": "To understand Krishna is fountainhead of all incarnations or cause of all causes"
+  },
+  {
+    "id": "58",
+    "question": "Which analogy is given to prove the 3 aspects of absolute 3 truth?",
+    "options": [
+      "mountain",
+      "moon",
+      "sun",
+      "universe"
+    ],
+    "correct": "sun"
+  },
+  {
+    "id": "59",
+    "question": "What does the word atma - mayaya refers to in prakritim svam adhisthaya sambhavamy atma – -?) mayaya? (",
+    "options": [
+      "Lord’s causeless mercy",
+      "Lord’s internal potency",
+      "One’s own form",
+      "Both a and b (A B )"
+    ],
+    "correct": "Both a and b (A B )"
+  },
+  {
+    "id": "60",
+    "question": "How many qualities are described in BG, gradually developing which, one can rise to transcendental realizations?",
+    "options": [
+      "Twenty-six",
+      "Twenty",
+      "Sixteen",
+      "Thirty-two"
+    ],
+    "correct": "Twenty-six"
+  },
+  {
+    "id": "61",
+    "question": "Which of the following yoga system admits householder brahmacharis?",
+    "options": [
+      "Bhakti yoga",
+      "Dhyana yoga",
+      "Jnana yoga",
+      "All of these"
+    ],
+    "correct": "Bhakti yoga"
+  },
+  {
+    "id": "62",
+    "question": "What is \"phalgu renunciation\"?",
+    "options": [
+      "accepting renunciation for the desire of some fame",
+      "accepting renunciation to avoid the process of sense gratification",
+      "when one fails in material world then he accepts renunciation",
+      "without knowledge of Krishna consciousness artificially try to avoid material objects"
+    ],
+    "correct": "without knowledge of Krishna consciousness artificially try to avoid material objects"
+  },
+  {
+    "id": "63",
+    "question": "What is the source of dualities in this world?",
+    "options": [
+      "honor and disgrace",
+      "enjoyment and renunciation",
+      "karma and akarma )",
+      "desire and hate"
+    ],
+    "correct": "desire and hate"
+  },
+  {
+    "id": "64",
+    "question": "Bhakti-yogi is engaged in how many different ways?",
+    "options": [
+      "2",
+      "5",
+      "16",
+      "22"
+    ],
+    "correct": "5"
+  },
+  {
+    "id": "65",
+    "question": "\"I am enjoying an ever new transcendental taste when I am engaged in the service of Krishna\" Whose statement is this one?",
+    "options": [
+      "Sri Madhvacharya",
+      "Sri Ramanujacharya",
+      "Sri Yamunacharya",
+      "Sri Shankaracharya"
+    ],
+    "correct": "Sri Yamunacharya"
+  },
+  {
+    "id": "66",
+    "question": "those who worship demigods their fruits are ______ and _________.",
+    "options": [
+      "unlimited and temporary",
+      "unlimited and permanent",
+      "limited and permanent",
+      "limited and temporary"
+    ],
+    "correct": "limited and temporary"
+  },
+  {
+    "id": "67",
+    "question": "Why is the living entity called as the Lord of the body?",
+    "options": [
+      "Because the body belongs to him",
+      "Because the body works according to his need",
+      "Because of the minute independence available to him, he can change his body to a higher or lower grade",
+      "All of the above"
+    ],
+    "correct": "Because of the minute independence available to him, he can change his body to a higher or lower grade"
+  },
+  {
+    "id": "68",
+    "question": "What among the following are meant for the brahmacaris according to BG?",
+    "options": [
+      "Vedic study, austerity & performance of sacrifice",
+      "Vedic study, austerity & simplicity",
+      "Vedic study & simplicity",
+      "Austerity & simplicity"
+    ],
+    "correct": "Vedic study, austerity & simplicity"
+  },
+  {
+    "id": "69",
+    "question": "According to Lord Caitanya, who has got real fame?",
+    "options": [
+      "A Brahman",
+      "Brahmavadi",
+      "A Mayavadi",
+      "None of these"
+    ],
+    "correct": "None of these"
+  },
+  {
+    "id": "70",
+    "question": "Disregard for the rules and regulations of the scriptures are due to __________________.",
+    "options": [
+      "Illusion",
+      "Ignorance",
+      "Illusion & ignorance",
+      "Foolishness"
+    ],
+    "correct": "Illusion & ignorance"
+  },
+  {
+    "id": "71",
+    "question": "Krishna is addressed as ________ to set a right connotation where He (Krishna) shows the Universal form? ( ________?)",
+    "options": [
+      "Madhusudan",
+      "Murari",
+      "Purusottam",
+      "Keshav"
+    ],
+    "correct": "Purusottam"
+  },
+  {
+    "id": "72",
+    "question": "Who is the perfect sanyasi or Yogi?",
+    "options": [
+      "One who Desire to merge into Brahman",
+      "One who Desire to be a mystic Yogi",
+      "One who Desire to act in Krishna consciousness",
+      "All of the above"
+    ],
+    "correct": "One who Desire to act in Krishna consciousness"
+  },
+  {
+    "id": "73",
+    "question": "If one is unable to work in the consciousness of Krishna then which process is recommended by Krishna?",
+    "options": [
+      "Trying to work for Krishna because by working for Krishna, one will come to the perfect stage",
+      "To follow the regulative principles of Bhakti yoga and to develope a desire to attain Krishna",
+      "Trying to be engaged in the cultivation of knowledge",
+      "Try to act giving up all results of work and try to be self-situated"
+    ],
+    "correct": "Try to act giving up all results of work and try to be self-situated"
+  },
+  {
+    "id": "74",
+    "question": "What is the immediate symptom of Krishna Conscious man?",
+    "options": [
+      "he has a determined faith in Krishna",
+      "He has emotions for Krishna",
+      "he speaks only of Krishna and matters relating to Him",
+      "He develops qualities of a perfect man"
+    ],
+    "correct": "he speaks only of Krishna and matters relating to Him"
+  },
+  {
+    "id": "75",
+    "question": "Who is Sukratinah?",
+    "options": [
+      "these are not pure devotees",
+      "those dont have material desires",
+      "those who have aspirations to fulfill in exchange of devotional service",
+      "both a and c"
+    ],
+    "correct": "both a and c"
+  },
+  {
+    "id": "76",
+    "question": "Who can achieve Krsna?",
+    "options": [
+      "Only those who worship Krsna directly",
+      "Those who worship Krsna indirectly",
+      "Both those who worship Krsna directly or indirectly",
+      "Those who worship Krsna indirectly can never achieve Krsna"
+    ],
+    "correct": "Both those who worship Krsna directly or indirectly"
+  },
+  {
+    "id": "77",
+    "question": "What is necessary for self-realization?",
+    "options": [
+      "Karma-Yoga",
+      "Gyan-Yoga",
+      "Bhakti-Yoga",
+      "all of the above"
+    ],
+    "correct": "all of the above"
+  },
+  {
+    "id": "78",
+    "question": "Which of these type of yogis mainly follow the path of impersonalism?",
+    "options": [
+      "Dhyan Yogi",
+      "Bhakti Yogi",
+      "Gyan Yogi",
+      "Dhyan Yogi and Gyan Yogi"
+    ],
+    "correct": "Gyan Yogi"
+  },
+  {
+    "id": "79",
+    "question": "Quitting one’s body at the time of death in Krishna consciousness, __________________ __________) (,",
+    "options": [
+      "Transfers one to the transcendental abode of Krishna",
+      "Relieves one of all relations",
+      "Takes one far away from this world",
+      "Transfers one to the heavenly planets"
+    ],
+    "correct": "Transfers one to the transcendental abode of Krishna"
+  },
+  {
+    "id": "80",
+    "question": "Krishna talks about rewarding all of them according to their dedication. Select the correct option in the order in which Krishna rewards them. i) Fruitful worker a) God ii) Yogi b) Paramatma iii) Gnani c) Yajneshwaraiva) Bhakta d) Brahmajyoti ( i) a) ii) b) iii) c) ) d) )",
+    "options": [
+      "i) – b, ii) – d, iii) – c, iv) - a",
+      "i) – d, ii) – c, iii) – b, iv) - a",
+      "i) – c, ii) – b, iii) – d, iv) - a",
+      "i) – c, ii) – d, iii) – b, iv) - a"
+    ],
+    "correct": "i) – c, ii) – b, iii) – d, iv) - a"
+  },
+  {
+    "id": "81",
+    "question": "A person who knowingly violates the rules and regulations of the scriptures acts in _________ ________________.",
+    "options": [
+      "Pride",
+      "Lust",
+      "Happiness",
+      "Irrelevant knowledge"
+    ],
+    "correct": "Lust"
+  },
+  {
+    "id": "82",
+    "question": "Krishna says that according to three modes of material nature and work associated with them, the four division of human society are created by Him. So, a Krishna conscious person belong to which category?",
+    "options": [
+      "Brahmana",
+      "Ksatriyas",
+      "Vaisyas",
+      "Sudras",
+      "None of the above"
+    ],
+    "correct": "None of the above"
+  },
+  {
+    "id": "83",
+    "question": "\" there is always the chance of an accident, even on the royal roads\" Define the statement.",
+    "options": [
+      "in spite of regulated sense enjoyment there is every chance of falling down",
+      "in spite of regulated sense enjoyment in loving service of Krishna there is every chance of falling down",
+      "there is always a chance of fall down of Mayavadis even at the stage of Sannyasa",
+      "there is always a chance of fall down of everyone even at the stage of Sannyasa"
+    ],
+    "correct": "in spite of regulated sense enjoyment there is every chance of falling down"
+  },
+  {
+    "id": "84",
+    "question": "What is correct statement about \"black art\"?",
+    "options": [
+      "by using this gradually we can move to spiritualism",
+      "such activities are completely materialistic",
+      "this leads to materialism or spiritualism according to our desire",
+      "this activity is also a part of spiritualism"
+    ],
+    "correct": "such activities are completely materialistic"
+  },
+  {
+    "id": "85",
+    "question": "Who blown the conchshell first in the battlefield?",
+    "options": [
+      "Duryodhana",
+      "Krishna",
+      "Bhishma",
+      "Yudhishtir"
+    ],
+    "correct": "Bhishma"
+  },
+  {
+    "id": "86",
+    "question": "What happens to the living entities when Brahma’s life is finally finished?",
+    "options": [
+      "They are all annihilated",
+      "They remain unmanifest for millions of years",
+      "They are manifested again when Brahma is born again in another millennium",
+      "All of the above"
+    ],
+    "correct": "All of the above"
+  },
+  {
+    "id": "87",
+    "question": "What is the meaning of the phrase “mäm anusmara yudhya ca”?",
+    "options": [
+      "Mind and intelligence fixed on Krishna and activities dedicated to Krishna",
+      "Always think of Krishna and carrying out the prescribed duty of fighting",
+      "Always remember Krishna and never forget Krishna",
+      "Performing our duty without worrying about the result"
+    ],
+    "correct": "Always think of Krishna and carrying out the prescribed duty of fighting"
+  },
+  {
+    "id": "88",
+    "question": "Arjuna calls Krishna as ______________, which means husband of the goddess of fortune. ______________,",
+    "options": [
+      "Madhusudhana",
+      "Narayana:",
+      "Janardana",
+      "Madhava"
+    ],
+    "correct": "Madhava"
+  },
+  {
+    "id": "89",
+    "question": "What is Ahimsa?",
+    "options": [
+      "To not put one in misery",
+      "To further one’s spiritual happiness",
+      "To not put other in confusion",
+      "All of the above"
+    ],
+    "correct": "All of the above"
+  },
+  {
+    "id": "90",
+    "question": "How jivas come into existence?",
+    "options": [
+      "when Brahma starts creating the universe",
+      "when Krishna wants to purify the jivas )",
+      "When Lord impregnates nature with His glance (",
+      "when goddess Durga manifests bodies of many jivas"
+    ],
+    "correct": "When Lord impregnates nature with His glance ("
+  },
+  {
+    "id": "91",
+    "question": "The knowledge that there is a difference between body and soul and that the soul is immutable and eternal by nature, falls under which category of knowledge?",
+    "options": [
+      "Most confidential Knowledge",
+      "Confidential Knowledge",
+      "elementary Knowledge",
+      "Trivial Knowledge"
+    ],
+    "correct": "Confidential Knowledge"
+  },
+  {
+    "id": "92",
+    "question": "Which of the following sloka supports the statement of Krishna that “He who know Me as unborn, as the begningless, as supreme Lord of all the three world – he only is free from all sins”",
+    "options": [
+      "bhoktaram yajna-tapasam ……( -……)",
+      "manusyanam sahasresu kaschit yatati siddhaye …………)",
+      "tesam tu anta gatam papam, jananam punya karmanam…..(",
+      "All of the above"
+    ],
+    "correct": "All of the above"
+  },
+  {
+    "id": "93",
+    "question": "Which of the following was not seen entering into the mouth of Virat Purusa?",
+    "options": [
+      "Drona",
+      "Karna",
+      "Bhishma",
+      "None of these"
+    ],
+    "correct": "None of these"
+  },
+  {
+    "id": "94",
+    "question": "What does oneness with the Supreme Personality of Godhead mean?",
+    "options": [
+      "Supreme personality of Godhead and the living entities are the same",
+      "Having no individuality",
+      "Everyone’s individuality being innumerably divided",
+      "There is no disunity between Supreme personality of Godhead and the living entities"
+    ],
+    "correct": "There is no disunity between Supreme personality of Godhead and the living entities"
+  },
+  {
+    "id": "95",
+    "question": "How many elements constitute the field of activity?",
+    "options": [
+      "11",
+      "23",
+      "24",
+      "5"
+    ],
+    "correct": "24"
+  },
+  {
+    "id": "96",
+    "question": "What are the symptoms of mode of ignorance?",
+    "options": [
+      "pramada",
+      "alasya",
+      "nidra",
+      "all the above"
+    ],
+    "correct": "all the above"
+  },
+  {
+    "id": "97",
+    "question": "The sanskrit word \"Bhagvan\" is explained by whom?",
+    "options": [
+      "Vyasadeva",
+      "Parashara Muni",
+      "Shukadeva Goswami",
+      "Srila Rupa Goswami"
+    ],
+    "correct": "Parashara Muni"
+  },
+  {
+    "id": "98",
+    "question": "What is the last snare of Maya or sense gratificatory illusion?",
+    "options": [
+      "when living entity wants to become one with the Lord",
+      "when living entity forgets the Lord and becomes atheist",
+      "when living entity at the end of the stage wants to become Void",
+      "when living entity forgets the Lord and entangle in animalistic propensities"
+    ],
+    "correct": "when living entity wants to become one with the Lord"
+  },
+  {
+    "id": "99",
+    "question": "For what reason one does undergo changes in the body?",
+    "options": [
+      "Due to one’s own will",
+      "Due to contact with matter",
+      "Both a & b",
+      "None of these"
+    ],
+    "correct": "Due to contact with matter"
+  },
+  {
+    "id": "100",
+    "question": "Who had not seen the universal form of God?",
+    "options": [
+      "Demigods",
+      "Duryodhan",
+      "Disciplic devotees of the Lord",
+      "both b and c"
+    ],
+    "correct": "Duryodhan"
+  },
+  {
+    "id": "101",
+    "question": "Define \"tattav-vita\"?",
+    "options": [
+      "one who knows the absolute truth in Bhagvan feature",
+      "who sees different features of Lord in ultimate form",
+      "one who knows the absolute truth in three different features",
+      "who sees different features of Lord in one form"
+    ],
+    "correct": "one who knows the absolute truth in three different features"
+  },
+  {
+    "id": "102",
+    "question": "Who can not certainly surrender to the supreme lord?",
+    "options": [
+      "Gyani",
+      "Fallen",
+      "One who is always expecting honor",
+      "One who is having material desires"
+    ],
+    "correct": "One who is always expecting honor"
+  },
+  {
+    "id": "103",
+    "question": "What interpretation do demons have regarding the creation of the world?",
+    "options": [
+      "The material manifestation arises due to chance material actions and reactions",
+      "There is no cause other than the material nature being the origin of this manifestation",
+      "They do not accept God as the creator of this world, but rather everyone has their own theory of creation",
+      "All of the above"
+    ],
+    "correct": "All of the above"
+  },
+  {
+    "id": "104",
+    "question": "One is considered not to be a failure in life is…",
+    "options": [
+      "who developed love for Vasudeva",
+      "one who does not enquire about one's real identity",
+      "one who works for fruitive results",
+      "who transmigrate from one body to another"
+    ],
+    "correct": "who developed love for Vasudeva"
+  },
+  {
+    "id": "105",
+    "question": "_________ mellow (Rasa) overwhelmed Arjuna while witnessing the Universal form of the Lord.",
+    "options": [
+      "Sakhya (Friendship)",
+      "Adbhuta (wonder)",
+      "BhayInaka (Fear)",
+      "BIbhatsa (shock)"
+    ],
+    "correct": "Adbhuta (wonder)"
+  },
+  {
+    "id": "106",
+    "question": "What is destination achieved by a person when he dies in the mode of goodness?",
+    "options": [
+      "He goes back home back to godhead",
+      "He takes birth among the persons who are engaged in fruitive activities",
+      "He goes to Brahmalok",
+      "He attains to the pure higher planets of the great sages"
+    ],
+    "correct": "He attains to the pure higher planets of the great sages"
+  },
+  {
+    "id": "107",
+    "question": "Lord Iiva was born from the_____________of Krishna. ( __________ |)",
+    "options": [
+      "Forehead",
+      "Eyes",
+      "Chest",
+      "Palm"
+    ],
+    "correct": "Forehead"
+  },
+  {
+    "id": "108",
+    "question": "What is the duty of a sannyasi?",
+    "options": [
+      "Distribute knowledge to those who have forgotten their spiritual advancement",
+      "He should preach with logic & understanding about spiritual science",
+      "To maintain balance in the social order",
+      "1st & 2nd options only",
+      "All of the above"
+    ],
+    "correct": "1st & 2nd options only"
+  },
+  {
+    "id": "109",
+    "question": "Who was/were situated in impersonalism first and later turned to devotional service?",
+    "options": [
+      "Prahlad",
+      "Dhruva",
+      "four kumaras",
+      "Narada"
+    ],
+    "correct": "four kumaras"
+  },
+  {
+    "id": "110",
+    "question": "How can we understand the statement of Krishna when He says that \" I am the compiler of the vedas\"?",
+    "options": [
+      "he is the speaker of the vedas",
+      "he as veda vyasa has compiled all the vedas",
+      "he knows all the vedas efficiently",
+      "all of the above"
+    ],
+    "correct": "he as veda vyasa has compiled all the vedas"
+  },
+  {
+    "id": "111",
+    "question": "choose the correct option",
+    "options": [
+      "Atheist are called Maya aphrita Jnana",
+      "Foolish worker are called Asurim Bhav Asritah",
+      "one who has no religious principle to follow are called Naradham ( I )",
+      "Deluded speculator are called Mudha"
+    ],
+    "correct": "one who has no religious principle to follow are called Naradham ( I )"
+  },
+  {
+    "id": "112",
+    "question": "\"soul situated in Brahmn vision does not mix with the body\" Which example is given to prove this statement?",
+    "options": [
+      "wind",
+      "fire",
+      "sky",
+      "smell"
+    ],
+    "correct": "sky"
+  },
+  {
+    "id": "113",
+    "question": "What can be done, if there are impediments to accepting Krishna consciousness?",
+    "options": [
+      "One should perform severe austerities",
+      "One should be faithful",
+      "One should try to give up the results of his actions",
+      "None of the above"
+    ],
+    "correct": "One should try to give up the results of his actions"
+  },
+  {
+    "id": "114",
+    "question": "Krishna says to Arjuna to listen again His opulences and His work. So, where did the Lord has explained His different energies and their interaction before?",
+    "options": [
+      "Chapter 2 ( 2)",
+      "Chapter 9 ( 9)",
+      "Chapter 7 ( 7)",
+      "Both b and C"
+    ],
+    "correct": "Both b and C"
+  },
+  {
+    "id": "115",
+    "question": "What do you understand by the term \"Vedanta\"?",
+    "options": [
+      "conclusion of Vedas",
+      "end of Vedanta sutra",
+      "the last word in Vedic wisdom",
+      "description of Vedas"
+    ],
+    "correct": "the last word in Vedic wisdom"
+  },
+  {
+    "id": "116",
+    "question": "What do you understand by the example of riven cloud given by Arjuna?",
+    "options": [
+      "Mind is like riven cloud",
+      "The path of yoga system is very difficult",
+      "If the aspiring transcendentalist fails, then he can enjoy neither material happiness nor spiritual success (,",
+      "All of the above"
+    ],
+    "correct": "If the aspiring transcendentalist fails, then he can enjoy neither material happiness nor spiritual success (,"
+  },
+  {
+    "id": "117",
+    "question": "Why the indirect path of devotional service is not recommended for Arjuna?",
+    "options": [
+      "Because he was a leader",
+      "Because he was very much disturbed by the results of the war",
+      "Because he is already in the stage of loving devotional service to Krishna",
+      "None of the above"
+    ],
+    "correct": "Because he is already in the stage of loving devotional service to Krishna"
+  },
+  {
+    "id": "118",
+    "question": "Whom Krishna never excuse?",
+    "options": [
+      "who consider that Krishna is also human being",
+      "can't excuse those who have propensity to cheat others",
+      "can't excuse those who spread atheism in the world",
+      "can't excuse one who done harm to His devotees"
+    ],
+    "correct": "can't excuse one who done harm to His devotees"
+  },
+  {
+    "id": "119",
+    "question": "Both the demigods and demons are born of __________________.",
+    "options": [
+      "Brahma",
+      "Prajapati",
+      "Yoga-maya",
+      "Themselves"
+    ],
+    "correct": "Prajapati"
+  },
+  {
+    "id": "120",
+    "question": "What is the difference between soul and supersoul?",
+    "options": [
+      "soul and supersoul are conscious within the jurisdiction of the body",
+      "soul and supersoul are equal in quantity but different in quality",
+      "soul is conscious within the jurisdiction of the body whereas supersoul is conscious of all bodies",
+      "soul is temporary and supersoul is permanent"
+    ],
+    "correct": "soul is conscious within the jurisdiction of the body whereas supersoul is conscious of all bodies"
+  },
+  {
+    "id": "121",
+    "question": "Which is all- devouring sinful eternal enemy?",
+    "options": [
+      "envy",
+      "lust",
+      "false ego",
+      "all of the above"
+    ],
+    "correct": "lust"
+  },
+  {
+    "id": "122",
+    "question": "In the Yoga-Sutra of Patanjali, pratyag-atma refers to _____________ ( -, - __________ )",
+    "options": [
+      "The soul when it becomes detached from bhahm-jyoti",
+      "The soul when it becomes detached from consciousness",
+      "The soul when it becomes detached from impurities",
+      "The soul when it becomes detached from sense enjoyment"
+    ],
+    "correct": "The soul when it becomes detached from sense enjoyment"
+  },
+  {
+    "id": "123",
+    "question": "Which one of the question is not inquired by the perfect human being?",
+    "options": [
+      "Why am I being put in this material position?",
+      "How I came into this miserable material world?",
+      "What is my identity?",
+      "Where we will go after death?"
+    ],
+    "correct": "How I came into this miserable material world?"
+  },
+  {
+    "id": "124",
+    "question": "Maharathi refers to whom?",
+    "options": [
+      "one who can fight alone against thousands",
+      "one who can fight alone against one akhshauhini",
+      "one who can fight alone against one lakhs",
+      "one who can enter into Cakravyuh"
+    ],
+    "correct": "one who can fight alone against thousands"
+  },
+  {
+    "id": "125",
+    "question": "What does the word “this knowledge” refers to in BG 9.1 (idam tu te guhyatamam …. Jnanam vijnana sahitam …..) ( 9.1 \" \" ( …. …..))",
+    "options": [
+      "Karma yoga",
+      "Confidential knowledge",
+      "Devotional service",
+      "Pure devotional service )"
+    ],
+    "correct": "Pure devotional service )"
+  },
+  {
+    "id": "126",
+    "question": "How is the Supreme Lord represented throughout the entire material universes?",
+    "options": [
+      "Through His teachings",
+      "Through devotional service",
+      "By entering into all things as Supersoul",
+      "None of these"
+    ],
+    "correct": "By entering into all things as Supersoul"
+  },
+  {
+    "id": "127",
+    "question": "What is the symptom of ignorant people?",
+    "options": [
+      "those who are attached to results",
+      "those who are only bodily conscious",
+      "selfish mentality people",
+      "those who are attached to Karmas"
+    ],
+    "correct": "those who are attached to results"
+  },
+  {
+    "id": "128",
+    "question": "Vasudeva state is the state where a person can understand ________",
+    "options": [
+      "the science of god",
+      "the science of the demigod's relation with the Supreme Lord",
+      "the science of the mahat tatva",
+      "none of these"
+    ],
+    "correct": "the science of god"
+  },
+  {
+    "id": "129",
+    "question": "How Krishna helps those who worship him exclusively?",
+    "options": [
+      "He provides exclusive transcendental knowledge to their heart so he need not guru",
+      "He supports them physically, emotionally and transcendentaly",
+      "He gives what they lack and provide what they already possess",
+      "He provide what they lack and preserve what they already possess"
+    ],
+    "correct": "He provide what they lack and preserve what they already possess"
+  },
+  {
+    "id": "130",
+    "question": "What does “unmanifested stage” in BG 13.6 mean?(II 13.6 \" \"?)",
+    "options": [
+      "Interactions",
+      "Symptoms",
+      "Elements",
+      "The three modes of material nature"
+    ],
+    "correct": "The three modes of material nature"
+  },
+  {
+    "id": "131",
+    "question": "When Sanatan Goswami asked about the \"svarup' of living being; what Caitnaya Mahaprabhu replied?",
+    "options": [
+      "awaken the servant mood of living being towards God",
+      "awaken the love of godhead towards the Lord",
+      "rendering of service to the Supreme Personality of Godhead",
+      "option 2 and 3 ( 2 3)"
+    ],
+    "correct": "rendering of service to the Supreme Personality of Godhead"
+  },
+  {
+    "id": "132",
+    "question": "Hrishikesha means _______ and Govinda means _______.",
+    "options": [
+      "enjoyer of all senses and pleasure giver to cows and senses",
+      "enjoyer of all senses and pleasure giver to cows family",
+      "owner of all senses and pleasure giver to cows and senses",
+      "director of all senses and pleasure giver to cows family"
+    ],
+    "correct": "owner of all senses and pleasure giver to cows and senses"
+  },
+  {
+    "id": "133",
+    "question": "choose the odd one out.",
+    "options": [
+      "Desire",
+      "Happiness",
+      "Consciousness",
+      "None of these"
+    ],
+    "correct": "Consciousness"
+  },
+  {
+    "id": "134",
+    "question": "Lord Krishna says “What is called renunciation you should know to be same as yoga”, which of, the following is correct option in this regard?",
+    "options": [
+      "Person in complete knowledge renounces all kinds of sense gratificatory activities",
+      "Yogis are the one who restrains the senses from material attachment.",
+      "A Krishna Conscious person is simultaneously both a sanyasi and a yogi.",
+      "All of the above"
+    ],
+    "correct": "All of the above"
+  },
+  {
+    "id": "135",
+    "question": "What is the fundamental purpose of religion?",
+    "options": [
+      "To pave the way for the liberation of the people",
+      "To lead people to follow the regulated life for economic development",
+      "To lead people to follow the regulated life for better sense gratification",
+      "To lead people to God consciousness and obedience to the principle of religion"
+    ],
+    "correct": "To lead people to God consciousness and obedience to the principle of religion"
+  },
+  {
+    "id": "136",
+    "question": "What is the purpose of the vedic study?",
+    "options": [
+      "To become humble",
+      "To understand Krishna",
+      "To develop love for everyone",
+      "To gain knowledge"
+    ],
+    "correct": "To understand Krishna"
+  },
+  {
+    "id": "137",
+    "question": "Which is the law of the human race?",
+    "options": [
+      "Manu-samhita",
+      "Brahma-samhita",
+      "Ved",
+      "All of the above"
+    ],
+    "correct": "Manu-samhita"
+  },
+  {
+    "id": "138",
+    "question": "The body is subject to how many stages of changes?",
+    "options": [
+      "5",
+      "6",
+      "8",
+      "7"
+    ],
+    "correct": "6"
+  },
+  {
+    "id": "139",
+    "question": "Choose the correct statement.",
+    "options": [
+      "living entity are individuals in the present, neither in past nor continue to exist in future",
+      "living entity are not present everywhere",
+      "living entity can be seen through different senses",
+      "living entity were individuals in the past, are individuals at present and continue to be individuals in the future"
+    ],
+    "correct": "living entity were individuals in the past, are individuals at present and continue to be individuals in the future"
+  },
+  {
+    "id": "140",
+    "question": "Which of the following are the separated material energies of Krishna?",
+    "options": [
+      "Earth, water, fire, air & ether",
+      "Mind, intelligence & false ego",
+      "Both a & b",
+      "None of these"
+    ],
+    "correct": "Both a & b"
+  },
+  {
+    "id": "141",
+    "question": "How many kinds of “duskrtina” are there?",
+    "options": [
+      "Four",
+      "Five",
+      "six",
+      "eight"
+    ],
+    "correct": "Four"
+  },
+  {
+    "id": "142",
+    "question": "What is the reaction if one eats without offering to Krishna?",
+    "options": [
+      "ultimately he becomes atheist",
+      "he eats sin only",
+      "his life fills with miseries",
+      "both 2 and 3 ( 2 3)"
+    ],
+    "correct": "he eats sin only"
+  },
+  {
+    "id": "143",
+    "question": "If Krishna is the same seed giving father for all entities, then why do different forms of life comes during creation?",
+    "options": [
+      "To have a wide range of species",
+      "Because Brahma designed them so",
+      "Because of their past deeds",
+      "None of the above"
+    ],
+    "correct": "Because of their past deeds"
+  },
+  {
+    "id": "144",
+    "question": "What is real ahimsa?",
+    "options": [
+      "Not killing any living entity",
+      "Not checking anyone’s progressive life",
+      "Being calm & quiet",
+      "All of the above"
+    ],
+    "correct": "Not checking anyone’s progressive life"
+  },
+  {
+    "id": "145",
+    "question": "vIsudevaI sarvam itisa mahItmI __________). ________(:",
+    "options": [
+      "su-durlabhaI",
+      "sulabah",
+      "durlabhaI",
+      "susulabah"
+    ],
+    "correct": "su-durlabhaI"
+  },
+  {
+    "id": "146",
+    "question": "Where the living entities are not situated?",
+    "options": [
+      "fire",
+      "space",
+      "stone",
+      "found in all of the above"
+    ],
+    "correct": "found in all of the above"
+  },
+  {
+    "id": "147",
+    "question": "Of all cheating processes, ______________ stands supreme.",
+    "options": [
+      "Lying",
+      "Fighting",
+      "Gambling",
+      "None of these"
+    ],
+    "correct": "Gambling"
+  },
+  {
+    "id": "148",
+    "question": "The sanskrit word \"parmeshvar\" is used for whom? Choose the best one.",
+    "options": [
+      "Soul and Supersoul",
+      "Brahmjyoti and Supersoul",
+      "Super soul",
+      "Soul"
+    ],
+    "correct": "Soul and Supersoul"
+  },
+  {
+    "id": "149",
+    "question": "To see the universal form of the Lord, one need to change his ______",
+    "options": [
+      "Mind",
+      "Vision",
+      "Intelligence",
+      "perception"
+    ],
+    "correct": "Vision"
+  },
+  {
+    "id": "150",
+    "question": "Lord is called Asamaurdhava. What do you mean by this?",
+    "options": [
+      "No one is superior to him and no one is equal to him",
+      "Lord is all pervading as he enters in each and every atom",
+      "All opulent, beautiful and glorious creations spring from spark of Krishna",
+      "None of the above"
+    ],
+    "correct": "No one is superior to him and no one is equal to him"
+  },
+  {
+    "id": "151",
+    "question": "The practice of sacrifice called pancägni-vidyä, which enables one to achieve Brahmaloka, is recommended in which scripture?",
+    "options": [
+      "Brahma Samhita",
+      "Katha Upanishad",
+      "Chhandogya Upanishad",
+      "Vishnu Purana"
+    ],
+    "correct": "Chhandogya Upanishad"
+  },
+  {
+    "id": "152",
+    "question": "Who is the basis of the impersonal brahman?",
+    "options": [
+      "Paramatma",
+      "Bhagwan",
+      "Bramhan",
+      "Shyamsundar"
+    ],
+    "correct": "Shyamsundar"
+  },
+  {
+    "id": "153",
+    "question": "What do you understand by the term \"Nidhanam\"?",
+    "options": [
+      "everything rests on the Supreme Personality Godhead",
+      "Universe rests on the Supreme Personality Godhead",
+      "Brahman effulgence rests on the Supreme Personality Godhead",
+      "nature rests on the Supreme Personality Godhead"
+    ],
+    "correct": "everything rests on the Supreme Personality Godhead"
+  },
+  {
+    "id": "154",
+    "question": "Simplicity is the quality for _____________________ asrama.",
+    "options": [
+      "Brahmacari & sannyasa",
+      "Brahmacari, sannyasa & vanaprastha",
+      "Brahmacaris, grhasthas, vanaprastha & sannyasa",
+      "None of the above"
+    ],
+    "correct": "Brahmacaris, grhasthas, vanaprastha & sannyasa"
+  },
+  {
+    "id": "155",
+    "question": "Choose the odd statement about the result of sacrifices. pts]",
+    "options": [
+      "eatables becomes sanctified",
+      "existence of soul is purified",
+      "memory's tissue become sanctified",
+      "one can think of path of liberation"
+    ],
+    "correct": "existence of soul is purified"
+  },
+  {
+    "id": "156",
+    "question": "Lord’s appearance in this material world is compared to ____",
+    "options": [
+      "Sun",
+      "Moon",
+      "Flower",
+      "Human being"
+    ],
+    "correct": "Sun"
+  },
+  {
+    "id": "157",
+    "question": "Who is considered to be the best of Aryan family?",
+    "options": [
+      "who is chanting Holy name",
+      "one who is doing sacrifices",
+      "one who is doing penances",
+      "all of the above"
+    ],
+    "correct": "who is chanting Holy name"
+  },
+  {
+    "id": "158",
+    "question": "Why according to Krishna, would Arjuna become infamous by not fighting?",
+    "options": [
+      "Because Arjuna being a kshatriya, his duty is to fight",
+      "Because deviation from one’s duty doesn’t lead to spiritual advancement",
+      "Both a & b",
+      "None of these"
+    ],
+    "correct": "Both a & b"
+  },
+  {
+    "id": "159",
+    "question": "_________ of the supreme Lord can enable people to attain _________ of life.",
+    "options": [
+      "devotee, highest stage",
+      "pure devotee, highest perfection",
+      "pure devotee, highest position",
+      "devotee, highest position"
+    ],
+    "correct": "pure devotee, highest perfection"
+  },
+  {
+    "id": "160",
+    "question": "The chain by which the conditioned soul is shackled is made up of which element?",
+    "options": [
+      "polluted intelligence",
+      "false ego",
+      "mind",
+      "none of these"
+    ],
+    "correct": "false ego"
+  },
+  {
+    "id": "161",
+    "question": "Why a paramatma realized yogi can’t know Krishna as He is?",
+    "options": [
+      "Because he doesn’t practice devotional service to the Lord",
+      "Because he is not a pure devotee of the Lord",
+      "Both a & b",
+      "None of these"
+    ],
+    "correct": "Both a & b"
+  },
+  {
+    "id": "162",
+    "question": "According to Padma Purana, who can become a spiritual master?",
+    "options": [
+      "person born in a chandal family can become a spiritual master, if he is a vaishnav",
+      "Brahmana who is expert in all the Vedic scriptures can become spiritual master",
+      "one who can defeat even his own guru on the basis of knowledge of scriptures",
+      "who have complete control over his mind and senses"
+    ],
+    "correct": "person born in a chandal family can become a spiritual master, if he is a vaishnav"
+  },
+  {
+    "id": "163",
+    "question": "Why devotee is not interested in the universal form of the Lord?",
+    "options": [
+      "he cannot reciprocate loving feelings",
+      "they do not wants to see this form",
+      "this form is only meant for atheists",
+      "Mayavadis are attracted with this form because they don't believe in the form of Supreme Personality"
+    ],
+    "correct": "he cannot reciprocate loving feelings"
+  },
+  {
+    "id": "164",
+    "question": "What is the conditional binding of mode of ignorance?",
+    "options": [
+      "laziness",
+      "madness",
+      "hypocrisy",
+      "none of these"
+    ],
+    "correct": "madness"
+  },
+  {
+    "id": "165",
+    "question": "correct sequence of Arjuna’s glorification of the Lord is: i) Param Brahma, ii) Pavitram iii) param Dham iv) Ajam v) adi-devam",
+    "options": [
+      "i, ii, iii, iv, v",
+      "i, iii, iv, ii, v",
+      "i, iii,ii, v, iv",
+      "i, iii, ii, iv, v"
+    ],
+    "correct": "i, iii,ii, v, iv"
+  },
+  {
+    "id": "166",
+    "question": "Brahma is born out of the lotus stem grown from the navel abdomen of ___________.",
+    "options": [
+      "Karnodakshayi Visnu",
+      "Garbodhakasayi Visnu",
+      "Mahavishnu",
+      "Kshirodakshayi Visnu"
+    ],
+    "correct": "Garbodhakasayi Visnu"
+  },
+  {
+    "id": "167",
+    "question": "Which verse (gita) define that by simply thinking of the Krishna at death one can enter into His Kingdom?",
+    "options": [
+      "7.4",
+      "8.7",
+      "7.8",
+      "8.6"
+    ],
+    "correct": "8.6"
+  },
+  {
+    "id": "168",
+    "question": "Where is the shelter of lust?",
+    "options": [
+      "senses, mind and ego",
+      "senses, mind and intelligence",
+      "mind and consciousness",
+      "in all places of modes of passion"
+    ],
+    "correct": "senses, mind and intelligence"
+  },
+  {
+    "id": "169",
+    "question": "Lord says tat chrunu in the verse may asakta manah partha….. Which part of devotional service ….. is emphasized here?",
+    "options": [
+      "Kirtan",
+      "Sravanam",
+      "Smaran",
+      "Vandan"
+    ],
+    "correct": "Sravanam"
+  },
+  {
+    "id": "170",
+    "question": "Choose the correct statement regarding Supreme Lord. pts]",
+    "options": [
+      "There is no difference between His body and soul",
+      "There is difference between His body and soul but they are transcendental",
+      "There is difference between His body and soul when He descends on this world",
+      "His body and soul are different as well as same"
+    ],
+    "correct": "There is no difference between His body and soul"
+  },
+  {
+    "id": "171",
+    "question": "Common men could not see Krishna’s opulence because He (Krishna) is covered by___ ) ( _____",
+    "options": [
+      "Maha Maya /",
+      "Hladini Shakti /",
+      "Yoga Maya /",
+      "Samvit Maya /"
+    ],
+    "correct": "Yoga Maya /"
+  },
+  {
+    "id": "172",
+    "question": "Which of these literatures/scriptures does not describe about the abode of Lord Krsna? ( /?)",
+    "options": [
+      "Gopala Tapani Upanisad",
+      "Bhagvad Gita",
+      "Brahm Samhita",
+      "Brahmanda Puran"
+    ],
+    "correct": "Brahmanda Puran"
+  },
+  {
+    "id": "173",
+    "question": "What is the last snare of nescience?",
+    "options": [
+      "when living entity thinks himself to be greater than God",
+      "when living entity thinks himself to be God",
+      "when living entity thinks himself to be equal to God",
+      "when living entity thinks there is no God"
+    ],
+    "correct": "when living entity thinks himself to be God"
+  },
+  {
+    "id": "174",
+    "question": "Gita entails the comprehension of which 5 basic truths? ( 5?)",
+    "options": [
+      "gyan, prakrti, ishvar, kaal, jiva",
+      "ishwar, gyan, prakriti, dham, jiva",
+      "karma, prakrti, ishvar, kaal, jiva",
+      "kaal, gyan, prakriti, ishwar, jiva"
+    ],
+    "correct": "karma, prakrti, ishvar, kaal, jiva"
+  },
+  {
+    "id": "175",
+    "question": "What are the qualities of a transcendentalist?",
+    "options": [
+      "He should concentrate the mind on the Supreme self",
+      "He should control his mind",
+      "He should be free from desires and feelings of possessiveness",
+      "All of these"
+    ],
+    "correct": "All of these"
+  },
+  {
+    "id": "176",
+    "question": "What does the verse gobhir prinita matsaranam means in rigveda?",
+    "options": [
+      "killing cow is the grossest ignorance",
+      "killing cow is fine after drinking its milk",
+      "killing of any animal is the grossest",
+      "none of these"
+    ],
+    "correct": "killing cow is the grossest ignorance"
+  },
+  {
+    "id": "177",
+    "question": "Which of the Veda is rich in beautiful songs played by the demigods? ( /?)",
+    "options": [
+      "Atharva-veda",
+      "Yajur-veda",
+      "Rig-veda",
+      "Sama-veda"
+    ],
+    "correct": "Sama-veda"
+  },
+  {
+    "id": "178",
+    "question": "In bhagavad gita this body is compared with whom?",
+    "options": [
+      "house",
+      "temple",
+      "machine",
+      "nature"
+    ],
+    "correct": "machine"
+  },
+  {
+    "id": "179",
+    "question": "Who is greatest Yogi?",
+    "options": [
+      "who thinks about Krishna always",
+      "who have complete knowledge about Krishna",
+      "one who lights no fire and performs no duty",
+      "who is the controller of his mind and all senses"
+    ],
+    "correct": "who thinks about Krishna always"
+  },
+  {
+    "id": "180",
+    "question": "The living symptoms are the manifestation of _____ elements",
+    "options": [
+      "Gross ) (",
+      "Subtle",
+      "Senses",
+      "Sense object"
+    ],
+    "correct": "Subtle"
+  },
+  {
+    "id": "181",
+    "question": "Namo brahmanya devaya gobrahmana hitaya cha, jagaddhitaya krishnaya govindaya namoh namah. This verse has been taken from _____ (, _____ )",
+    "options": [
+      "Bhagvad Gita",
+      "Bhagwatam",
+      "Vishnu Puran",
+      "Skanda Puran"
+    ],
+    "correct": "Vishnu Puran"
+  },
+  {
+    "id": "182",
+    "question": "As stated in this chapter by Krsna, please choose the correct ascending order.",
+    "options": [
+      "Cultivation of knowledge=> Renunciation of the fruits of action=> Meditation ( => =>)",
+      "Renunciation of the fruits of action=> Meditation=> Cultivation of Knowledge ( =>=> )",
+      "Cultivation of knowledge=> Meditation=> Renunciation of the fruits of action ( =>=>",
+      "Meditation=> Renunciation of the fruits of action=> Cultivation of knowledge (=> => )"
+    ],
+    "correct": "Cultivation of knowledge=> Meditation=> Renunciation of the fruits of action ( =>=>"
+  },
+  {
+    "id": "183",
+    "question": "Actually the living entities comes from the Supreme Lord but it seems to come from the material nature. what example does Prabhupada give for analogy?",
+    "options": [
+      "scorpio is born out of rice",
+      "child born from the mother",
+      "building out of bricks",
+      "none of these"
+    ],
+    "correct": "scorpio is born out of rice"
+  },
+  {
+    "id": "184",
+    "question": "At which age Mahaprabhu took sannyasa for the benefit of entire world?",
+    "options": [
+      "24",
+      "20",
+      "26",
+      "22"
+    ],
+    "correct": "24"
+  },
+  {
+    "id": "185",
+    "question": "Choose the odd definition of \"Krpana\"",
+    "options": [
+      "who thinks he is able to save living entities from the verge of death",
+      "those who believe that every living entity is the expansion of God",
+      "who is attached to his family which is found in lower animals also",
+      "miserly person is one who waste his time in family, society or country etc"
+    ],
+    "correct": "those who believe that every living entity is the expansion of God"
+  },
+  {
+    "id": "186",
+    "question": "Self control means _______",
+    "options": [
+      "Controlling the tongue",
+      "Controlling the all other senses",
+      "Not accepting anything which is detrimental to the path of spiritual progress",
+      "Controlling the interaction of the field of activities"
+    ],
+    "correct": "Not accepting anything which is detrimental to the path of spiritual progress"
+  },
+  {
+    "id": "187",
+    "question": "Which of the following verse supports the fact that book knowledge without the knowledge of the Supreme Truth is useless.",
+    "options": [
+      "Mana eva manusyanam Karanam bandh moksayoh……( ……)",
+      "Atah sri-krishna -namadi na bhaved grahyam indriyaih",
+      "Anasaktsaya visayan yatharham upayunjatah……( ……)..)",
+      "Prapancikataya buddhya hari sambandh-vastunah…..( -…"
+    ],
+    "correct": "Atah sri-krishna -namadi na bhaved grahyam indriyaih"
+  },
+  {
+    "id": "188",
+    "question": "What is the result of those who engage in devotional service?",
+    "options": [
+      "get rids from bad reactions even in this life",
+      "get rids from good and bad reactions even in this life",
+      "get rids from good and bad reactions after this life",
+      "get rids from bad reactions after this life"
+    ],
+    "correct": "get rids from good and bad reactions even in this life"
+  },
+  {
+    "id": "189",
+    "question": "Who can see the universal form of the Lord?",
+    "options": [
+      "those who accept Krishna as God",
+      "all spiritualists",
+      "those who have compassion in their heart",
+      "pure devotee of Krishna"
+    ],
+    "correct": "pure devotee of Krishna"
+  },
+  {
+    "id": "190",
+    "question": "A pure devotee takes the distress and disturbance as ____________________.",
+    "options": [
+      "A regulative principle",
+      "The Lord’s mercy",
+      "A consciousness",
+      "A service"
+    ],
+    "correct": "The Lord’s mercy"
+  },
+  {
+    "id": "191",
+    "question": "What one has to do first, to practice the yoga system?",
+    "options": [
+      "Detach from all sensual engagements",
+      "Fix the life air at the top of the head",
+      "Leave one’s body by meditating on the Supersoul",
+      "All of the above"
+    ],
+    "correct": "Detach from all sensual engagements"
+  },
+  {
+    "id": "192",
+    "question": "Gudakesa means? ) (?",
+    "options": [
+      "One who eats less",
+      "One who Prays more",
+      "One who has conquered Sleep",
+      "One who is under maha-maya"
+    ],
+    "correct": "One who has conquered Sleep"
+  },
+  {
+    "id": "193",
+    "question": "Match the following conchshells with their owner.( 3. Arjuna 4. Bhima… a.) 1. Sahadeva 2. Yudhishthir ) b. Anant vijay c. Devdatta d. Paundra Manipushpaka(",
+    "options": [
+      "1.- a, 2. - b, 3. - c, 4. - d",
+      "1.- d, 2. - a, 3. - b, 4. - c",
+      "1.- c, 2. - b, 3. - a, 4. - d",
+      "1.- b, 2. - a, 3. - d, 4. - c"
+    ],
+    "correct": "1.- a, 2. - b, 3. - c, 4. - d"
+  },
+  {
+    "id": "194",
+    "question": "Which among the following accept the concept of transcendental pleasure?",
+    "options": [
+      "Monist",
+      "Patanjali",
+      "Dualism",
+      "both b and c"
+    ],
+    "correct": "both b and c"
+  },
+  {
+    "id": "195",
+    "question": "What is the position of jiva?",
+    "options": [
+      "parts and parcel of Krishna",
+      "subordinate of Krishna",
+      "energy of Krishna",
+      "eternal servant of Krishna"
+    ],
+    "correct": "eternal servant of Krishna"
+  },
+  {
+    "id": "196",
+    "question": "Why there is suffering in this material world?",
+    "options": [
+      "due to tendency of enjoyment",
+      "due to forgetfulness of Krishna",
+      "considering himself enjoyer",
+      "considering himself controller"
+    ],
+    "correct": "due to forgetfulness of Krishna"
+  },
+  {
+    "id": "197",
+    "question": "What is the nature of Universal form shown by Krishna?",
+    "options": [
+      "Temporary cosmic manifestation",
+      "Eternal cosmic manifestation",
+      "Temporary cosmic manifestation in Material sky",
+      "Real cosmic manifestation in Material sky"
+    ],
+    "correct": "Temporary cosmic manifestation in Material sky"
+  },
+  {
+    "id": "198",
+    "question": "Devotee having firm faith in krishna falls under which category?",
+    "options": [
+      "First class devotee (Uttam Adhikari)",
+      "Second class devotee (Madhyam Adhikari)",
+      "Third class devotee (Kanistha Adhikari)",
+      "Both A and B (A B )"
+    ],
+    "correct": "Both A and B (A B )"
+  },
+  {
+    "id": "199",
+    "question": "Please choose the correct option.",
+    "options": [
+      "The universal form of the Lord ---> Adhibhuta ( --->:)",
+      "The Supersoul ---> Adhidaivata ( --->:) --->:)",
+      "The physical nature ---> Adhidaivata (",
+      "The Supersoul ---> Adhiyajna ( --->:)"
+    ],
+    "correct": "The Supersoul ---> Adhiyajna ( --->:)"
+  },
+  {
+    "id": "200",
+    "question": "Which of the following is/are the presiding deity/ies who make arrangements for the passage of the soul?",
+    "options": [
+      "Fire",
+      "Light",
+      "Day and moon",
+      "All of these"
+    ],
+    "correct": "All of these"
+  },
+  {
+    "id": "201",
+    "question": "Why Arjuna wanted to see the universal form of the Lord?",
+    "options": [
+      "to prove that if mayavadi in future consider himself God then he has to show his universal form",
+      "to prove that if someone if future consider himself God then he has to show his universal form",
+      "to give the knowledge of this form to others in future",
+      "so that people of Kaliyuga gets attracted with the Krishna"
+    ],
+    "correct": "to prove that if someone if future consider himself God then he has to show his universal form"
+  },
+  {
+    "id": "202",
+    "question": "Why science of Bhagvat gita Was imparted to royal order?",
+    "options": [
+      "To rule the citizen",
+      "Protect the citizen from material bondage of lust",
+      "To pursue a successful life by utilizing the human form of life",
+      "All of the above"
+    ],
+    "correct": "All of the above"
+  },
+  {
+    "id": "203",
+    "question": "How is the prominence of certain modes are manifested in individual beings?",
+    "options": [
+      "ones dealing",
+      "one's activities",
+      "in eating",
+      "all of the above"
+    ],
+    "correct": "all of the above"
+  },
+  {
+    "id": "204",
+    "question": "When can one experience the manifestation of mode of goodness?",
+    "options": [
+      "One becomes peaceful",
+      "one becomes fearless",
+      "all the gates of the body are illuminated",
+      "one becomes active"
+    ],
+    "correct": "all the gates of the body are illuminated"
+  },
+  {
+    "id": "205",
+    "question": "Why Arjuna clarifies from Krsna about the superiority of personalists and impersonalists?",
+    "options": [
+      "Because he simply wants to know who is better",
+      "Being an impersonalist, Arjuna wants arguments in his favour",
+      "Being a personalist Arjuna is clarifying his own position",
+      "He wants to defeat the impersonalist"
+    ],
+    "correct": "Being a personalist Arjuna is clarifying his own position"
+  },
+  {
+    "id": "206",
+    "question": "Anger is a product of _____________________.",
+    "options": [
+      "Provocation",
+      "Pollution & conditioning",
+      "Lust",
+      "Mode of passion & lust"
+    ],
+    "correct": "Mode of passion & lust"
+  },
+  {
+    "id": "207",
+    "question": "Arca-vigraha is a/an _________________ of the Supreme Lord. ( - _________ )",
+    "options": [
+      "Realization",
+      "Incarnation",
+      "Imagination",
+      "Service"
+    ],
+    "correct": "Incarnation"
+  },
+  {
+    "id": "208",
+    "question": "Which is the highest planet in the material universe?",
+    "options": [
+      "Indraloka",
+      "Chandraloka",
+      "Maharloka",
+      "Brahmaloka"
+    ],
+    "correct": "Brahmaloka"
+  },
+  {
+    "id": "209",
+    "question": "What is the process of going to the particular demigods planet?",
+    "options": [
+      "need to meditate of that particular demigod",
+      "need to read scripture of that particular demigod",
+      "need to visit pilgrimage of that particular demigod",
+      "need to worship of that particular demigod"
+    ],
+    "correct": "need to worship of that particular demigod"
+  },
+  {
+    "id": "210",
+    "question": "How a brahmachari and a householder perform sacrifice? pts]",
+    "options": [
+      "A brahmachari does not indulge in unrestricted sense gratification and a householder restrains himself from the",
+      "A brahmachari restrains himself from the vibrations of material sounds and a householder does not indulge in",
+      "A brahmchari leaves behind all material things and a householder always donates",
+      "None of the above"
+    ],
+    "correct": "A brahmachari restrains himself from the vibrations of material sounds and a householder does not indulge in"
+  },
+  {
+    "id": "211",
+    "question": "What is the first symptom of self realized person?",
+    "options": [
+      "he is the practitioner of devotional service",
+      "he is not illusioned by the false identification of the body",
+      "he is having faith in devotional service",
+      "both b and c"
+    ],
+    "correct": "he is not illusioned by the false identification of the body"
+  },
+  {
+    "id": "212",
+    "question": "When an individual soul merges into the spiritual whole then which of these is not realized?",
+    "options": [
+      "Realization of the eternal aspect of his original nature",
+      "Realization of the blissful aspect of his original nature",
+      "Realization of the knowledgeable aspect of his original nature",
+      "He misses to realize all the above aspect"
+    ],
+    "correct": "Realization of the blissful aspect of his original nature"
+  },
+  {
+    "id": "213",
+    "question": "In which shloka does Krishna states that He is the reason that the planets stay in orbit?",
+    "options": [
+      "sarvasya chaham hridi sannivishto mattah smriti gyan apohanam…",
+      "gamavishya cha bhutani dharyamaham…",
+      "shariram yadwapnoti yac chapy utkrama tishwarah…",
+      "yad aditya gatam tejo jagad bhasayate akhilam…"
+    ],
+    "correct": "gamavishya cha bhutani dharyamaham…"
+  },
+  {
+    "id": "214",
+    "question": "What practical point we can learn from the example of a caterpillar that thinks of becoming a butterfly?",
+    "options": [
+      "We should not be over ambitious in devotional life",
+      "If we constantly think of Krsna, it is certain that at the end of our lives we shall have the same bodily constitution as",
+      "We must avoid vaishnav apradha otherwise this will destroy our devitional life",
+      "The individual soul can not merge into Supersoul"
+    ],
+    "correct": "If we constantly think of Krsna, it is certain that at the end of our lives we shall have the same bodily constitution as"
+  },
+  {
+    "id": "215",
+    "question": "According to Srila Prabhupada, what does the statement of illegal bribery to officers and directors confirm?",
+    "options": [
+      "worship of demigods apart from God",
+      "performing sacrifices apart from chanting of Hare Krishna mahamantra",
+      "believing in impersonal form of God apart from personal form",
+      "both a and c"
+    ],
+    "correct": "worship of demigods apart from God"
+  },
+  {
+    "id": "216",
+    "question": "Living entities are ______ in power to GOD",
+    "options": [
+      "Qualitatively equal",
+      "Quantitatively not equal",
+      "Equal",
+      "Both a and b (A B )"
+    ],
+    "correct": "Both a and b (A B )"
+  },
+  {
+    "id": "217",
+    "question": "A Krsna conscious person easily achieves the result of yoga practice without separate endeavor, but a yoga practitioner cannot achieve success without __________. (, __________ )",
+    "options": [
+      "Becoming perfect in yoga",
+      "Becoming Krsna Conscious",
+      "Perfect Knowledge",
+      "Separate endeavor"
+    ],
+    "correct": "Becoming Krsna Conscious"
+  },
+  {
+    "id": "218",
+    "question": "Why Karma-kand section is added in Vedas?",
+    "options": [
+      "to make bodily consciousness useless",
+      "gradual development from egoistic to spiritual",
+      "to fulfill the desire of jivas",
+      "to take to the platform of self-realization"
+    ],
+    "correct": "to take to the platform of self-realization"
+  },
+  {
+    "id": "219",
+    "question": "Krishna talks about purification of materialist who has taken shelter of him by being free of attachment, fear and anger (vita -raga-bhay-krodha). Choose the correct option. i) Negligence of spiritual life a) Fear (Bhay), ii) Desire to merge into supreme spiritual cause b) Raag (Attachment), iii) conception of void c) Krodha (Anger) { i), ) ii) b) iii) c) }",
+    "options": [
+      "i) – b), ii) – a, iii) – c",
+      "i) – a), ii) – b, iii) – c",
+      "i) – b), ii) – c, iii) – a",
+      "i) – a), ii) – c, iii) – b"
+    ],
+    "correct": "i) – b), ii) – a, iii) – c"
+  },
+  {
+    "id": "220",
+    "question": "Who got knowledge of Bhagvat gita first among the human society?",
+    "options": [
+      "Arjun",
+      "Vivasvan",
+      "Sanjay",
+      "Iksvaku"
+    ],
+    "correct": "Iksvaku"
+  },
+  {
+    "id": "221",
+    "question": "What does the word ‘Avyakta-murtina’ means in verse BG 9.3 ( 9.3. '-'?)",
+    "options": [
+      "God is present everywhere by His personal representation",
+      "God is present everywhere personally",
+      "God is spread all over and He has lost his personal existence",
+      "God is present everywhere by diffusion of his energy",
+      "Both a and d"
+    ],
+    "correct": "Both a and d"
+  },
+  {
+    "id": "222",
+    "question": "Who has explained the meaning the name of the word ‘Bhagavan’, i.e. one who is full of 6 opulence? ( ’, 6?)",
+    "options": [
+      "Parasara Muni",
+      "Narada Muni",
+      "Gautama Rishi",
+      "Ved vyas"
+    ],
+    "correct": "Parasara Muni"
+  },
+  {
+    "id": "223",
+    "question": "Krsna consciousness can be attained by which of the following yagyas?",
+    "options": [
+      "Dravyamaya-yagya",
+      "Tapomaya-yagya",
+      "Svadhaya-yagya",
+      "None of the above"
+    ],
+    "correct": "None of the above"
+  },
+  {
+    "id": "224",
+    "question": "Who is most intelligent man?",
+    "options": [
+      "Those who worship Krishna through congregational chanting",
+      "Those who worship Vikrishna through congregational chanting",
+      "Those who worship Akrishna through congregation chanting",
+      "Those who worship Sakrishna through congregational chanting"
+    ],
+    "correct": "Those who worship Akrishna through congregation chanting"
+  },
+  {
+    "id": "225",
+    "question": "In vedanta sutra the living entity is compared with? pts]",
+    "options": [
+      "light",
+      "sunshine",
+      "drops of sea water",
+      "particle of gold"
+    ],
+    "correct": "light"
+  },
+  {
+    "id": "226",
+    "question": "Which Veda represents Lord Krishna?",
+    "options": [
+      "Rig Veda",
+      "Yajur Veda",
+      "Sama Veda",
+      "Atharva Veda"
+    ],
+    "correct": "Sama Veda"
+  },
+  {
+    "id": "227",
+    "question": "Krishna claims to be which among 4 vedas? 4?) (",
+    "options": [
+      "The Rg, The Sama, The Atharva",
+      "The Rg, The sama, The Yajur",
+      "The Rg, The sama, The Yajur, The Athrava",
+      "The Rg, The Yajur, The Athrva"
+    ],
+    "correct": "The Rg, The sama, The Yajur"
+  },
+  {
+    "id": "228",
+    "question": "Who is liberated person even in the material world?",
+    "options": [
+      "the self who is conscious of his body",
+      "one who serves Krishna with body, mind and words",
+      "one who thinks that he belongs to Krishna",
+      "one who has no anxiety over the result of his work"
+    ],
+    "correct": "one who serves Krishna with body, mind and words"
+  },
+  {
+    "id": "229",
+    "question": "Which among the following is called Brahman?",
+    "options": [
+      "Jiva",
+      "Prakriti",
+      "Isvara",
+      "All of the above"
+    ],
+    "correct": "All of the above"
+  },
+  {
+    "id": "230",
+    "question": "Which one is the principle of Kshatriyas?",
+    "options": [
+      "should always face equal level of armies",
+      "unarmed but foe can be attacked",
+      "never compromises for alliances",
+      "unwilling foe should not be attacked"
+    ],
+    "correct": "unwilling foe should not be attacked"
+  },
+  {
+    "id": "231",
+    "question": "What is true in respect of remembering the Lord at the critical moment of death considering all the possibilities?",
+    "options": [
+      "If one has not performed devotional activity throughout one's life but somehow or other he is able to remember the",
+      "The Lord recommends that one should give up his prescribed duties and only engage in devotional activities then",
+      "Srila Prabhupada mentions that the best process for successfully changing one's state of being at the time death is",
+      "Only option 1 is true ( 1 )",
+      "All of the above statements are false"
+    ],
+    "correct": "All of the above statements are false"
+  },
+  {
+    "id": "232",
+    "question": "Which of the following does not define the flowery words of the Vedas?",
+    "options": [
+      "a place where there is no time",
+      "a place for good birth",
+      "no place for spiritual advancement",
+      "body for sensual pleasure"
+    ],
+    "correct": "a place where there is no time"
+  },
+  {
+    "id": "233",
+    "question": "All other aspects of knowledge is servant of ______ ( pts]",
+    "options": [
+      "Humility",
+      "Unalloyed Bhakti",
+      "Self-control",
+      "Acharya-Upasanam"
+    ],
+    "correct": "Unalloyed Bhakti"
+  },
+  {
+    "id": "234",
+    "question": "With ___________ should one cut off this tree with the weapon of _____________.",
+    "options": [
+      "Determination, detachment",
+      "Personality, determination",
+      "Connection, science",
+      "Knowledge, reality"
+    ],
+    "correct": "Determination, detachment"
+  },
+  {
+    "id": "235",
+    "question": "___________________ exploits the inferior energies for different purposes.",
+    "options": [
+      "Cosmic manifestation",
+      "Living entity",
+      "Both a & b",
+      "None of these"
+    ],
+    "correct": "Living entity"
+  },
+  {
+    "id": "236",
+    "question": "The lord incarnates primarily for the purpose of _________",
+    "options": [
+      "Killing the demons",
+      "To establish religion",
+      "To satisfy the unalloyed devotees",
+      "To follow the schedule of appearance in the universe"
+    ],
+    "correct": "To satisfy the unalloyed devotees"
+  },
+  {
+    "id": "237",
+    "question": "According to Gita, Why there's no cause for lamentation for the dead?",
+    "options": [
+      "their individuality existed in the past, existing in the present and will existed in the future",
+      "their individuality has no permanent relationship with someone",
+      "their individuality existed in the past and their individuality will continue in the future",
+      "their individuality is prone to change always"
+    ],
+    "correct": "their individuality existed in the past and their individuality will continue in the future"
+  },
+  {
+    "id": "238",
+    "question": "In which of the verse of BG chapter 7th is it stressed that the Absolute Truth is a person?( 7?)",
+    "options": [
+      "7.6",
+      "7.7",
+      "7.14",
+      "7.11"
+    ],
+    "correct": "7.7"
+  },
+  {
+    "id": "239",
+    "question": "The correct order of realizing Krishan as illustrated by Arjuna is ( iv) bhutesh v):)i) Jagat-pate ii) deva-deva iii) purusa-uttama Bhuta-bhavana",
+    "options": [
+      "iii, iv, v, ii, i",
+      "iii, v, iv, ii, i",
+      "i, iii, iv, v, ii",
+      "iii, i, v, iv, ii"
+    ],
+    "correct": "iii, v, iv, ii, i"
+  },
+  {
+    "id": "240",
+    "question": "What do you understand by the term \"Pind\"?",
+    "options": [
+      "some part of flesh offered to forefathers",
+      "when some grains, fruits and milk offered to forefathers by descendants",
+      "to which remnants of prasada of Lord Vishnu are offered to forefathers by descendants",
+      "a date once in a year, in which forefathers comes to eat offerings and give blessings"
+    ],
+    "correct": "to which remnants of prasada of Lord Vishnu are offered to forefathers by descendants"
+  },
+  {
+    "id": "241",
+    "question": "What does not happen by offering bhoga to Krishna?",
+    "options": [
+      "get rid of sorrows",
+      "able to move advance in life",
+      "it purifies the body",
+      "it creates fine tissues leads to clear thinking"
+    ],
+    "correct": "get rid of sorrows"
+  },
+  {
+    "id": "242",
+    "question": "Choose the correct flow of manifestation stage.",
+    "options": [
+      "ether-air-fire-water-earth",
+      "air-fire-ether-water-earth",
+      "water-air-fire-earth-ether",
+      "earth-water-air-fire-ether"
+    ],
+    "correct": "ether-air-fire-water-earth"
+  },
+  {
+    "id": "243",
+    "question": "When Arjuna saw the universal form of Krishna then both of them were ________ ,",
+    "options": [
+      "Sitting on Chariot",
+      "Transported in the spiritual realm",
+      "Transported in the material sky",
+      "None of the above"
+    ],
+    "correct": "Sitting on Chariot"
+  },
+  {
+    "id": "244",
+    "question": "Define the statement for \"samadhi\"?",
+    "options": [
+      "when mind is fixed for understanding the Brahman",
+      "when mind is fixed for understanding the Parmatma",
+      "when the mind is fixed for understanding the self",
+      "when one fixed in meditation"
+    ],
+    "correct": "when the mind is fixed for understanding the self"
+  },
+  {
+    "id": "245",
+    "question": "The four divisions of human life are meant for?",
+    "options": [
+      "To distribute works in the society",
+      "To promote charity",
+      "To become perfect transcendentalist",
+      "To maintain material world"
+    ],
+    "correct": "To become perfect transcendentalist"
+  },
+  {
+    "id": "246",
+    "question": "What is the odd sign of Muni fixed in mind?",
+    "options": [
+      "he never disturbed by the three fold miseries",
+      "three modes of nature stops affecting him",
+      "accepts miseries as the mercy of the Lord",
+      "when he is happy he gives credit to the Lord"
+    ],
+    "correct": "three modes of nature stops affecting him"
+  },
+  {
+    "id": "247",
+    "question": "Why killing animals in the sacrifice are not considered to be act of violence?",
+    "options": [
+      "only weak and old animals are scarificed",
+      "they gets human life immediately without undergoing the gradual evolutionary process",
+      "the old age animals immediately gets heavenly planets",
+      "sacrificed animals immediately cross the birth-death cycle"
+    ],
+    "correct": "they gets human life immediately without undergoing the gradual evolutionary process"
+  },
+  {
+    "id": "248",
+    "question": "What is the first qualification of a Sanyasi?",
+    "options": [
+      "Humility",
+      "Forgiveness",
+      "Simplicity",
+      "Fearlessness"
+    ],
+    "correct": "Fearlessness"
+  },
+  {
+    "id": "249",
+    "question": "which word indicates that Krishna is the Lord of inconceivable power?",
+    "options": [
+      "Maheshwar",
+      "Yogeshwar",
+      "Bibhu",
+      "None of the above"
+    ],
+    "correct": "Yogeshwar"
+  },
+  {
+    "id": "250",
+    "question": "Why Arjuna addresses Krishna as “Purushottama” in Bhagwad Geeta 8.1? ( 8.1 \"\"?)",
+    "options": [
+      "Because it is offensive to call Krishna by any other casual name",
+      "Because a chariot driver has to be addressed like that",
+      "Because Arjuna knew that Krishna is the supreme authority able to give definitive answers to his questions",
+      "All of the above"
+    ],
+    "correct": "Because Arjuna knew that Krishna is the supreme authority able to give definitive answers to his questions"
+  },
+  {
+    "id": "251",
+    "question": "What is \"Nirvana\"? )",
+    "options": [
+      "freedom from bewilderment (",
+      "ending the process of materialistic life",
+      "attainment of spiritual kingdom",
+      "progress towards the ultimate goal"
+    ],
+    "correct": "ending the process of materialistic life"
+  },
+  {
+    "id": "252",
+    "question": "whose happiness is _______, rejoices ________ and aim is inward is actually the perfect yogi. ( _________, ________, )",
+    "options": [
+      "within, without",
+      "without, within",
+      "within, within",
+      "without, without"
+    ],
+    "correct": "within, within"
+  },
+  {
+    "id": "253",
+    "question": "What are the unclean habits of demoniac people?) (",
+    "options": [
+      "Wine, women, gambling & meat eating",
+      "Creating their own hymns & chant accordingly",
+      "Telling lie about the existence of the God",
+      "1st option and 2nd option only",
+      "All of the above"
+    ],
+    "correct": "1st option and 2nd option only"
+  },
+  {
+    "id": "254",
+    "question": "What Krishna suggests about the appearances and disappearances of happiness and distress?",
+    "options": [
+      "one need to face them with courage",
+      "one should ignore them and do the duty",
+      "can't avoid them so one need to change their perception",
+      "one must learn to tolerate them"
+    ],
+    "correct": "one must learn to tolerate them"
+  },
+  {
+    "id": "255",
+    "question": "For whom there is no fear of returning, whether he leaves the body at an auspicious or inauspicious moment, by accident or arrangement?",
+    "options": [
+      "Yogi",
+      "Pure devotee",
+      "Mystic yogi",
+      "All of the above"
+    ],
+    "correct": "Pure devotee"
+  },
+  {
+    "id": "256",
+    "question": "What medical science does admits, about the energy of the body?",
+    "options": [
+      "brain is the origin of all energies",
+      "corpuscles gather energy from the life air",
+      "only soul is situated in the heart which is source of energies",
+      "heart is the seat of all energies"
+    ],
+    "correct": "heart is the seat of all energies"
+  },
+  {
+    "id": "257",
+    "question": "What do you understand by the term \"Buddhi Yoga\"?",
+    "options": [
+      "use intelligence to make Karma reaction free",
+      "to make desire free karma",
+      "use knowledge free from birth-death cycle",
+      "devotional service of the Lord"
+    ],
+    "correct": "devotional service of the Lord"
+  },
+  {
+    "id": "258",
+    "question": "How does one develop attachment for pure devotional service?",
+    "options": [
+      "Through good association",
+      "Accepting a bona fide spiritual master",
+      "Hearing, chanting & observing regulative principles of devotional service",
+      "All of the above"
+    ],
+    "correct": "All of the above"
+  },
+  {
+    "id": "259",
+    "question": "Krishna tells that a yogi should be devoid of fear and completely free from sex life to meditate upon him within the heart. So who among the following has authored the book “rules of celibacy”?",
+    "options": [
+      "Angira",
+      "Kashyap",
+      "Bhrigu",
+      "Yajnavalka"
+    ],
+    "correct": "Yajnavalka"
+  },
+  {
+    "id": "260",
+    "question": "How one can see Krishna?",
+    "options": [
+      "By revelation to the surrendered soul",
+      "By the grace of Krishna",
+      "On the strength of one’s knowledge",
+      "Both A and B (A B )"
+    ],
+    "correct": "Both A and B (A B )"
+  },
+  {
+    "id": "261",
+    "question": "The material world is divided into how many elements?",
+    "options": [
+      "21",
+      "22",
+      "18",
+      "24"
+    ],
+    "correct": "24"
+  },
+  {
+    "id": "262",
+    "question": "What one has to give up so that one does not fall to demoniac life?",
+    "options": [
+      "Lust, anger & greed",
+      "Lust, anger & pride",
+      "Anger, pride & material austerity",
+      "Anger, greed & material austerity"
+    ],
+    "correct": "Lust, anger & greed"
+  },
+  {
+    "id": "263",
+    "question": "Sukadev Goswami says that the boys playing with Krishna have performed many, many pious activities in their past lives and thus they were interested in the ________ form of Krishna.(, ________ )",
+    "options": [
+      "Two handed ) (",
+      "Four handed ) (",
+      "Universal",
+      "All of the above"
+    ],
+    "correct": "Two handed ) ("
+  },
+  {
+    "id": "264",
+    "question": "Arjuna saw the _____ form of the Krishna _____ ) (",
+    "options": [
+      "Time",
+      "Four handed ) (",
+      "Universal",
+      "All of the above"
+    ],
+    "correct": "All of the above"
+  },
+  {
+    "id": "265",
+    "question": "Good population for the spiritual progress in the society depends on the _________ and _________ of its womanhood. _________ _________",
+    "options": [
+      "Chastity, service mentality,",
+      "Chastity, faithfullness,",
+      "Faithfulness, Spirituality,",
+      "None of these"
+    ],
+    "correct": "Chastity, faithfullness,"
+  },
+  {
+    "id": "266",
+    "question": "The spiritual world is full of ___________ opulence.",
+    "options": [
+      "Sixteen",
+      "Twenty four",
+      "Six",
+      "Twenty-eight"
+    ],
+    "correct": "Six"
+  },
+  {
+    "id": "267",
+    "question": "Krishna is the supreme personality of godhead is confirmed by whom?",
+    "options": [
+      "Shankaracharya",
+      "Ramanujacarya",
+      "Nimbarka Swami",
+      "all of the above"
+    ],
+    "correct": "all of the above"
+  },
+  {
+    "id": "268",
+    "question": "Classify the options into 1) Karma 2)Akarma 3)Vikarma ) ) ){a. Arjuna fight for the desire of Krishna b. visting holy places and bathing there consistently c.Arjuna declines to fight d. Paricipating in Srila Prabhupada book quiz e. Arjuna fight as a ksatriya} b. c. { e. d. }",
+    "options": [
+      "1) d, e 2) b, a 3) c",
+      "1) b, e 2) a, d 3) c",
+      "1) b, d 2) a, d 3) c",
+      "1) a, e 2) b, c 3) d"
+    ],
+    "correct": "1) b, e 2) a, d 3) c"
+  },
+  {
+    "id": "269",
+    "question": "The Supreme Lord is vibhu and living entity is ______. (",
+    "options": [
+      "nikrashtha",
+      "asthanu",
+      "anu",
+      "janu"
+    ],
+    "correct": "anu"
+  },
+  {
+    "id": "270",
+    "question": "How in this age of kali can one curb the restless mind?",
+    "options": [
+      "Impersonal spiritual detachment",
+      "By practice of Krishna consciousness",
+      "Engaging in nine types of devotional service to the Lord",
+      "Both b & c"
+    ],
+    "correct": "Both b & c"
+  },
+  {
+    "id": "271",
+    "question": "The twigs of banyan tree are considered to be ____________.",
+    "options": [
+      "Different modes of nature",
+      "Enjoyment",
+      "The sense objects",
+      "All of the above"
+    ],
+    "correct": "The sense objects"
+  },
+  {
+    "id": "272",
+    "question": "What among the following are recommended for the householders according to BG 16.1? ( 16.1?)",
+    "options": [
+      "Charity",
+      "Sense control",
+      "Performance of sacrifice",
+      "All of the above"
+    ],
+    "correct": "All of the above"
+  },
+  {
+    "id": "273",
+    "question": "\"Navdvare pure\" refers to which one?",
+    "options": [
+      "body",
+      "world",
+      "animal",
+      "city"
+    ],
+    "correct": "body"
+  },
+  {
+    "id": "274",
+    "question": "Who was Vikarna?",
+    "options": [
+      "brother of Duryodhana",
+      "brother of Karna",
+      "cousin of Krpacharya",
+      "cousin of Shalya"
+    ],
+    "correct": "brother of Duryodhana"
+  },
+  {
+    "id": "275",
+    "question": "Which of the following species was not mentioned where sages sees them with equal vision?",
+    "options": [
+      "mad man",
+      "Brahmana",
+      "dog eater",
+      "elephant"
+    ],
+    "correct": "mad man"
+  },
+  {
+    "id": "276",
+    "question": "As described in the Chandogya Upanisad, when the merit of sacrifice is exhausted, the living entity descends to earth in the form of ___________. (,, ___________ )",
+    "options": [
+      "Fire",
+      "Grain",
+      "Rain",
+      "Semen"
+    ],
+    "correct": "Rain"
+  },
+  {
+    "id": "277",
+    "question": "One must gain science of Krishna consciousness in the association of person who is pure in consciousness because….( ….)",
+    "options": [
+      "He has the realized knowledge",
+      "He is steady in his conviction",
+      "His senses are pure",
+      "All of the above"
+    ],
+    "correct": "All of the above"
+  },
+  {
+    "id": "278",
+    "question": "Krishna’s supreme abode and Krishna Himself are ______________.",
+    "options": [
+      "Descended",
+      "Replica of each other",
+      "Nondifferent",
+      "Unattainable"
+    ],
+    "correct": "Nondifferent"
+  },
+  {
+    "id": "279",
+    "question": "A transcendentalist should be free from desire and feeling of possessiveness. Which of the following verse supports the same?",
+    "options": [
+      "Atah sri-krishna -namadi na bhaved grahyam indriyaih",
+      "Anasaktsaya visayan yatharham upayunjatah……( ……)..)",
+      "Prapancikataya buddhya hari sambandh-vastunah…..( -…",
+      "Both b and c"
+    ],
+    "correct": "Both b and c"
+  },
+  {
+    "id": "280",
+    "question": "Why a self realized soul is not bewildered by changing body from boyhood to old age and then to death?",
+    "options": [
+      "Because he knows everything",
+      "Because he believes in next life",
+      "Because in the end everything becomes void",
+      "Because the spirit soul doesn’t undergo any change"
+    ],
+    "correct": "Because the spirit soul doesn’t undergo any change"
+  },
+  {
+    "id": "281",
+    "question": "What is common between the highest material planets down to the lowest?",
+    "options": [
+      "Austerity",
+      "Repeated birth and death",
+      "Elevation",
+      "Eternal advancement"
+    ],
+    "correct": "Repeated birth and death"
+  },
+  {
+    "id": "282",
+    "question": "Which of the following are the results of the living entities activities?",
+    "options": [
+      "Religion",
+      "Sense Gratification",
+      "Liberation",
+      "All of above"
+    ],
+    "correct": "All of above"
+  },
+  {
+    "id": "283",
+    "question": "What Krishna prescribes for the restriction of senses for sense enjoyment?",
+    "options": [
+      "engage the senses in higher taste",
+      "control the senses when they are distracted",
+      "be attentive when the senses needs to control or needs to free",
+      "be equipoised in all the conditions of life"
+    ],
+    "correct": "engage the senses in higher taste"
+  },
+  {
+    "id": "284",
+    "question": "If Kshatriya ____________, he is a kshatriya in name only and Brahmana _________, he is a brahmana in name only. ( ____________, _________, )",
+    "options": [
+      "declines to fight and acts impiously",
+      "protect animals and decline to read scriptures",
+      "not concern for reading Vedas and refuse to govern the state",
+      "both 1 and 3 ( 1 3 )"
+    ],
+    "correct": "declines to fight and acts impiously"
+  },
+  {
+    "id": "285",
+    "question": "________ is the source of all luminous objects.",
+    "options": [
+      "Soul",
+      "Supersoul",
+      "Sun",
+      "Brahmjyoti"
+    ],
+    "correct": "Supersoul"
+  },
+  {
+    "id": "286",
+    "question": "Vedas and Upanishads deal with?",
+    "options": [
+      "modes of material nature and structure of material nature",
+      "modes of material nature and beginning of transcendental life",
+      "modes of material nature and essence of scriptures",
+      "modes of material nature and structure of cosmos"
+    ],
+    "correct": "modes of material nature and beginning of transcendental life"
+  },
+  {
+    "id": "287",
+    "question": "Which one of the King's glory is described in this chapter?",
+    "options": [
+      "Deval",
+      "Prithu",
+      "Janaka",
+      "Ambarish"
+    ],
+    "correct": "Janaka"
+  },
+  {
+    "id": "288",
+    "question": "What is the conditional binding of mode of passion?",
+    "options": [
+      "fruititive action",
+      "knowledge",
+      "happiness",
+      "fearlessness"
+    ],
+    "correct": "fruititive action"
+  },
+  {
+    "id": "289",
+    "question": "Sanjaya was a student of whom?",
+    "options": [
+      "Vyasdeva",
+      "Dhratrashtra",
+      "Krishna",
+      "Bhishma"
+    ],
+    "correct": "Vyasdeva"
+  },
+  {
+    "id": "290",
+    "question": "Which one of the following is incorrect statement?",
+    "options": [
+      "Krishna said one should not enlighten the ignorant man",
+      "ignorant people are dangerous for the devotees",
+      "ignorant men are engaged in moral principles of life",
+      "devotees of the Lord disregard the 1st option ( 1 )"
+    ],
+    "correct": "ignorant people are dangerous for the devotees"
+  },
+  {
+    "id": "291",
+    "question": "Choose the correct statement according to gita.",
+    "options": [
+      "whatever you do, eat, offer, perform yagya; do it for Me.",
+      "whatever you do, eat, renounce, perform austerity; do it for Me.",
+      "whatever you do, eat, offer, perform austerities; do it for Me.",
+      "whatever you do, eat, meditate, perform austerity; do it for Me."
+    ],
+    "correct": "whatever you do, eat, offer, perform austerities; do it for Me."
+  },
+  {
+    "id": "292",
+    "question": "What is the definiton of \"svarupa\"?",
+    "options": [
+      "every living being has a particular form with the Krishna eternally",
+      "living entities original taste with the Lord in the spiritual world",
+      "every living being has a particular relationship with the Lord eternally",
+      "living entities original form with the Lord in the spiritual world"
+    ],
+    "correct": "every living being has a particular relationship with the Lord eternally"
+  },
+  {
+    "id": "293",
+    "question": "A person who accepts the path of devotional service is not bereft of the results derived from _______________. (, ___________ )",
+    "options": [
+      "Studying the Vedas & performing austere sacrifices",
+      "Giving charity",
+      "Pursuing philosophical and fruitive activities",
+      "All of these"
+    ],
+    "correct": "All of these"
+  },
+  {
+    "id": "294",
+    "question": "Vaishnavas study _________ which is commentary on Vedant sutra and Mayavadis study ________ which is commentary on Vedant sutra.",
+    "options": [
+      "Itihas, Upanishad Bhashya",
+      "Bhagvatam, Sariraka Bhasya",
+      "Itihas, Samhita",
+      "Bhagavatam, Upanishad Bhashya"
+    ],
+    "correct": "Bhagvatam, Sariraka Bhasya"
+  },
+  {
+    "id": "295",
+    "question": "How some see soul as \"amazing\"?",
+    "options": [
+      "spirit soul can't be visible but it has its form",
+      "same atomic soul is within microbes, elephant, aquatics, grass etc",
+      "the soul is part and parcel of supersoul",
+      "symptom of soul is consciousness which pervades within the body"
+    ],
+    "correct": "same atomic soul is within microbes, elephant, aquatics, grass etc"
+  },
+  {
+    "id": "296",
+    "question": "How one falls down into material pool?",
+    "options": [
+      "contemplating sense objects-lust-attachment--anger-delusion-bewilderment of memory-lost intelligence",
+      "contemplating sense objects-attachment-lust-delusion-anger-bewilderment of memory-lost intelligence",
+      "contemplating sense objects-attachment-lust-anger-delusion-bewilderment of memory-lost intelligence",
+      "none of the above"
+    ],
+    "correct": "contemplating sense objects-attachment-lust-anger-delusion-bewilderment of memory-lost intelligence"
+  },
+  {
+    "id": "297",
+    "question": "What is the result of continue chanting of Hare Krishna Mahamantra?",
+    "options": [
+      "makes one healthy, wealthy and wise",
+      "protects one from all accidental falldown",
+      "fulfills all the desires of jiva's heart",
+      "helps to reduce old age and diseases"
+    ],
+    "correct": "protects one from all accidental falldown"
+  },
+  {
+    "id": "298",
+    "question": "Why living entities are conditioned by material nature?",
+    "options": [
+      "forgetfulness of their relationship to Krishna",
+      "doesn't want to serve Krishna",
+      "because of the desire to enjoy",
+      "due to only selfish nature"
+    ],
+    "correct": "forgetfulness of their relationship to Krishna"
+  },
+  {
+    "id": "299",
+    "question": "What is compared as the leaves of the banyan tree in Bhagvad Geeta 15.1? ( 15.1?)",
+    "options": [
+      "Entanglement in the material world",
+      "Fruitive activities",
+      "Vedic hymns",
+      "All of the above"
+    ],
+    "correct": "Vedic hymns"
+  },
+  {
+    "id": "300",
+    "question": "Among the aspect of knowledge, the word ‘Nityam’ reflects:",
+    "options": [
+      "Bhakti is eternal",
+      "Cycle of Birth and Death is eternal",
+      "Spiritual world is eternal",
+      "All of the above"
+    ],
+    "correct": "Bhakti is eternal"
   }
 ];

@@ -45,8 +45,8 @@ export interface SlotSchedule {
 const DEFAULT_SLOT_SCHEDULE: SlotSchedule = {
   enabled: true,
   date: '2026-10-29',
-  startTime: '10:00',
-  endTime: '14:00',
+  startTime: '20:00',
+  endTime: '22:00',
   manualOverride: 'auto'
 };
 
@@ -93,43 +93,16 @@ export const QuizProvider: React.FC<{ children: React.ReactNode }> = ({ children
   
   // Live control and slot schedule (authoritative source is Firestore)
   const [slotSchedule, setSlotSchedule] = useState<SlotSchedule>(DEFAULT_SLOT_SCHEDULE);
-  const [isQuizLive, setIsQuizLive] = useState<boolean>(false);
+  const [isQuizLive, setIsQuizLive] = useState<boolean>(true);
   const [isLoadingQuizzes, setIsLoadingQuizzes] = useState(true);
 
   // Submitting guard to prevent rapid double-clicks
   const isSubmittingRef = useRef(false);
   const secureSessionRef = useRef<SecureQuizSession | null>(null);
 
-  // Helper to compute live status from schedule and override
-  const computeIsLive = useCallback((schedule: SlotSchedule, baseLive: boolean) => {
-    if (schedule.manualOverride === 'force_live') return true;
-    if (schedule.manualOverride === 'force_stopped') return false;
-    if (baseLive === false) return false;
-
-    // If schedule is enabled, check current time vs 4-hour window on October 29th
-    if (schedule.enabled) {
-      try {
-        const now = new Date();
-        const [sHour, sMin] = schedule.startTime.split(':').map(Number);
-        const [eHour, eMin] = schedule.endTime.split(':').map(Number);
-
-        // Target Date in Local/IST
-        const targetDateStr = schedule.date; // "2026-10-29"
-        const [tYear, tMonth, tDay] = targetDateStr.split('-').map(Number);
-
-        const startObj = new Date(tYear, tMonth - 1, tDay, sHour || 10, sMin || 0, 0);
-        const endObj = new Date(tYear, tMonth - 1, tDay, eHour || 14, eMin || 0, 0);
-
-        const nowTime = now.getTime();
-        const isInSlot = nowTime >= startObj.getTime() && nowTime <= endObj.getTime();
-        
-        return isInSlot;
-      } catch (e) {
-        return baseLive;
-      }
-    }
-
-    return baseLive;
+  // Helper: Quiz is permanently active by default per user specification
+  const computeIsLive = useCallback((_schedule: SlotSchedule, _baseLive: boolean) => {
+    return true;
   }, []);
 
   // 1. Listen for active quiz config & quizzes list
@@ -139,7 +112,7 @@ export const QuizProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     const setupFirestoreSync = async () => {
       try {
-        // 1. Sync global app configuration (active quiz pointer, live status, 4-hour slot)
+        // 1. Sync global app configuration (active quiz pointer)
         const configRef = doc(db, RESULTS_COLLECTION, 'config_active_quiz');
         unsubscribeConfig = onSnapshot(configRef, (snapshot) => {
           if (snapshot.exists()) {
@@ -148,21 +121,9 @@ export const QuizProvider: React.FC<{ children: React.ReactNode }> = ({ children
               if (data.activeQuizId) {
                 setActiveQuizIdState(data.activeQuizId);
               }
-              const incomingSchedule: SlotSchedule = {
-                enabled: data.slotEnabled ?? DEFAULT_SLOT_SCHEDULE.enabled,
-                date: data.slotDate || DEFAULT_SLOT_SCHEDULE.date,
-                startTime: data.slotStartTime || DEFAULT_SLOT_SCHEDULE.startTime,
-                endTime: data.slotEndTime || DEFAULT_SLOT_SCHEDULE.endTime,
-                manualOverride: data.manualOverride || (data.isLive === false ? 'force_stopped' : 'auto')
-              };
-              setSlotSchedule(incomingSchedule);
-
-              const baseLive = typeof data.isLive === 'boolean' ? data.isLive : false;
-              const computed = computeIsLive(incomingSchedule, baseLive);
-              setIsQuizLive(computed);
+              setIsQuizLive(true);
             }
           }
-          // Note: If snapshot does not exist temporarily during an update, do NOT write back default!
         }, (err) => {
           console.warn("Config listener notice:", err.message);
         });

@@ -89,71 +89,31 @@ export const QuoteAndStatsSection: React.FC = () => {
             </div>
           </div>
 
-          {/* 2. Focused Countdown to 29th October (4-Hour Slot Window) */}
+          {/* 2. Active 300-Question Wisdom Quest Status */}
           <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-end space-y-3">
             
-            {/* Header: VIPLAVA 2026 · 29TH OCTOBER 4-HOUR TIME SLOT */}
-            <div className="flex flex-col items-center lg:items-end text-center lg:text-right space-y-0.5">
+            <div className="flex flex-col items-center lg:items-end text-center lg:text-right space-y-1">
               <span className="text-xs sm:text-sm font-cinzel font-black tracking-[0.2em] text-[#8C6B1B] uppercase">
-                VIPLAVA 2026 · 29TH OCTOBER
+                VIPLAVA 2026 · GOKUL MATHURA DHAM
               </span>
-              <div className="flex items-center gap-2 text-[11px] font-semibold text-[#A07C28] tracking-wider uppercase">
-                <span>4-HOUR LIVE WINDOW: {slotSchedule.startTime} – {slotSchedule.endTime} IST</span>
-                <span aria-hidden="true">·</span>
-                <span className={`font-bold ${isQuizLive ? 'text-emerald-700' : 'text-amber-700'}`}>
-                  {isQuizLive ? 'LIVE ACTIVE' : 'SCHEDULED'}
-                </span>
+              <div className="flex items-center gap-2 text-[11px] font-bold text-emerald-800 tracking-wider uppercase bg-emerald-500/20 px-3 py-1 rounded-full border border-emerald-600/30">
+                <span className="w-2 h-2 rounded-full bg-emerald-600 animate-ping" />
+                <span>BHAGAVAD GITA WISDOM QUEST — LIVE & OPEN</span>
               </div>
             </div>
 
-            {/* Compact 4-Box Countdown Timer with Tabular Numerals */}
-            <div className="grid grid-cols-4 gap-2 sm:gap-3 w-full max-w-xs sm:max-w-sm">
-              
-              {/* Days */}
-              <div className="flex flex-col items-center justify-center p-2.5 sm:p-3 rounded-xl bg-[#F0E8D5]/80 border border-[#D4AF37]/40 shadow-sm">
-                <span className="font-mono tabular-nums text-xl sm:text-2xl font-black text-[#3E311A]">
-                  {formatNum(timeLeft.days)}
-                </span>
-                <span className="text-[9px] font-cinzel font-bold text-[#8C6B1B] tracking-wider uppercase">
-                  Days
-                </span>
+            {/* 300-Question Pool Feature Card */}
+            <div className="p-4 rounded-xl bg-[#F0E8D5]/80 border border-[#D4AF37]/50 shadow-sm w-full max-w-xs sm:max-w-sm text-center lg:text-right space-y-1">
+              <div className="text-sm font-bold text-[#3E311A] font-cinzel">
+                300 Authentic Gita Questions
               </div>
-
-              {/* Hours */}
-              <div className="flex flex-col items-center justify-center p-2.5 sm:p-3 rounded-xl bg-[#F0E8D5]/80 border border-[#D4AF37]/40 shadow-sm">
-                <span className="font-mono tabular-nums text-xl sm:text-2xl font-black text-[#3E311A]">
-                  {formatNum(timeLeft.hours)}
-                </span>
-                <span className="text-[9px] font-cinzel font-bold text-[#8C6B1B] tracking-wider uppercase">
-                  Hours
-                </span>
-              </div>
-
-              {/* Minutes */}
-              <div className="flex flex-col items-center justify-center p-2.5 sm:p-3 rounded-xl bg-[#F0E8D5]/80 border border-[#D4AF37]/40 shadow-sm">
-                <span className="font-mono tabular-nums text-xl sm:text-2xl font-black text-[#3E311A]">
-                  {formatNum(timeLeft.minutes)}
-                </span>
-                <span className="text-[9px] font-cinzel font-bold text-[#8C6B1B] tracking-wider uppercase">
-                  Mins
-                </span>
-              </div>
-
-              {/* Seconds */}
-              <div className="flex flex-col items-center justify-center p-2.5 sm:p-3 rounded-xl bg-[#F0E8D5]/80 border border-[#D4AF37]/40 shadow-sm">
-                <span className="font-mono tabular-nums text-xl sm:text-2xl font-black text-[#3E311A]">
-                  {formatNum(timeLeft.seconds)}
-                </span>
-                <span className="text-[9px] font-cinzel font-bold text-[#8C6B1B] tracking-wider uppercase">
-                  Secs
-                </span>
-              </div>
-
+              <p className="text-[11px] text-[#785E22] leading-relaxed">
+                Every participant gets 20 randomized questions with cryptographically secured anti-cheat verification.
+              </p>
             </div>
 
-            {/* Quiet Subtext Notice */}
-            <div className="text-[11px] text-[#785E22] font-medium text-center lg:text-right">
-              Gokul Mathura Dham · Randomized 20 Questions per Attempt
+            <div className="text-[11px] text-[#785E22] font-semibold text-center lg:text-right">
+              20 Random Questions per Attempt · Unlimited Learning
             </div>
 
           </div>
